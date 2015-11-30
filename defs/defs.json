@@ -41,12 +41,12 @@
         "cmdhPolicy": 2048,
         "activeCmdhPolicy": 2049,
         "cmdhDefaults": 2050,
-        "CmdhDefEcValues": 2051,
+        "cmdhDefEcValues": 2051,
         "cmdhDefEcParamsValues": 2052,
-        "CmdhLimits": 2053,
-        "CmdhNetworkAccessRules": 2054,
-        "CmdhNwAccessRule": 2055,
-        "CmdhBuffer": 2056,
+        "cmdhLimits": 2053,
+        "cmdhNetworkAccessRules": 2054,
+        "cmdhNwAccessRule": 2055,
+        "cmdhBuffer": 2056,
         "digitalInput": 3200,
         "digitalOutput": 3201,
         "analogInput": 3202,
@@ -158,7 +158,7 @@
             "objectId": 0,
             "objectInstanceId": 1,
             "ACL": 2,
-            "accessControlOwner": 3
+            "ACLOwner": 3
         },
         "device": {
             "manuf": 0,

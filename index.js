@@ -11,8 +11,7 @@ var fs = require('fs'),
         Oid: null,
         UniqueRid: null,
         SpecificRid: {},
-        SpecificResrc: {},
-        specificResrcChar: _defs.specificResrcChar
+        SpecificResrcChar: _defs.specificResrcChar
     };
 
 /*************************************************************************************************/
@@ -38,10 +37,11 @@ DEFS.getOid = function (oid) {
     var oidNumber = parseInt(oid),
         oidItem;
 
-    if (typeof oidNumber === 'number')
+    if (!isNaN(oidNumber))
         oid = oidNumber;
 
     oidItem = this.Oid.get(oid);
+
     return oidItem;
 };
 
@@ -50,7 +50,9 @@ DEFS.addOid = function (items) {
 
     for (var key in items) {
         if (this.Oid.get(key))
-            throw new Error(`oid: ${key} conflicts.`);
+            throw new Error(`oid: ${key} name conflicts.`);
+        else if (this.Oid.get(items[key]))
+            throw new Error(`oid: ${key} value conflicts.`);
         else
             _oid[key] = items[key];
     }
@@ -63,6 +65,7 @@ DEFS.addOid = function (items) {
 
 DEFS.getRid = function (oid, rid) {
     var oidItem = this.getOid(oid),
+        ridNumber,
         ridItem,
         oidKey;
 
@@ -73,6 +76,10 @@ DEFS.getRid = function (oid, rid) {
         rid = oid;
         oid = undefined;
     }
+
+    ridNumber = parseInt(rid);
+    if (!isNaN(ridNumber))
+        rid = ridNumber;
 
     if (typeof oid !== 'undefined') {           // searching in MDEFS.RIDOFOID
         if (typeof rid === 'undefined')
@@ -93,11 +100,12 @@ DEFS.addUniqueRid = function (items) {
     var _uRid = DEFS._defs.uniqueRid;
 
     for (var key in items) {
-        if (this.UniqueRid.get(key)) {
-            throw new Error(`unique rid: ${key} conflicts.`);
-        } else {
+        if (this.UniqueRid.get(key))
+            throw new Error(`unique rid: ${key} name conflicts.`);
+        else if (this.UniqueRid.get(items[key]))
+            throw new Error(`unique rid: ${key} value conflicts.`);
+        else
             _uRid[key] = items[key];
-        }
     }
 
     this.UniqueRid = null;
@@ -120,8 +128,9 @@ DEFS.addSpecificRid = function (oid, items) {
     _spfRid[oidKey] = _spfRid[oidKey] || {};
 
     for (var key in items) {
-        if (typeof _spfRid[oidKey][key] !== undefined)
+        if (typeof _spfRid[oidKey][key] !== 'undefined') {
             throw new Error(`rid: ${key} within oid: ${oidKey} conflicts.`);
+        }
 
         _spfRid[oidKey][key] = items[key];
     }
@@ -138,7 +147,7 @@ DEFS.getSpecificResrcChar = function (oid, rid) {
         characteristic;
 
     if (oidItem) {
-        characteristic = DEFS.SpecificResrc[oidItem.key];
+        characteristic = DEFS.SpecificResrcChar[oidItem.key];
         if (ridItem)
             characteristic = characteristic[ridItem.key];
     }
@@ -175,7 +184,6 @@ DEFS.addSpecificResrcChar = function (oid, chars) {
 
     return this;
 };
-
 
 /*************************************************************************************************/
 /*** Private Functions                                                                         ***/

@@ -1,0 +1,26 @@
+{
+  "name": "lwm2m-id",
+  "version": "0.0.1",
+  "description": "ipso id definition of lwm2m",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/simenkid/lwm2m-id.git"
+  },
+  "keywords": [
+    "ipso",
+    "lwm2m"
+  ],
+  "author": "Simen Li",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/simenkid/lwm2m-id/issues"
+  },
+  "homepage": "https://github.com/simenkid/lwm2m-id",
+  "dependencies": {
+    "enum": "^2.2.0"
+  }
+}

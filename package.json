@@ -1,7 +1,7 @@
 {
   "name": "lwm2m-id",
-  "version": "0.0.2",
-  "description": "lwm2m-id is a module that implements a dictionary of ip-based smart object(IPSO) identfiers defined by lwm2m spec.",
+  "version": "0.0.3",
+  "description": "lwm2m-id is a module that implements a dictionary of ip-based smart object(IPSO) identifiers defined by lwm2m spec.",
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"

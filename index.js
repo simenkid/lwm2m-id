@@ -2,7 +2,7 @@
 
 var fs = require('fs'),
     Enum = require('enum'),
-    _defs = JSON.parse(fs.readFileSync('./defs/defs.json', { encoding: 'utf8' })),
+    _defs = JSON.parse(fs.readFileSync(__dirname + '/defs/defs.json', { encoding: 'utf8' })),
     _specificRid = _defs.specificRid,
     DEFS = {
         _defs: _defs,

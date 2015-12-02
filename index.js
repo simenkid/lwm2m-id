@@ -49,9 +49,9 @@ DEFS.addOid = function (items) {
     var _oid = DEFS._defs.oid;
 
     for (var key in items) {
-        if (this.Oid.get(key))
+        if (this.getOid(key))
             throw new Error(`oid: ${key} name conflicts.`);
-        else if (this.Oid.get(items[key]))
+        else if (this.getOid(items[key]))
             throw new Error(`oid: ${key} value conflicts.`);
         else
             _oid[key] = items[key];
@@ -75,6 +75,8 @@ DEFS.getRid = function (oid, rid) {
 
         rid = oid;
         oid = undefined;
+        if (typeof rid !== 'number' && typeof rid !== 'string')
+            throw new TypeError('rid should be a number or a string.');
     }
 
     ridNumber = parseInt(rid);
@@ -82,8 +84,14 @@ DEFS.getRid = function (oid, rid) {
         rid = ridNumber;
 
     if (typeof oid !== 'undefined') {           // searching in MDEFS.RIDOFOID
+        if (typeof oid !== 'number' && typeof oid !== 'string')
+            throw new TypeError('rid should be a number or a string.');
+
         if (typeof rid === 'undefined')
             throw new Error('rid should be given');
+
+        if (typeof rid !== 'number' && typeof rid !== 'string')
+            throw new TypeError('rid should be a number or a string.');
 
         oidKey = oidItem ? oidItem.key : oid.toString();
 
@@ -100,9 +108,9 @@ DEFS.addUniqueRid = function (items) {
     var _uRid = DEFS._defs.uniqueRid;
 
     for (var key in items) {
-        if (this.UniqueRid.get(key))
+        if (this.getRid(key))
             throw new Error(`unique rid: ${key} name conflicts.`);
-        else if (this.UniqueRid.get(items[key]))
+        else if (this.getRid(items[key]))
             throw new Error(`unique rid: ${key} value conflicts.`);
         else
             _uRid[key] = items[key];

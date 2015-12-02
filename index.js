@@ -154,10 +154,12 @@ DEFS.getSpecificResrcChar = function (oid, rid) {
         ridItem = this.getRid(oid, rid),
         characteristic;
 
-    if (oidItem) {
+    if (!ridItem)
+        return;
+
+    if (oidItem && ridItem) {
         characteristic = DEFS.SpecificResrcChar[oidItem.key];
-        if (ridItem)
-            characteristic = characteristic[ridItem.key];
+        characteristic = characteristic[ridItem.key];
     }
 
     return characteristic;

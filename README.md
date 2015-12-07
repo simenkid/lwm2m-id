@@ -1,8 +1,6 @@
 lwm2m-id
 ===============
 
-**This document is under preparation.**
-
 **lwm2m-id** is a dictionary of identifiers defined by OMA LightweightM2M(v1.0) and IPSO SmartObject Guideline(Smart Objects Starter Pack1.0).
 
 <br>
@@ -227,4 +225,51 @@ APIs
     });
 ```
 <br>
+
+
+| LWM2M Object Id | LWM2M Object Name | key of lwm2m-id |
+|:---------------:|:-----------------:|:---------------:|
+|        0        |                   |  lwm2mSecurity  |
+|        1        |                   |   lwm2mServer   |
+|        2        |                   |  accessControl  |
+|        3        |                   |      device     |
+|        4        |                   |   connMonitor   |
+|        5        |                   |     firmware    |
+|        6        |                   |     location    |
+|        7        |                   |  connStatistics |
+|        8        |                   |   lockAndWipe   |
+|        9        |                   |     swUpdate    |
+|        10       |                   |   cellularConn  |
+|        11       |                   |  apnConnProfile |
+|        12       |                   |     wlanConn    |
+|        13       |                   | bearerSelection |
+|        14       |                   |   devCapMgmt    |--
+|        2048     |                   |   cmdhPolicy   |
+|        2049     |                   |  activeCmdhPolicy  |
+|        2050     |                   |      cmdhDefaults     |
+|        2051     |                   |   cmdhDefEcValues   |
+|        2052     |                   |     cmdhDefEcParamsValues    |
+|        2053     |                   |     cmdhLimits    |
+|        2054     |                   |  cmdhNetworkAccessRules |
+|        2055     |                   |   cmdhNwAccessRule   |
+|        2056     |                   |     cmdhBuffer    |
+|        3200     |                   |   digitalInput  |
+|        3201     |                   |  digitalOutput |
+|        3202     |                   |     analogInput    |
+|        3203     |                   | analogOutput |
+|        3300     |                   |   genericSensor   |
+|        3301     |                   |  presenceSensor  |
+|        3302     |                   |      presenceSensor     |
+|        3303     |                   |   tempSensor   |
+|        3304     |                   |     humidSensor    |
+|        3305     |                   |     pwrMea    |
+|        3306     |                   |  actuation |
+|        3308     |                   |   setPoint   |
+|        3310     |                   |     loadCtrl    |
+|        3311     |                   |   lightCtrl  |
+|        3312     |                   |  pwrCtrl |
+|        3313     |                   |     accelerometer    |
+|        3314     |                   | magnetometer |
+|        3315     |                   | barometer |
+
 

@@ -9,6 +9,7 @@
         "Unauthorized": 401,
         "NotFound": 404,
         "MethodNotAllowed": 405,
+        "Timeout": 408,
         "Conflict": 409,
         "InternalServerError": 500
     },

@@ -38,7 +38,7 @@
         "apnConnProfile": 11,
         "wlanConn": 12,
         "bearerSelection": 13,
-        "devCapMgmt": 14,
+        "devCapMgmt": 15,
         "cmdhPolicy": 2048,
         "activeCmdhPolicy": 2049,
         "cmdhDefaults": 2050,

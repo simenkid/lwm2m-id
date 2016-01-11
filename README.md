@@ -14,7 +14,7 @@ lwm2m-id
 <a name="Overiew"></a>  
 ## 1. Overview  
 
-**lwm2m-id** is a dictionary of identifiers defined by [OMA LightweightM2M(v1.0)](http://technical.openmobilealliance.org/Technical/technical-information/release-program/current-releases/oma-lightweightm2m-v1-0) and IPSO SmartObject Guideline([Smart Objects Starter Pack1.0](http://www.ipso-alliance.org/smart-object-guidelines/)). If you want more information about what lwm2m and IPSO are doing, you can take a look at their websites.  
+**lwm2m-id** is a dictionary of identifiers defined by [OMA LightweightM2M(v1.0)](http://technical.openmobilealliance.org/Technical/technical-information/release-program/current-releases/oma-lightweightm2m-v1-0) and IPSO SmartObject Guideline([Smart Objects Starter Pack1.0](http://www.ipso-alliance.org/smart-object-guidelines/)). Please visit their websites for more information.  
   
 <a name="Installation"></a>
 ## 2. Installation
@@ -25,168 +25,173 @@ lwm2m-id
 <a name="Usage"></a>
 ## 3. Usage
 
-**lwm2m-id** provides you with two getters to get the key-value pair of the identifier. This two getter are `getOid()` and `getRid()`. The item, returned from the getter, has properties `'key'` and `'value'` in string and number, respectively. Let me show you some example.  
+**lwm2m-id** provides you with two getters, i.e. `getOid()` and `getRid()`,  to get the key-value pair of an Object and a Resource identifier. The getter returns an item which has properties of `'key'` and `'value'`, or returns `undefined` if not found. In the returned item, `item.key` is the idetifier in string and `item.value` is the identifier in number. Let me show you some examples.  
 
 ```js
 var m2mid = require('lwm2m-id')
 
 // get Object Id
-var oidItem1 = m2mid.getOid(oid);   // { key: 'xxx', value: 1234 }
-var oidItem2 = m2mid.getOid(oid);   // undefined
+var oidItem1 = m2mid.getOid('device');      // { key: 'device', value: 3 }
+var oidItem2 = m2mid.getOid(3);             // { key: 'device', value: 3 }
+var oidItem3 = m2mid.getOid('3');           // { key: 'device', value: 3 }
+var oidItem4 = m2mid.getOid(999);           // undefined
+var oidItem5 = m2mid.getOid('noSuchId');    // undefined
 
-var oidKey = m2mid.getOid(oid).key;     // 'xxx'
-var oidId = m2mid.getOid(oid).value;    // 1234
+var oidKey = m2mid.getOid(3).key;           // 'device'
+var oidId = m2mid.getOid('device').value;   // 3
 
 // get Resource Id
+//   (1) The rid is specific to an Object
+var ridItem1 = m2mid.getRid('lightCtrl', 'onOff');    // { key: 'onOff', value: 5850 }
+var ridItem2 = m2mid.getRid(3311, 'onOff');           // { key: 'onOff', value: 5850 }
+var ridItem3 = m2mid.getRid(3311, 5850);              // { key: 'onOff', value: 5850 }
+var ridItem4 = m2mid.getRid('3311', '5850');          // { key: 'onOff', value: 5850 }
+var ridItem5 = m2mid.getOid('lightCtrl', 'noSuchId'); // undefined
+var ridItem6 = m2mid.getOid('noSuchId', 5850);        // undefined
 
-var ridItem1 = m2mid.getRid(oid, rid);  // { key: 'xxx', value: 1234 }
-var ridItem2 = m2mid.getOid(oid, rid);  // undefined
+var ridKey = m2mid.getRid('lightCtrl', 5850).key;     // 'onOff'
+var ridId = m2mid.getRid(3311, 'onOff').value;        // 5850
 
-var ridKey = m2mid.getRid(oid, rid).key;        // 'xxx'
-var ridId = m2mid.getRid(oid, rid).value;       // 1234
+//   (2) The rid is an unique id
+var ridItem7 = m2mid.getRid('sensorValue');           // { key: 'sensorValue', value: 5700 }
+var ridItem8 = m2mid.getRid(5700);                    // { key: 'sensorValue', value: 5700 }
+var ridItem8 = m2mid.getRid('5700');                  // { key: 'sensorValue', value: 5700 }
 
-
-var ridItem3 = m2mid.getRid(rid);   // { key: 'xxx', value: 1234 }
-
-var ridKey = m2mid.getRid(rid).key;     // 'xxx'
-var ridId = m2mid.getRid(rid).value;        // 1234
-
-
+var ridKey = m2mid.getRid(5700).key;                  // 'sensorValue'
+var ridId = m2mid.getRid('sensorValue').value;        // 5700
 ```
   
 <a name="APIs"></a>
 ## 4. APIs
 
-**lwm2m-id*** provides two kinds of APIs:
+* [.getOid()](#API_getOid)
+* [.getRid()](#API_getRid)
 
-<a name="close"></a>
+********************************************
+<a name="API_getOid"></a>
 ### .getOid(oid)
-> This method returns the enumerable item.
+> Returns an item of the Object identifier.
 
 **Arguments**
-- oid (*String|Number*)
+
+* oid (*String|Number*): `oid` can be given with a string or a number. Notice that a numbered string will be recognized as a number, e.g. '128' is equal to 128.
+
+**Returns:**  
+  
+* (_Object_ | _Undefined_) Returns an item of `{ key: 'sampleId', value: 1234 }`, otherwise returns `undefined` if not found.
 
 
 **Example**
 
-    lwm2mid.getOid('tempSensor');
-    lwm2mid.getOid('3303');
-    lwm2mid.getOid(3303);
-    // these all calls will return { key: 'tempSensor', value: 3303 }
+```js
+lwm2mid.getOid('tempSensor');   // { key: 'tempSensor', value: 3303 }
+lwm2mid.getOid(3303);           // { key: 'tempSensor', value: 3303 }
+lwm2mid.getOid('3303');         // { key: 'tempSensor', value: 3303 }
 
-    lwm2mid.getOid('xxxx'); // return undefined 
-    lwm2mid.getOid('9999'); // return undefined 
-    lwm2mid.getOid(9999);   // return undefined 
+lwm2mid.getOid('xxxx');         // undefined 
+lwm2mid.getOid('9999');         // undefined 
+lwm2mid.getOid(9999);           // undefined 
+```
+********************************************
+<br />
 
-    lwm2mid.getOid('tempSensor').key;   // return 'tempSensor'
-    lwm2mid.getOid('3303').key;         // return 'tempSensor'
-    lwm2mid.getOid(3303).key;           // return 'tempSensor'
+<a name="API_getRid"></a>
+### .getRid([oid,] rid)
+> Returns an item of the Resource identifier.  
+>  
+> There are two kinds of Resource id, the **Resource id specific to an Object** and the **unique Resource id**. In the former case, the meaning of a Resource is specific to an Object that holds it. An **unique Resource id** indicates that the Resouce id is a reusable one and its id number is always constant and unique across Objects.
+>  
+> To query a **Resource id specific to an Object**, both `oid` and `rid` should be given.   
+> To query an **unique Resource id**, only the single argument `rid` is needed. 
+  
 
-    lwm2mid.getOid('tempSensor').value; // return 3303
-    lwm2mid.getOid('3303').value;       // return 3303
-    lwm2mid.getOid(3303).value;         // return 3303
+**Arguments**  
 
-<br>
-<a name="close"></a>
+- oid (*String|Number*, optional): `oid` can be given with a string or a number. Notice that a numbered string will be recognized as a number, e.g. '128' is equal to 128.
+- rid (*String|Number*): `rid` can be given with a string or a number. Notice that a numbered string will be recognized as a number, e.g. '128' is equal to 128.
+
+
+**Example**  
+
+```js
+// get a Resource id specific to an Object
+lwm2mid.getRid('tempSensor', 'sensorValue');   // { key: 'sensorValue', value: 5700 }
+lwm2mid.getRid(3303, 5700);                    // { key: 'sensorValue', value: 5700 }
+lwm2mid.getRid('tempSensor', '5700');          // { key: 'sensorValue', value: 5700 }
+
+// get an unqiue Resource id
+lwm2mid.getRid('appType');                     // { key: 'appType', value: 5750 }
+lwm2mid.getRid(5750);                          // { key: 'appType', value: 5700 }
+lwm2mid.getRid('5750');                        // { key: 'appType', value: 5750 }
+
+```
+********************************************
+<br />
+
+<a name="API_addOid"></a>
 ### .addOid(items)
-> This method will close the opened serial port.
+> ...
 
 **Arguments**
 
-- callback(err)
-    - `'err'` (*Error*) - [Error Message](#errcodes)
 
 **Example**
 ```javascript
-    ccBnp.close(function (err) {
-        if (err) console.log(err);
-    });
+
 ```
-<br>
-
-<a name="close"></a>
-### .getRid(oid, rid)
-> This method will close the opened serial port.
-
-**Arguments**
-
-- callback(err)
-    - `'err'` (*Error*) - [Error Message](#errcodes)
-
-**Example**
-```javascript
-    ccBnp.close(function (err) {
-        if (err) console.log(err);
-    });
-```
-<br>
+<br />
 
 
-<a name="close"></a>
+<a name="API_addUniqueRid"></a>
 ### .addUniqueRid(items)
-> This method will close the opened serial port.
+> ....
 
 **Arguments**
 
-- callback(err)
-    - `'err'` (*Error*) - [Error Message](#errcodes)
+
 
 **Example**
 ```javascript
-    ccBnp.close(function (err) {
-        if (err) console.log(err);
-    });
-```
-<br>
 
-<a name="close"></a>
+```
+<br />
+
+<a name="API_addSpecificRid"></a>
 ### .addSpecificRid(oid, items)
-> This method will close the opened serial port.
+> ...
 
 **Arguments**
 
-- callback(err)
-    - `'err'` (*Error*) - [Error Message](#errcodes)
 
 **Example**
 ```javascript
-    ccBnp.close(function (err) {
-        if (err) console.log(err);
-    });
+
 ```
 <br>
 
-<a name="close"></a>
+<a name="API_getSpecificResrcChar"></a>
 ### .getSpecificResrcChar(oid, rid)
-> This method will close the opened serial port.
+> ....
 
 **Arguments**
 
-- callback(err)
-    - `'err'` (*Error*) - [Error Message](#errcodes)
+
 
 **Example**
 ```javascript
-    ccBnp.close(function (err) {
-        if (err) console.log(err);
-    });
+
 ```
 <br>
 
-<a name="close"></a>
+<a name="API_addSpecificResrcChar"></a>
 ### .addSpecificResrcChar(oid, chars)
-> This method will close the opened serial port.
+> ....
 
 **Arguments**
 
-- callback(err)
-    - `'err'` (*Error*) - [Error Message](#errcodes)
 
 **Example**
 ```javascript
-    ccBnp.close(function (err) {
-        if (err) console.log(err);
-    });
 ```
 <br />
 
@@ -199,83 +204,6 @@ var ridId = m2mid.getRid(rid).value;        // 1234
 The lwm2m v1.0 defines many unique object id (oid) for different purpose. Such as `"device"` object that contains many optional resources. Each resource has an unique id within that object. For those reusable unique resources ids, they are under the `"uniqueRid"` namespace. For those resources subject to a specific object, are defined under the namespace `"specificRid"`. In `"specificRid"`, the rids are categories by the object id. For example, if you got a an object with id `"tempSensor"`, and it can contains the rids of `"sensorValue"`, `"units"`, .etc.
 defs/defs.json
 
-    {
-        "oid": {
-            "lwm2mSecurity": 0,
-            "lwm2mServer": 1,
-            "accessControl": 2,
-            "device": 3,
-            "connMonitor": 4,
-            "firmware": 5,
-            // ...
-            "illumSensor": 3301,
-            "presenceSensor": 3302,
-            "tempSensor": 3303,
-            "humidSensor": 3304,
-            // ...
-        },
-        "uniqueRid": {
-            "objectInstanceHandle": 4000,
-            "objectVersion": 4001,
-            "dInState": 5500,
-            "counter": 5501,
-            // ...
-            "onOff": 5850,
-            "dimmer": 5851,
-            "onTime": 5852,
-            // ...
-        },
-        "specificRid": {
-            // ...
-            "device": {
-                "manuf": 0,
-                "model": 1,
-                "serial": 2,
-                "firmware": 3,
-                // ...
-            },
-            // ...
-            "tempSensor": {
-                "sensorValue": 5700,
-                "units": 5701,
-                "minMeaValue": 5601,
-                "maxMeaValue": 5602,
-                "minRangeValue": 5603,
-                "maxRangeValue": 5604,
-                "resetMinMaxMeaValues": 5605
-            },
-            "humidSensor": {
-                "sensorValue": 5700,
-                "units": 5701,
-                "minMeaValue": 5601,
-                "maxMeaValue": 5602,
-                "minRangeValue": 5603,
-                "maxRangeValue": 5604,
-                "resetMinMaxMeaValues": 5605
-            },
-            // ...
-        },
-        "specificResrcChar": {
-            // ...
-            "device": {
-                "manuf": { "access": "R", "multi": false, "mand": false, "type": "string", "range": null, "init": "my company" },
-                "model": { "access": "R", "multi": false, "mand": false, "type": "string", "range": null, "init": "machine-gun" },
-                "serial": { "access": "R", "multi": false, "mand": false, "type": "string", "range": null, "init": "fb-0000-0001" },
-                "firmware": { "access": "R", "multi": false, "mand": false, "type": "string", "range": null, "init": "0.0.1" },
-                // ...
-            },
-            // ...
-            "humidSensor": {
-                "sensorValue": { "access": "R", "multi": false, "mand": true, "type": "float", "range": null, "init": 0 },
-                "units": { "access": "R", "multi": false, "mand": false, "type": "string", "range": null, "init": "%" },
-                "minMeaValue": { "access": "R", "multi": false, "mand": false, "type": "float", "range": null, "init": 0 },
-                "maxMeaValue": { "access": "R", "multi": false, "mand": false, "type": "float", "range": null, "init": 0 },
-                "minRangeValue": { "access": "R", "multi": false, "mand": false, "type": "float", "range": null, "init": 0 },
-                "maxRangeValue": { "access": "R", "multi": false, "mand": false, "type": "float", "range": null, "init": 0 },
-                "resetMinMaxMeaValues": { "access": "E", "multi": false, "mand": false, "type": "opaque", "range": null, "init": null }
-            },
-            // ...
-    }
 
 <a name="Identifiers"></a>
 ## 5. Table of Identifiers
@@ -394,7 +322,25 @@ defs/defs.json
   
 
 * IPSO/OMA-LWM2M specified Resource ids (this class of ids is specified with Objects)  
+
     - oid = lwm2mSecurity 
+    ```js
+        {
+            "lwm2mServerURI": 0,
+            "bootstrapServer": 1,
+            "securityMode": 2,
+            "pubKeyId": 3,
+            "serverPubKeyId": 4,
+            "secretKey": 5,
+            "smsSecurityMode": 6,
+            "smsBindingKeyParam": 7,
+            "smsBindingSecretKey": 8,
+            "lwm2mServerSmsNum": 9,
+            "shortServerId": 10,
+            "clientHoldOffTime": 11
+        }
+    ```
+
     - oid = lwm2mServer 
     - oid = accessControl 
     - oid = device 

@@ -1,3 +1,4 @@
+/* jslint node: true */
 'use strict';
 
 var fs = require('fs'),
@@ -50,9 +51,9 @@ DEFS.addOid = function (items) {
 
     for (var key in items) {
         if (this.getOid(key))
-            throw new Error(`oid: ${key} name conflicts.`);
+            throw new Error('oid: ' + key + ' name conflicts.');
         else if (this.getOid(items[key]))
-            throw new Error(`oid: ${key} value conflicts.`);
+            throw new Error('oid: ' + key + ' value conflicts.');
         else
             _oid[key] = items[key];
     }
@@ -109,9 +110,9 @@ DEFS.addUniqueRid = function (items) {
 
     for (var key in items) {
         if (this.getRid(key))
-            throw new Error(`unique rid: ${key} name conflicts.`);
+            throw new Error('unique rid: ' + key + ' name conflicts.');
         else if (this.getRid(items[key]))
-            throw new Error(`unique rid: ${key} value conflicts.`);
+            throw new Error('unique rid: ' + key + 'value conflicts.');
         else
             _uRid[key] = items[key];
     }
@@ -129,7 +130,7 @@ DEFS.addSpecificRid = function (oid, items) {
         _spfRid = DEFS._defs.specificRid;
 
     if (!oidItem)
-        throw new Error(`oid: ${oid} does not exist. Please do addOid() first.`);
+        throw new Error('oid: ' + oid + ' does not exist. Please do addOid() first.');
 
     oidKey = oidItem.key;
 
@@ -137,7 +138,7 @@ DEFS.addSpecificRid = function (oid, items) {
 
     for (var key in items) {
         if (typeof _spfRid[oidKey][key] !== 'undefined') {
-            throw new Error(`rid: ${key} within oid: ${oidKey} conflicts.`);
+            throw new Error('rid: ' + key + ' within oid: ' + oidKey + 'conflicts.');
         }
 
         _spfRid[oidKey][key] = items[key];
@@ -172,7 +173,7 @@ DEFS.addSpecificResrcChar = function (oid, chars) {
         pass = _checkCharFormat(chars);
 
     if (!oidItem)
-        throw new Error(`oid: ${oid} does not exist. Please do addOid() first.`);
+        throw new Error('oid: ' + oid + ' does not exist. Please do addOid() first.');
 
     _rChar[oidItem.key] = _rChar[oidItem.key] || {};
     _rChar = _rChar[oidItem.key];
@@ -180,13 +181,13 @@ DEFS.addSpecificResrcChar = function (oid, chars) {
     for (var rid in chars) {
         ridItem = this.getRid(oid, rid);
         if (!ridItem)
-            throw new Error(`rid: ${rid} does not exist. Please do addSpecificRid() first.`);
+            throw new Error('rid: ' + rid + ' does not exist. Please do addSpecificRid() first.');
 
         if (_rChar[ridItem.key]) {
-            throw new Error(`rid: ${rid} conflicts in oid: ${oid}`);
+            throw new Error('rid: ' + rid + ' conflicts in oid: ' + oid);
         } else {
             if (!_checkCharFormat(chars[rid]))
-                throw new Error(`Invalid characteristic format within rid: ${rid}`);
+                throw new Error('Invalid characteristic format within rid: ' + rid);
 
              _rChar[ridItem.key] = chars[rid];
         }
@@ -210,7 +211,7 @@ function _checkCharFormat(charItem) {
     pass = true;
 
     if (typeof charItem !== 'object')
-        throw new TypeError(`Resource characteristic should be an object.`);
+        throw new TypeError('Resource characteristic should be an object.');
 
     for (var key in charItem) {
         if (keysChecked.hasOwnProperty(key))

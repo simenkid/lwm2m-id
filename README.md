@@ -65,6 +65,7 @@ var ridId = m2mid.getRid('sensorValue').value;        // 5700
 
 * [.getOid()](#API_getOid)
 * [.getRid()](#API_getRid)
+* [.getRdef()](#API_getRdef)
 
 ********************************************
 <a name="API_getOid"></a>
@@ -83,9 +84,9 @@ var ridId = m2mid.getRid('sensorValue').value;        // 5700
 **Example**
 
 ```js
-lwm2mid.getOid('tempSensor');   // { key: 'tempSensor', value: 3303 }
-lwm2mid.getOid(3303);           // { key: 'tempSensor', value: 3303 }
-lwm2mid.getOid('3303');         // { key: 'tempSensor', value: 3303 }
+lwm2mid.getOid('temperature');  // { key: 'temperature', value: 3303 }
+lwm2mid.getOid(3303);           // { key: 'temperature', value: 3303 }
+lwm2mid.getOid('3303');         // { key: 'temperature', value: 3303 }
 
 lwm2mid.getOid('xxxx');         // undefined 
 lwm2mid.getOid('9999');         // undefined 
@@ -114,15 +115,51 @@ lwm2mid.getOid(9999);           // undefined
 
 ```js
 // get a Resource id specific to an Object
-lwm2mid.getRid('tempSensor', 'sensorValue');   // { key: 'sensorValue', value: 5700 }
+lwm2mid.getRid('temperature', 'sensorValue');  // { key: 'sensorValue', value: 5700 }
 lwm2mid.getRid(3303, 5700);                    // { key: 'sensorValue', value: 5700 }
-lwm2mid.getRid('tempSensor', '5700');          // { key: 'sensorValue', value: 5700 }
+lwm2mid.getRid('temperature', '5700');         // { key: 'sensorValue', value: 5700 }
 
 // get an unqiue Resource id
 lwm2mid.getRid('appType');                     // { key: 'appType', value: 5750 }
 lwm2mid.getRid(5750);                          // { key: 'appType', value: 5700 }
 lwm2mid.getRid('5750');                        // { key: 'appType', value: 5750 }
 
+```
+********************************************
+<br />
+
+<a name="API_getRdef"></a>
+### .getRdef(oid, rid)
+> Returns the definitions of a Resource specific to an Object.
+
+**Arguments**
+
+- oid (*String|Number*, optional): `oid` can be given with a string or a number. Notice that a numbered string will be recognized as a number, e.g. '128' is equal to 128.
+- rid (*String|Number*): `rid` can be given with a string or a number. Notice that a numbered string will be recognized as a number, e.g. '128' is equal to 128.
+
+
+**Returns:**  
+  
+* (_Object_ | _Undefined_) Returns the definition with an data object, otherwise returns `undefined` if not found. The definition object is of the form: `{ access: null, multi: false, mand: true, type: "boolean", range: null, init: false }`
+
+|       Property        |      Description         |       Possilbe Settings   |  
+|:---------------------:|:------------------------:|:-------------------------:|  
+|        access         | Access control           | 'R', 'W', 'RW', 'E', null(cannot read, write, and execute) |  
+|        multi          | Allow multiple instances | true, false               |  
+|        mand           | Mandatory                | true, false               |  
+|        type*          | Resource value data type | 'boolean', interger', 'float', string', 'time', execute', 'opaque' |  
+|        range          | Limit of Resource value  | A number, null if no limit. |  
+  
+* Please refer to **Appendix C. Data Types** in OMA LightweightM2M(v1.0) specification for details.
+  
+**Example**
+
+```js
+lwm2mid.getRdef('temperature', 'sensorValue');  // { "access": "R", "multi": false, "mand": true, "type": "float", "range": null }
+lwm2mid.getRdef(3303, 5700);                    // { "access": "R", "multi": false, "mand": true, "type": "float", "range": null }
+
+lwm2mid.getRdef('temperature');     // undefined. rid should be given
+lwm2mid.getRdef('xxxx', 1234);      // undefined 
 ```
 ********************************************
 <br />
@@ -136,7 +173,7 @@ lwm2mid.getRid('5750');                        // { key: 'appType', value: 5750 
 |:---------------------:|:------------------------:|:----------------------:|  
 |        0              | lwm2mSecurity            | LWM2M Security         |  
 |        1              | lwm2mServer              | LWM2M Server           |  
-|        2              | accessControl            | Access Control         |  
+|        2              | accessCtrl               | Access Control         |  
 |        3              | device                   | Device                 |  
 |        4              | connMonitor              | Connectivity Monitoring|  
 |        5              | firmware                 | Firmware               |  
@@ -158,15 +195,15 @@ lwm2mid.getRid('5750');                        // { key: 'appType', value: 5750 
 |        2054           | cmdhNetworkAccessRules   | CmdhNetworkAccessRules |  
 |        2055           | cmdhNwAccessRule         | CmdhNwAccessRule       |  
 |        2056           | cmdhBuffer               | CmdhBuffer             |  
-|        3200           | digitalInput             | Digital Input          |  
-|        3201           | digitalOutput            | Digital Output         |  
-|        3202           | analogInput              | Analogue Input         |  
-|        3203           | analogOutput             | Analogue Output        |  
-|        3300           | genericSensor            | Generic Sensor         |  
-|        3301           | presenceSensor           | Illuminance Sensor     |  
-|        3302           | presenceSensor           | Presence Sensor        |  
-|        3303           | tempSensor               | Temperature Sensor     |  
-|        3304           | humidSensor              | Humidity Sensor        |  
+|        3200           | dIn                      | Digital Input          |  
+|        3201           | dOut                     | Digital Output         |  
+|        3202           | aIn                      | Analogue Input         |  
+|        3203           | aOut                     | Analogue Output        |  
+|        3300           | generic                  | Generic Sensor         |  
+|        3301           | illuminance              | Illuminance Sensor     |  
+|        3302           | presence                 | Presence Sensor        |  
+|        3303           | temperature              | Temperature Sensor     |  
+|        3304           | humidity                 | Humidity Sensor        |  
 |        3305           | pwrMea                   | Power Measurement      |  
 |        3306           | actuation                | Actuation              |  
 |        3308           | setPoint                 | Set Point              |  
@@ -179,68 +216,68 @@ lwm2mid.getRid('5750');                        // { key: 'appType', value: 5750 
 
 * IPSO/OMA-LWM2M unique Resource ids (this class of ids is reusable with Objects)  
 
-|       Resource Id     |      lwm2m-id Key        |     Resource Name      |  
-|:---------------------:|:------------------------:|:----------------------:|  
-|        4000           | objectInstanceHandle     |                        |  
-|        4001           | objectVersion            |                        |  
-|        5500           | dInState                 |                        |  
-|        5501           | counter                  |                        |  
-|        5502           | dInPolarity              |                        |  
-|        5503           | debouncePeriod           |                        |  
-|        5504           | edgeSelection            |                        |  
-|        5505           | counterReset             |                        |  
-|        5550           | dOutState                |                        |  
-|        5551           | dOutpolarity             |                        |  
-|        5600           | aInCurrValue             |                        |  
-|        5601           | minMeaValue              |                        |  
-|        5602           | maxMeaValue              |                        |  
-|        5603           | minRangeValue            |                        |  
-|        5604           | maxRangeValue            |                        |  
-|        5605           | resetMinMaxMeaValues     |                        |  
-|        5650           | aOutCurrValue            |                        |  
-|        5700           | sensorValue              |                        |  
-|        5701           | units                    |                        |  
-|        5702           | xValue                   |                        |  
-|        5703           | yValue                   |                        |  
-|        5704           | zValue                   |                        |  
-|        5705           | compassDir               |                        |  
-|        5706           | colour                   |                        |  
-|        5750           | appType                  |                        |  
-|        5751           | sensorType               |                        |  
-|        5800           | instActivePwr            |                        |  
-|        5801           | minMeaActivePwr          |                        |  
-|        5802           | maxMeaActivePwr          |                        |  
-|        5803           | minRangeActivePwr        |                        |  
-|        5804           | maxRangeActivePwr        |                        |  
-|        5805           | cumulActivePwr           |                        |  
-|        5806           | activePwrCal             |                        |  
-|        5810           | instReactivePwr          |                        |  
-|        5811           | minMeaReactivePwr        |                        |  
-|        5812           | maxMeaReactivePwr        |                        |  
-|        5813           | minRangeReactivePwr      |                        |  
-|        5814           | maxRangeReactivePwr      |                        |  
-|        5815           | cumulReactivePwr         |                        |  
-|        5816           | reactivePwrCal           |                        |  
-|        5820           | pwrFactor                |                        |  
-|        5821           | currCal                  |                        |  
-|        5822           | resetCumulEnergy         |                        |  
-|        5823           | eventId                  |                        |  
-|        5824           | startTime                |                        |  
-|        5825           | durationInMin            |                        |  
-|        5826           | criticalLevel            |                        |  
-|        5827           | avgLoadAdjPct            |                        |  
-|        5828           | dutyCycle                |                        |  
-|        5850           | onOff                    |                        |  
-|        5851           | dimmer                   |                        |  
-|        5852           | onTime                   |                        |  
-|        5853           | mstateOut                |                        |  
-|        5900           | setPointValue            |                        |  
-|        5903           | busyToClearDelay         |                        |  
-|        5904           | clearToBusyDelay         |                        |  
-|        5905           | hostDeviceManuf          |                        |  
-|        5906           | hostDeviceMdl            |                        |  
-|        5907           | hostDeviceUID            |                        |  
-|        5908           | hostDeviceSwVer          |                        |  
+|       Resource Id     |      lwm2m-id Key        |   Description/Resource Name        |  
+|:---------------------:|:------------------------:|:----------------------------------:|  
+|        4000           | objectInstanceHandle     | Object Instance Handle             |  
+|        4001           | objectVersion            | Object Version                     |  
+|        5500           | dInState                 | Digital Input State                |  
+|        5501           | counter                  | Digital Input Counter              |  
+|        5502           | dInPolarity              | Digital Input Polarity             |  
+|        5503           | debouncePeriod           | Digital Input Debounce Period      |  
+|        5504           | edgeSelection            | Digital Input Edge Selection       |  
+|        5505           | counterReset             | Digital Input Counter Reset        |  
+|        5550           | dOutState                | Digital Output State               |  
+|        5551           | dOutPolarity             | Digital Output Polarity            |  
+|        5600           | aInCurrValue             | Analog Input Current Value         |  
+|        5601           | minMeaValue              | Min Measured Value                 |  
+|        5602           | maxMeaValue              | Max Measured Value                 |  
+|        5603           | minRangeValue            | Min Range Value                    |  
+|        5604           | maxRangeValue            | Max Range Value                    |  
+|        5605           | resetMinMaxMeaValues     | Reset Min and Max Measured Values  |  
+|        5650           | aOutCurrValue            | Analog Output Current Value        |  
+|        5700           | sensorValue              | Sensor Value                       |  
+|        5701           | units                    | Sensor Units                       |  
+|        5702           | xValue                   | X Value                            |  
+|        5703           | yValue                   | Y Value                            |  
+|        5704           | zValue                   | Z Value                            |  
+|        5705           | compassDir               | Compass Direction                  |  
+|        5706           | colour                   | Colour                             |  
+|        5750           | appType                  | Application Type                   |  
+|        5751           | sensorType               | Sensor Type                        |  
+|        5800           | instActivePwr            | Instantaneous active power         |  
+|        5801           | minMeaActivePwr          | Min Measured active power          |  
+|        5802           | maxMeaActivePwr          | Max Measured active power          |  
+|        5803           | minRangeActivePwr        | Min Range active power             |  
+|        5804           | maxRangeActivePwr        | Max Range active power             |  
+|        5805           | cumulActivePwr           | Cumulative active power            |  
+|        5806           | activePwrCal             | Active Power Calibration           |  
+|        5810           | instReactivePwr          | Instantaneous reactive power       |  
+|        5811           | minMeaReactivePwr        | Min Measured reactive power        |  
+|        5812           | maxMeaReactivePwr        | Max Measured reactive power        |  
+|        5813           | minRangeReactivePwr      | Min Range reactive power           |  
+|        5814           | maxRangeReactivePwr      | Max Range reactive power           |  
+|        5815           | cumulReactivePwr         | Cumulative reactive power          |  
+|        5816           | reactivePwrCal           | Reactive Power Calibration         |  
+|        5820           | pwrFactor                | Power factor                       |  
+|        5821           | currCal                  | Current Calibration                |  
+|        5822           | resetCumulEnergy         | Reset Cumulative energy            |  
+|        5823           | eventId                  | Event Identifier                   |  
+|        5824           | startTime                | Start Time                         |  
+|        5825           | durationInMin            | Duration In Min                    |  
+|        5826           | criticalLevel            | Critical Level                     |  
+|        5827           | avgLoadAdjPct            | Avg Load AdjPct                    |  
+|        5828           | dutyCycle                | Duty Cycle                         |  
+|        5850           | onOff                    | On/Off                             |  
+|        5851           | dimmer                   | Dimmer                             |  
+|        5852           | onTime                   | On time                            |  
+|        5853           | mStateOut                | Muti-state Output                  |  
+|        5900           | setPointValue            | Set Point Value                    |  
+|        5903           | busyToClearDelay         | Busy to Clear delay                |  
+|        5904           | clearToBusyDelay         | Clear to Busy delay                |  
+|        5905           | hostDeviceManuf          | Host Device Manufacturer           |  
+|        5906           | hostDeviceMdl            | Host Device Model Number           |  
+|        5907           | hostDeviceUID            | Host Device Unique ID              |  
+|        5908           | hostDeviceSwVer          | Host Device Software Version       |  
   
 
 * IPSO/OMA-LWM2M specified Resource ids (this class of ids is specified with Objects)  
@@ -306,7 +343,7 @@ lwm2mid.getRid('5750');                        // { key: 'appType', value: 5750 
             "currTime": 13,
             "UTCOffset": 14,
             "timezone": 15,
-            "suppBindAndMode": 16,
+            "bindAndModes": 16,
             "devType": 17,
             "hwVer": 18,
             "swVer": 19,
@@ -319,7 +356,7 @@ lwm2mid.getRid('5750');                        // { key: 'appType', value: 5750 
         {
             "nwkBearer": 0,
             "availNwkBearer": 1,
-            "radioSS": 2,
+            "radioStrength": 2,
             "linkQuality": 3,
             "ip": 4,
             "routeIp": 5,
@@ -388,7 +425,7 @@ lwm2mid.getRid('5750');                        // { key: 'appType', value: 5750 
     ```js
         {
             "dOutState": 5550,
-            "dOutpolarity": 5551,
+            "dOutPolarity": 5551,
             "appType": 5750
         }
     ```
@@ -457,7 +494,7 @@ lwm2mid.getRid('5750');                        // { key: 'appType', value: 5750 
         }
     ```
 
-    - oid = tempSensor 
+    - oid = temperature 
     ```js
         {
             "sensorValue": 5700,
@@ -513,7 +550,7 @@ lwm2mid.getRid('5750');                        // { key: 'appType', value: 5750 
             "onOff": 5850,
             "dimmer": 5851,
             "onTime": 5852,
-            "mstateOut": 5853,
+            "mStateOut": 5853,
             "appType": 5750
         }
     ```

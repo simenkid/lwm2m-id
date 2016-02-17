@@ -26,7 +26,7 @@
     "oid": {
         "lwm2mSecurity": 0,
         "lwm2mServer": 1,
-        "accessControl": 2,
+        "accessCtrl": 2,
         "device": 3,
         "connMonitor": 4,
         "firmware": 5,
@@ -48,15 +48,15 @@
         "cmdhNetworkAccessRules": 2054,
         "cmdhNwAccessRule": 2055,
         "cmdhBuffer": 2056,
-        "digitalInput": 3200,
-        "digitalOutput": 3201,
-        "analogInput": 3202,
-        "analogOutput": 3203,
-        "genericSensor": 3300,
-        "illumSensor": 3301,
-        "presenceSensor": 3302,
-        "tempSensor": 3303,
-        "humidSensor": 3304,
+        "dIn": 3200,
+        "dOut": 3201,
+        "aIn": 3202,
+        "aOut": 3203,
+        "generic": 3300,
+        "illuminance": 3301,
+        "presence": 3302,
+        "temperature": 3303,
+        "humidity": 3304,
         "pwrMea": 3305,
         "actuation": 3306,
         "setPoint": 3308,
@@ -77,7 +77,7 @@
         "edgeSelection": 5504,
         "counterReset": 5505,
         "dOutState": 5550,
-        "dOutpolarity": 5551,
+        "dOutPolarity": 5551,
         "aInCurrValue": 5600,
         "minMeaValue": 5601,
         "maxMeaValue": 5602,
@@ -120,7 +120,7 @@
         "onOff": 5850,
         "dimmer": 5851,
         "onTime": 5852,
-        "mstateOut": 5853,
+        "mStateOut": 5853,
         "setPointValue": 5900,
         "busyToClearDelay": 5903,
         "clearToBusyDelay": 5904,
@@ -155,7 +155,7 @@
             "binding": 7,
             "regUpdateTrigger": 8
         },
-        "accessControl": {
+        "accessCtrl": {
             "objectId": 0,
             "objectInstanceId": 1,
             "ACL": 2,
@@ -178,7 +178,7 @@
             "currTime": 13,
             "UTCOffset": 14,
             "timezone": 15,
-            "suppBindAndMode": 16,
+            "bindAndModes": 16,
             "devType": 17,
             "hwVer": 18,
             "swVer": 19,
@@ -188,7 +188,7 @@
         "connMonitor": {
             "nwkBearer": 0,
             "availNwkBearer": 1,
-            "radioSS": 2,
+            "radioStrength": 2,
             "linkQuality": 3,
             "ip": 4,
             "routeIp": 5,
@@ -225,7 +225,7 @@
             "avgMsgSize": 5,
             "startOrReset": 6
         },
-        "digitalInput": {
+        "dIn": {
             "dInState": 5500,
             "counter": 5501,
             "dInPolarity": 5502,
@@ -235,12 +235,12 @@
             "appType": 5750,
             "sensorType": 5751
         },
-        "digitalOutput": {
+        "dOut": {
             "dOutState": 5550,
-            "dOutpolarity": 5551,
+            "dOutPolarity": 5551,
             "appType": 5750
         },
-        "analogInput": {
+        "aIn": {
             "aInCurrValue": 5600,
             "minMeaValue": 5601,
             "maxMeaValue": 5602,
@@ -250,13 +250,13 @@
             "appType": 5750,
             "sensorType": 5751
         },
-        "analogOutput": {
+        "aOut": {
             "aOutCurrValue": 5650,
             "minRangeValue": 5603,
             "maxRangeValue": 5604,
             "appType": 5750
         },
-        "genericSensor": {
+        "generic": {
             "sensorValue": 5700,
             "units": 5701,
             "minMeaValue": 5601,
@@ -267,7 +267,7 @@
             "appType": 5750,
             "sensorType": 5751
         },
-        "illumSensor": {
+        "illuminance": {
             "sensorValue": 5700,
             "units": 5701,
             "minMeaValue": 5601,
@@ -276,7 +276,7 @@
             "maxRangeValue": 5604,
             "resetMinMaxMeaValues": 5605
         },
-        "presenceSensor": {
+        "presence": {
             "dInState": 5500,
             "counter": 5501,
             "counterReset": 5505,
@@ -284,7 +284,7 @@
             "busyToClearDelay": 5903,
             "clearToBusyDelay": 5904
         },
-        "tempSensor": {
+        "temperature": {
             "sensorValue": 5700,
             "units": 5701,
             "minMeaValue": 5601,
@@ -293,7 +293,7 @@
             "maxRangeValue": 5604,
             "resetMinMaxMeaValues": 5605
         },
-        "humidSensor": {
+        "humidity": {
             "sensorValue": 5700,
             "units": 5701,
             "minMeaValue": 5601,
@@ -326,7 +326,7 @@
             "onOff": 5850,
             "dimmer": 5851,
             "onTime": 5852,
-            "mstateOut": 5853,
+            "mStateOut": 5853,
             "appType": 5750
         },
         "setPoint": {
@@ -410,7 +410,7 @@
             "binding": { "access": "RW", "multi": false, "mand": true, "type": "string", "range": null, "init": "TCP" },
             "regUpdateTrigger": { "access": "E", "multi": false, "mand": true, "type": "execute", "range": null, "init": null }
         },
-        "accessControl": {
+        "accessCtrl": {
             "objectId": { "access": "R", "multi": false, "mand": true, "type": "interger", "range": 65534, "init": 1 },
             "objectInstanceId": { "access": "R", "multi": false, "mand": true, "type": "interger", "range": 65535, "init": 0 },
             "ACL": { "access": "RW", "multi": true, "mand": false, "type": "interger", "range": 65535, "init": 0 },
@@ -433,7 +433,7 @@
             "currTime": { "access": "RW", "multi": false, "mand": false, "type": "time", "range": null, "init": 0 },
             "UTCOffset": { "access": "RW", "multi": false, "mand": false, "type": "string", "range": null, "init": "UTC+08:00" },
             "timezone": { "access": "RW", "multi": false, "mand": false, "type": "string", "range": null, "init": "Asia/Taipei" },
-            "suppBindAndMode": { "access": "R", "multi": false, "mand": true, "type": "string", "range": null, "init": "TCP" },
+            "bindAndModes": { "access": "R", "multi": false, "mand": true, "type": "string", "range": null, "init": "TCP" },
             "devType": { "access": "R", "multi": false, "mand": false, "type": "string", "range": null, "init": "mqtt-smarthing" },
             "hwVer": { "access": "R", "multi": false, "mand": false, "type": "string", "range": null, "init": "0.0.1" },
             "swVer": { "access": "R", "multi": false, "mand": false, "type": "string", "range": null, "init": "0.0.1" },
@@ -443,7 +443,7 @@
         "connMonitor": {
             "nwkBearer": { "access": "R", "multi": false, "mand": true, "type": "interger", "range": null, "init": 21 },
             "availNwkBearer": { "access": "R", "multi": true, "mand": true, "type": "interger", "range": null, "init": 21 },
-            "radioSS": { "access": "R", "multi": false, "mand": true, "type": "interger", "range": null, "init": 64 },
+            "radioStrength": { "access": "R", "multi": false, "mand": true, "type": "interger", "range": null, "init": 64 },
             "linkQuality": { "access": "R", "multi": false, "mand": false, "type": "interger", "range": null, "init": 100 },
             "ip": { "access": "R", "multi": true, "mand": true, "type": "string", "range": null, "init": "" },
             "routeIp": { "access": "R", "multi": true, "mand": false, "type": "string", "range": null, "init": "" },
@@ -480,7 +480,7 @@
             "avgMsgSize": { "access": "R", "multi": false, "mand": false, "type": "interger", "range": null, "init": 0 },
             "startOrReset": { "access": "E", "multi": false, "mand": true, "type": "execute", "range": null, "init": null }
         },
-        "digitalInput": {
+        "dIn": {
             "dInState": { "access": "R", "multi": false, "mand": true, "type": "boolean", "range": null, "init": false },
             "counter": { "access": "R", "multi": false, "mand": false, "type": "interger", "range": null, "init": 0 },
             "dInPolarity": { "access": "RW", "multi": false, "mand": false, "type": "boolean", "range": null, "init": false },
@@ -490,12 +490,12 @@
             "appType": { "access": "RW", "multi": false, "mand": false, "type": "string", "range": null, "init": "Digital Input" },
             "sensorType": { "access": "R", "multi": false, "mand": false, "type": "string", "range": null, "init": "Digital" }
         },
-        "digitalOutput": {
+        "dOut": {
             "dOutState": { "access": "RW", "multi": false, "mand": true, "type": "boolean", "range": null, "init": false },
-            "dOutpolarity": { "access": "RW", "multi": false, "mand": false, "type": "boolean", "range": null, "init": false },
+            "dOutPolarity": { "access": "RW", "multi": false, "mand": false, "type": "boolean", "range": null, "init": false },
             "appType": { "access": "RW", "multi": false, "mand": false, "type": "string", "range": null, "init": "Digital Output" }
         },
-        "analogInput": {
+        "aIn": {
             "aInCurrValue": { "access": "R", "multi": false, "mand": true, "type": "float", "range": null, "init": 0 },
             "minMeaValue": { "access": "R", "multi": false, "mand": false, "type": "float", "range": null, "init": 0 },
             "maxMeaValue": { "access": "R", "multi": false, "mand": false, "type": "float", "range": null, "init": 0 },
@@ -505,13 +505,13 @@
             "appType": { "access": "RW", "multi": false, "mand": false, "type": "string", "range": null, "init": "Analog Input" },
             "sensorType": { "access": "R", "multi": false, "mand": false, "type": "string", "range": null, "init": "Analog" }
         },
-        "analogOutput": {
+        "aOut": {
             "aOutCurrValue": { "access": "RW", "multi": false, "mand": true, "type": "float", "range": null, "init": 0 },
             "minRangeValue": { "access": "R", "multi": false, "mand": false, "type": "float", "range": null, "init": 0 },
             "maxRangeValue": { "access": "R", "multi": false, "mand": false, "type": "float", "range": null, "init": 0 },
             "appType": { "access": "RW", "multi": false, "mand": false, "type": "string", "range": null, "init": "Analog Output" }
         },
-        "genericSensor": {
+        "generic": {
             "sensorValue": { "access": "R", "multi": false, "mand": true, "type": "float", "range": null, "init": 0 },
             "units": { "access": "R", "multi": false, "mand": false, "type": "string", "range": null, "init": "uint" },
             "minMeaValue": { "access": "R", "multi": false, "mand": false, "type": "float", "range": null, "init": 0 },
@@ -522,7 +522,7 @@
             "appType": { "access": "RW", "multi": false, "mand": false, "type": "string", "range": null, "init": "Generic Sensor" },
             "sensorType": { "access": "R", "multi": false, "mand": false, "type": "string", "range": null, "init": "Generic" }
         },
-        "illumSensor": {
+        "illuminance": {
             "sensorValue": { "access": "R", "multi": false, "mand": true, "type": "float", "range": null, "init": 0 },
             "units": { "access": "R", "multi": false, "mand": false, "type": "string", "range": null, "init": "lux" },
             "minMeaValue": { "access": "R", "multi": false, "mand": false, "type": "float", "range": null, "init": 0 },
@@ -531,7 +531,7 @@
             "maxRangeValue": { "access": "R", "multi": false, "mand": false, "type": "float", "range": null, "init": 0 },
             "resetMinMaxMeaValues": { "access": "E", "multi": false, "mand": false, "type": "opaque", "range": null, "init": null }
         },
-        "presenceSensor": {
+        "presence": {
             "dInState": { "access": "R", "multi": false, "mand": true, "type": "boolean", "range": null, "init": false },
             "counter": { "access": "R", "multi": false, "mand": false, "type": "interger", "range": null, "init": 0 },
             "counterReset": { "access": "E", "multi": false, "mand": false, "type": "opaque", "range": null, "init": null },
@@ -539,7 +539,7 @@
             "busyToClearDelay": { "access": "RW", "multi": false, "mand": false, "type": "integer", "range": null, "init": 0 },
             "clearToBusyDelay": { "access": "RW", "multi": false, "mand": false, "type": "integer", "range": null, "init": 0 }
         },
-        "tempSensor": {
+        "temperature": {
             "sensorValue": { "access": "R", "multi": false, "mand": true, "type": "float", "range": null, "init": 0 },
             "units": { "access": "R", "multi": false, "mand": false, "type": "string", "range": null, "init": "Cel" },
             "minMeaValue": { "access": "R", "multi": false, "mand": false, "type": "float", "range": null, "init": 0 },
@@ -548,7 +548,7 @@
             "maxRangeValue": { "access": "R", "multi": false, "mand": false, "type": "float", "range": null, "init": 0 },
             "resetMinMaxMeaValues": { "access": "E", "multi": false, "mand": false, "type": "opaque", "range": null, "init": null }
         },
-        "humidSensor": {
+        "humidity": {
             "sensorValue": { "access": "R", "multi": false, "mand": true, "type": "float", "range": null, "init": 0 },
             "units": { "access": "R", "multi": false, "mand": false, "type": "string", "range": null, "init": "%" },
             "minMeaValue": { "access": "R", "multi": false, "mand": false, "type": "float", "range": null, "init": 0 },
@@ -581,7 +581,7 @@
             "onOff": { "access": "RW", "multi": false, "mand": true, "type": "boolean", "range": null, "init": false },
             "dimmer": { "access": "RW", "multi": false, "mand": false, "type": "interger", "range": 100, "init": 0 },
             "onTime": { "access": "RW", "multi": false, "mand": false, "type": "interger", "range": 100, "init": 0 },
-            "mstateOut": { "access": "RW", "multi": false, "mand": false, "type": "string", "range": null, "init": "Pilot Wire" },
+            "mStateOut": { "access": "RW", "multi": false, "mand": false, "type": "string", "range": null, "init": "Pilot Wire" },
             "appType": { "access": "RW", "multi": false, "mand": false, "type": "string", "range": null, "init": "Actuator" }
         },
         "setPoint": {

@@ -166,6 +166,8 @@ DEFS.getSpecificResrcChar = function (oid, rid) {
     return characteristic;
 };  // undefined / resrc characteristic
 
+DEFS.getRdef = DEFS.getSpecificResrcChar;
+
 DEFS.addSpecificResrcChar = function (oid, chars) {
     var _rChar = DEFS._defs.specificResrcChar,
         oidItem = this.getOid(oid),

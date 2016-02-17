@@ -24,7 +24,9 @@ lwm2m-id
 <a name="Usage"></a>
 ## 3. Usage
 
-**lwm2m-id** provides you with two getters, i.e. `getOid()` and `getRid()`,  to get the key-value pair of an Object and a Resource identifier. The getter returns an item which has properties of `'key'` and `'value'`, or returns `undefined` if not found. In the returned item, `item.key` is the idetifier in string and `item.value` is the identifier in number. Let me show you some examples.  
+**lwm2m-id** provides you with two getters, i.e. `getOid()` and `getRid()`,  to get the key-value pair of an Object and a Resource identifier. The getter returns an item which has properties of `'key'` and `'value'`, or returns `undefined` if not found. In the returned item, `item.key` is the idetifier in string and `item.value` is the identifier in number.  
+
+Let me show you some examples.  
 
 ```js
 var m2mid = require('lwm2m-id')
@@ -144,19 +146,22 @@ lwm2mid.getRid('5750');                        // { key: 'appType', value: 5750 
 
 |       Property        |      Description         |       Possilbe Settings   |  
 |:---------------------:|:------------------------:|:-------------------------:|  
-|        access         | Access control           | 'R', 'W', 'RW', 'E', null(cannot read, write, and execute) |  
+|        access         | Access control           | 'R', 'W', 'RW', 'E', null (cannot access) |  
 |        multi          | Allow multiple instances | true, false               |  
 |        mand           | Mandatory                | true, false               |  
 |        type*          | Resource value data type | 'boolean', interger', 'float', string', 'time', execute', 'opaque' |  
 |        range          | Limit of Resource value  | A number, null if no limit. |  
   
-* Please refer to **Appendix C. Data Types** in OMA LightweightM2M(v1.0) specification for details.
+\* Please refer to **Appendix C. Data Types** in OMA LightweightM2M(v1.0) specification for details.
   
 **Example**
 
 ```js
-lwm2mid.getRdef('temperature', 'sensorValue');  // { "access": "R", "multi": false, "mand": true, "type": "float", "range": null }
-lwm2mid.getRdef(3303, 5700);                    // { "access": "R", "multi": false, "mand": true, "type": "float", "range": null }
+lwm2mid.getRdef('temperature', 'sensorValue');  
+// returns { "access": "R", "multi": false, "mand": true, "type": "float", "range": null }
+  
+lwm2mid.getRdef('lightCtrl', 5850);  
+// returns { "access": "RW", "multi": false, "mand": true, "type": "boolean", "range": null }
 
 lwm2mid.getRdef('temperature');     // undefined. rid should be given
 lwm2mid.getRdef('xxxx', 1234);      // undefined 
@@ -327,6 +332,7 @@ lwm2mid.getRdef('xxxx', 1234);      // undefined
 
     - oid = device 
     ```js
+        {
             "manuf": 0,
             "model": 1,
             "serial": 2,
@@ -349,6 +355,7 @@ lwm2mid.getRdef('xxxx', 1234);      // undefined
             "swVer": 19,
             "battStatus": 20,
             "memTotal": 21
+        }
     ```
 
     - oid = connMonitor 

@@ -1,6 +1,5 @@
 var Enum = require('enum'),
     should = require('should');
-
 var lwm2mid = require('../index.js');
 
 var rspCodeKeys = [],
@@ -574,3 +573,4 @@ describe('lwm2m-id Add Method Check', function () {
         });
     });
 });
+

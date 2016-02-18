@@ -30,6 +30,20 @@ for (var key in _specificRid) {
 /*************************************************************************************************/
 /*** DEFS Methods                                                                              ***/
 /*************************************************************************************************/
+DEFS.getCmd = function (cmdId) {
+    if (typeof cmdId !== 'number' && typeof cmdId !== 'string')
+        throw new TypeError('cmdId should be type of string or number.');
+
+    return this.Cmd.get(cmdId);
+};
+
+DEFS.getRspCode = function (code) {
+    if (typeof code !== 'number' && typeof code !== 'string')
+        throw new TypeError('code should be a type of string or number.');
+
+    return this.RspCode.get(code);
+};
+
 DEFS.getOid = function (oid) {
     if (typeof oid !== 'number' && typeof oid !== 'string')
         throw new TypeError('oid should be a number or a string.');

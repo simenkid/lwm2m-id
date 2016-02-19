@@ -112,11 +112,17 @@ lwm2mid.getOid(9999);           // undefined
 - oid (*String|Number*, optional): `oid` can be given with a string or a number. Notice that a numbered string will be recognized as a number, e.g. '128' is equal to 128.
 - rid (*String|Number*): `rid` can be given with a string or a number. Notice that a numbered string will be recognized as a number, e.g. '128' is equal to 128.
 
+**Returns:**  
+  
+* (_Object_ | _Undefined_) Returns an item of `{ key: 'sampleId', value: 1234 }`, otherwise returns `undefined` if not found.
+
 
 **Example**  
 
 ```js
 // get a Resource id specific to an Object
+lwm2mid.getRid('location', 'lon');             // { key: 'lon', value: 1 }
+lwm2mid.getRid(6, 1);                          // { key: 'lon', value: 1 }
 lwm2mid.getRid('temperature', 'sensorValue');  // { key: 'sensorValue', value: 5700 }
 lwm2mid.getRid(3303, 5700);                    // { key: 'sensorValue', value: 5700 }
 lwm2mid.getRid('temperature', '5700');         // { key: 'sensorValue', value: 5700 }

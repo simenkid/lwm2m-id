@@ -420,7 +420,7 @@ lwm2mid.getRdef('xxxx', 1234);      // undefined
         }
     ```
 
-    - oid = digitalInput 
+    - oid = dIn 
     ```js
         {
             "dInState": 5500,
@@ -434,7 +434,7 @@ lwm2mid.getRdef('xxxx', 1234);      // undefined
         }
     ```
 
-    - oid = digitalOutput 
+    - oid = dOut 
     ```js
         {
             "dOutState": 5550,
@@ -443,7 +443,7 @@ lwm2mid.getRdef('xxxx', 1234);      // undefined
         }
     ```
 
-    - oid = analogInput 
+    - oid = aIn 
     ```js
         {
             "aInCurrValue": 5600,
@@ -457,7 +457,7 @@ lwm2mid.getRdef('xxxx', 1234);      // undefined
         }
     ```
 
-    - oid = analogOutput 
+    - oid = aOut 
     ```js
         {
             "aOutCurrValue": 5650,
@@ -467,7 +467,7 @@ lwm2mid.getRdef('xxxx', 1234);      // undefined
         }
     ```
 
-    - oid = genericSensor 
+    - oid = generic 
     ```js
         {
             "sensorValue": 5700,
@@ -482,7 +482,7 @@ lwm2mid.getRdef('xxxx', 1234);      // undefined
         }
     ```
 
-    - oid = illumSensor 
+    - oid = illuminance 
     ```js
         {
             "sensorValue": 5700,
@@ -495,7 +495,7 @@ lwm2mid.getRdef('xxxx', 1234);      // undefined
         }
     ```
 
-    - oid = presenceSensor 
+    - oid = presence 
     ```js
         {
             "dInState": 5500,
@@ -520,7 +520,7 @@ lwm2mid.getRdef('xxxx', 1234);      // undefined
         }
     ```
 
-    - oid = humidSensor 
+    - oid = humidity 
     ```js
         {
             "sensorValue": 5700,

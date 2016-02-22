@@ -34,14 +34,14 @@ DEFS.getCmd = function (cmdId) {
     if (typeof cmdId !== 'number' && typeof cmdId !== 'string')
         throw new TypeError('cmdId should be type of string or number.');
 
-    return this.Cmd.get(cmdId);
+    return DEFS.Cmd.get(cmdId);
 };
 
 DEFS.getRspCode = function (code) {
     if (typeof code !== 'number' && typeof code !== 'string')
         throw new TypeError('code should be a type of string or number.');
 
-    return this.RspCode.get(code);
+    return DEFS.RspCode.get(code);
 };
 
 DEFS.getOid = function (oid) {
@@ -54,7 +54,7 @@ DEFS.getOid = function (oid) {
     if (!isNaN(oidNumber))
         oid = oidNumber;
 
-    oidItem = this.Oid.get(oid);
+    oidItem = DEFS.Oid.get(oid);
 
     return oidItem;
 };
@@ -63,22 +63,22 @@ DEFS.addOid = function (items) {
     var _oid = DEFS._defs.oid;
 
     for (var key in items) {
-        if (this.getOid(key))
+        if (DEFS.getOid(key))
             throw new Error('oid: ' + key + ' name conflicts.');
-        else if (this.getOid(items[key]))
+        else if (DEFS.getOid(items[key]))
             throw new Error('oid: ' + key + ' value conflicts.');
         else
             _oid[key] = items[key];
     }
 
-    this.Oid = null;
-    this.Oid = new Enum(_oid);
+    DEFS.Oid = null;
+    DEFS.Oid = new Enum(_oid);
 
-    return this;
+    return DEFS;
 };
 
 DEFS.getRid = function (oid, rid) {
-    var oidItem = this.getOid(oid),
+    var oidItem = DEFS.getOid(oid),
         ridNumber,
         ridItem,
         oidKey;
@@ -109,10 +109,10 @@ DEFS.getRid = function (oid, rid) {
 
         oidKey = oidItem ? oidItem.key : oid.toString();
 
-        if (this.SpecificRid[oidKey] instanceof Enum)
-            ridItem = this.SpecificRid[oidKey].get(rid);
+        if (DEFS.SpecificRid[oidKey] instanceof Enum)
+            ridItem = DEFS.SpecificRid[oidKey].get(rid);
     } else {
-        ridItem = this.UniqueRid.get(rid);
+        ridItem = DEFS.UniqueRid.get(rid);
     }
 
     return ridItem;
@@ -122,22 +122,22 @@ DEFS.addUniqueRid = function (items) {
     var _uRid = DEFS._defs.uniqueRid;
 
     for (var key in items) {
-        if (this.getRid(key))
+        if (DEFS.getRid(key))
             throw new Error('unique rid: ' + key + ' name conflicts.');
-        else if (this.getRid(items[key]))
+        else if (DEFS.getRid(items[key]))
             throw new Error('unique rid: ' + key + 'value conflicts.');
         else
             _uRid[key] = items[key];
     }
 
-    this.UniqueRid = null;
-    this.UniqueRid = new Enum(_uRid);
+    DEFS.UniqueRid = null;
+    DEFS.UniqueRid = new Enum(_uRid);
 
-    return this;
+    return DEFS;
 };
 
 DEFS.addSpecificRid = function (oid, items) {
-    var oidItem = this.getOid(oid),
+    var oidItem = DEFS.getOid(oid),
         oidKey,
         ridItem, 
         _spfRid = DEFS._defs.specificRid;
@@ -157,15 +157,15 @@ DEFS.addSpecificRid = function (oid, items) {
         _spfRid[oidKey][key] = items[key];
     }
 
-    this.SpecificRid[oidKey] = null;
-    this.SpecificRid[oidKey] = new Enum(_spfRid[oidKey]);
+    DEFS.SpecificRid[oidKey] = null;
+    DEFS.SpecificRid[oidKey] = new Enum(_spfRid[oidKey]);
 
-    return this;
+    return DEFS;
 };
 
 DEFS.getSpecificResrcChar = function (oid, rid) {
-    var oidItem = this.getOid(oid),
-        ridItem = this.getRid(oid, rid),
+    var oidItem = DEFS.getOid(oid),
+        ridItem = DEFS.getRid(oid, rid),
         characteristic;
 
     if (!ridItem)
@@ -183,7 +183,7 @@ DEFS.getRdef = DEFS.getSpecificResrcChar;
 
 DEFS.addSpecificResrcChar = function (oid, chars) {
     var _rChar = DEFS._defs.specificResrcChar,
-        oidItem = this.getOid(oid),
+        oidItem = DEFS.getOid(oid),
         ridItem,
         pass = _checkCharFormat(chars);
 
@@ -194,7 +194,7 @@ DEFS.addSpecificResrcChar = function (oid, chars) {
     _rChar = _rChar[oidItem.key];
 
     for (var rid in chars) {
-        ridItem = this.getRid(oid, rid);
+        ridItem = DEFS.getRid(oid, rid);
         if (!ridItem)
             throw new Error('rid: ' + rid + ' does not exist. Please do addSpecificRid() first.');
 
@@ -208,7 +208,7 @@ DEFS.addSpecificResrcChar = function (oid, chars) {
         }
     }
 
-    return this;
+    return DEFS;
 };
 
 /*************************************************************************************************/

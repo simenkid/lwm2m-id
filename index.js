@@ -5,6 +5,7 @@ var fs = require('fs'),
     _defs = JSON.parse(fs.readFileSync(__dirname + '/defs/defs.json', { encoding: 'utf8' })),
     _specificRid = _defs.specificRid,
     DEFS = {
+        _Enum: Enum,
         _defs: _defs,
         RspCode: null,
         Cmd: null,

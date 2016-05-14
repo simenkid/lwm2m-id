@@ -65,7 +65,40 @@
         "pwrCtrl": 3312,
         "accelerometer": 3313,
         "magnetometer": 3314,
-        "barometer": 3315
+        "barometer": 3315,
+        "voltage": 3316,
+        "current": 3317,
+        "frequency": 3318,
+        "depth": 3319,
+        "percentage": 3320,
+        "altitude": 3321,
+        "load": 3322,
+        "pressure": 3323,
+        "loudness": 3324,
+        "concentration": 3325,
+        "acidity": 3326,
+        "conductivity": 3327,
+        "power": 3328,
+        "powerFactor": 3329,
+        "distance": 3330,
+        "energy": 3331,
+        "direction": 3332,
+        "time": 3333,
+        "gyrometer": 3334,
+        "color": 3335,
+        "gpsLocation": 3336,
+        "positioner": 3337,
+        "buzzer": 3338,
+        "audioClip": 3339,
+        "timer": 3340,
+        "addressableTextDisplay": 3341,
+        "onOffSwitch": 3342,
+        "levelControl": 3343,
+        "upDownControl": 3344,
+        "multipleAxisJoystick": 3345,
+        "rate": 3346,
+        "pushButton": 3347,
+        "multistateSelector": 3348
     },
     "uniqueRid": {
         "objectInstanceHandle": 4000,
@@ -76,6 +109,50 @@
         "debouncePeriod": 5503,
         "edgeSelection": 5504,
         "counterReset": 5505,
+        "currentTime": 5506,
+        "fracTime": 5507,
+        "minXValue": 5508,
+        "maxXValue": 5509,
+        "minYValue": 5510,
+        "maxYValue": 5511,
+        "minZValue": 5512,
+        // "maxZValue": 5513,  // conflict: latitude 5513
+        "latitude": 5513,
+        "longitude": 5514,
+        "altitude": 5515,
+        "uncertainty": 5516,
+        "velocity": 5517,
+        "timestamp": 5518,
+        "minLimit": 5519,
+        "maxLimit": 5520,
+        "timeDuration": 5521,
+        "clip": 5522,
+        "trigger": 5523,
+        "soundDuration": 5524,
+        "minOffTime": 5525,
+        "mode": 5526,
+        "text": 5527,
+        "xCoord": 5528,
+        "yCoord": 5529,
+        "clearDisplay": 5530,
+        "contrast": 5531,
+        "incInputState": 5532,
+        "decInputState": 5533,
+        "eventCounter": 5534,
+        "calOffset": 5535,
+        "currentPos": 5536,
+        "transTime": 5537,
+        "remainTime": 5538,
+        "displayMaxXCoord": 5539,
+        "displayMaxYCoord": 5540,
+        "upCounter": 5541,
+        "downCounter": 5542,
+        "digitalState": 5543,
+        "cumulTime": 5544,
+        "maxXCoord": 5545,
+        "maxYCoord": 5546,
+        "mStateIn": 5547,
+        "level": 5548,
         "dOutState": 5550,
         "dOutPolarity": 5551,
         "aInCurrValue": 5600,
@@ -120,7 +197,7 @@
         "onOff": 5850,
         "dimmer": 5851,
         "onTime": 5852,
-        "mStateOut": 5853,
+        "offTime": 5853,    // conflict: mStateOut@starter pack
         "setPointValue": 5900,
         "busyToClearDelay": 5903,
         "clearToBusyDelay": 5904,
@@ -382,6 +459,317 @@
             "minRangeValue": 5603,
             "maxRangeValue": 5604,
             "resetMinMaxMeaValues": 5605
+        },
+        "voltage": {
+            "sensorValue": 5700,
+            "units": 5701,
+            "minMeaValue": 5601,
+            "maxMeaValue": 5602,
+            "minRangeValue": 5603,
+            "maxRangeValue": 5604,
+            "resetMinMaxMeaValues": 5605,
+            "calOffset": 5535,
+            "appType": 5750
+        },
+        "current": {
+            "sensorValue": 5700,
+            "units": 5701,
+            "minMeaValue": 5601,
+            "maxMeaValue": 5602,
+            "minRangeValue": 5603,
+            "maxRangeValue": 5604,
+            "resetMinMaxMeaValues": 5605,
+            "calOffset": 5535,
+            "appType": 5750
+        },
+        "frequency": {
+            "sensorValue": 5700,
+            "units": 5701,
+            "minMeaValue": 5601,
+            "maxMeaValue": 5602,
+            "minRangeValue": 5603,
+            "maxRangeValue": 5604,
+            "resetMinMaxMeaValues": 5605,
+            "calOffset": 5535,
+            "appType": 5750
+        },
+        "depth": {
+            "sensorValue": 5700,
+            "units": 5701,
+            "minMeaValue": 5601,
+            "maxMeaValue": 5602,
+            "minRangeValue": 5603,
+            "maxRangeValue": 5604,
+            "resetMinMaxMeaValues": 5605,
+            "calOffset": 5535,
+            "appType": 5750
+        },
+        "percentage": {
+            "sensorValue": 5700,
+            "units": 5701,
+            "minMeaValue": 5601,
+            "maxMeaValue": 5602,
+            "minRangeValue": 5603,
+            "maxRangeValue": 5604,
+            "resetMinMaxMeaValues": 5605,
+            "calOffset": 5535,
+            "appType": 5750
+        },
+        "altitude": {
+            "sensorValue": 5700,
+            "units": 5701,
+            "minMeaValue": 5601,
+            "maxMeaValue": 5602,
+            "minRangeValue": 5603,
+            "maxRangeValue": 5604,
+            "resetMinMaxMeaValues": 5605,
+            "calOffset": 5535,
+            "appType": 5750
+        },
+        "load": {
+            "sensorValue": 5700,
+            "units": 5701,
+            "minMeaValue": 5601,
+            "maxMeaValue": 5602,
+            "minRangeValue": 5603,
+            "maxRangeValue": 5604,
+            "resetMinMaxMeaValues": 5605,
+            "calOffset": 5535,
+            "appType": 5750
+        },
+        "pressure": {
+            "sensorValue": 5700,
+            "units": 5701,
+            "minMeaValue": 5601,
+            "maxMeaValue": 5602,
+            "minRangeValue": 5603,
+            "maxRangeValue": 5604,
+            "resetMinMaxMeaValues": 5605,
+            "calOffset": 5535,
+            "appType": 5750
+        },
+        "loudness": {
+            "sensorValue": 5700,
+            "units": 5701,
+            "minMeaValue": 5601,
+            "maxMeaValue": 5602,
+            "minRangeValue": 5603,
+            "maxRangeValue": 5604,
+            "resetMinMaxMeaValues": 5605,
+            "calOffset": 5535,
+            "appType": 5750
+        },
+        "concentration": {
+            "sensorValue": 5700,
+            "units": 5701,
+            "minMeaValue": 5601,
+            "maxMeaValue": 5602,
+            "minRangeValue": 5603,
+            "maxRangeValue": 5604,
+            "resetMinMaxMeaValues": 5605,
+            "calOffset": 5535,
+            "appType": 5750
+        },
+        "acidity": {
+            "sensorValue": 5700,
+            "units": 5701,
+            "minMeaValue": 5601,
+            "maxMeaValue": 5602,
+            "minRangeValue": 5603,
+            "maxRangeValue": 5604,
+            "resetMinMaxMeaValues": 5605,
+            "calOffset": 5535,
+            "appType": 5750
+        },
+        "conductivity": {
+            "sensorValue": 5700,
+            "units": 5701,
+            "minMeaValue": 5601,
+            "maxMeaValue": 5602,
+            "minRangeValue": 5603,
+            "maxRangeValue": 5604,
+            "resetMinMaxMeaValues": 5605,
+            "calOffset": 5535,
+            "appType": 5750
+        },
+        "power": {
+            "sensorValue": 5700,
+            "units": 5701,
+            "minMeaValue": 5601,
+            "maxMeaValue": 5602,
+            "minRangeValue": 5603,
+            "maxRangeValue": 5604,
+            "resetMinMaxMeaValues": 5605,
+            "calOffset": 5535,
+            "appType": 5750
+        },
+        "powerFactor": {
+            "sensorValue": 5700,
+            "units": 5701,
+            "minMeaValue": 5601,
+            "maxMeaValue": 5602,
+            "minRangeValue": 5603,
+            "maxRangeValue": 5604,
+            "resetMinMaxMeaValues": 5605,
+            "calOffset": 5535,
+            "appType": 5750
+        },
+        "distance": {
+            "sensorValue": 5700,
+            "units": 5701,
+            "minMeaValue": 5601,
+            "maxMeaValue": 5602,
+            "minRangeValue": 5603,
+            "maxRangeValue": 5604,
+            "resetMinMaxMeaValues": 5605,
+            "calOffset": 5535,
+            "appType": 5750
+        },
+        "energy": {
+            "cumulActivePwr": 5805,
+            "units": 5701,
+            "resetCumulEnergy": 5822,
+            "appType": 5750
+        },
+        "direction": {
+            "compassDir": 5705,
+            "minMeaValue": 5601,
+            "maxMeaValue": 5602,
+            "resetMinMaxMeaValues": 5605,
+            "appType": 5750
+        },
+        "time": {
+            "currentTime": 5506,
+            "fracTime": 5507,
+            "appType": 5750
+        },
+        "gyrometer": {
+            "units": 5701,
+            "xValue": 5702,
+            "yValue": 5703,
+            "zValue": 5704,
+            "minRangeValue": 5603,
+            "maxRangeValue": 5604,
+            "minXValue": 5508,
+            "maxXValue": 5509,
+            "minYValue": 5510,
+            "maxYValue": 5511,
+            "minZValue": 5512,
+            "maxZValue": 5513,
+            "resetMinMaxMeaValues": 5605,
+            "appType": 5750
+        },
+        "color": {
+            "colour": 5706,
+            "units": 5701,
+            "appType": 5750
+        },
+        "gpsLocation": {
+            "latitude": 5513,
+            "longitude": 5514,
+            "altitude": 5515,
+            "uncertainty": 5516,
+            "compassDir": 5705,
+            "velocity": 5517,
+            "timestamp": 5518,
+            "appType": 5750
+        },
+        "positioner": {
+            "currentPos": 5536,
+            "transTime": 5537,
+            "remainTime": 5538,
+            "minMeaValue": 5601,
+            "maxMeaValue": 5602,
+            "resetMinMaxMeaValues": 5605,
+            "minLimit": 5519,
+            "maxLimit": 5520,
+            "appType": 5750
+        },
+        "buzzer": {
+            "onOff": 5850,
+            "level": 5548,
+            "timeDuration": 5521,
+            "minOffTime": 5525,
+            "appType": 5750
+        },
+        "audioClip": {
+            "clip": 5522,
+            "trigger": 5523,
+            "level": 5548,
+            "soundDuration": 5524,
+            "appType": 5750
+        },
+        "timer": {
+            "timeDuration": 5521,
+            "remainTime": 5538,
+            "minOffTime": 5525,
+            "trigger": 5523,
+            "onOff": 5850,
+            "counter": 5501,
+            "cumulTime": 5544,
+            "digitalState": 5543,
+            "eventCounter": 5534,
+            "mode": 5526,
+            "appType": 5750
+        },
+        "addressableTextDisplay": {
+            "text": 5527,
+            "xCoord": 5528,
+            "yCoord": 5529,
+            "maxXCoord": 5545,
+            "maxYCoord": 5546,
+            "clearDisplay": 5530,
+            "contrast": 5531,
+            "level": 5548,
+            "appType": 5750
+        },
+        "onOffSwitch": {
+            "dInState": 5500,
+            "counter": 5501,
+            "onTime": 5852,
+            "offTime": 5853,
+            "appType": 5750
+        },
+        "levelControl": {
+            "level": 5548,
+            "onTime": 5852,
+            "offTime": 5853,
+            "appType": 5750
+        },
+        "upDownControl": {
+            "incInputState": 5532,
+            "decInputState": 5533,
+            "upCounter": 5541,
+            "downCounter": 5542,
+            "appType": 5750
+        },
+        "multipleAxisJoystick": {
+            "dInState": 5500,
+            "counter": 5501,
+            "xValue": 5702,
+            "yValue": 5703,
+            "zValue": 5704,
+            "appType": 5750
+        },
+        "rate": {
+            "sensorValue": 5700,
+            "units": 5701,
+            "minMeaValue": 5601,
+            "maxMeaValue": 5602,
+            "minRangeValue": 5603,
+            "maxRangeValue": 5604,
+            "resetMinMaxMeaValues": 5605,
+            "calOffset": 5535,
+            "appType": 5750
+        },
+        "pushButton": {
+            "dInState": 5500,
+            "counter": 5501,
+            "appType": 5750
+        },
+        "multistateSelector": {
+            "mStateIn": 5547,
+            "appType": 5750
         }
     },
     "specificResrcChar": {
@@ -637,6 +1025,317 @@
             "minRangeValue": { "access": "R", "multi": false, "mand": false, "type": "float", "range": null, "init": 0 },
             "maxRangeValue": { "access": "R", "multi": false, "mand": false, "type": "float", "range": null, "init": 0 },
             "resetMinMaxMeaValues": { "access": "E", "multi": false, "mand": false, "type": "opaque", "range": null, "init": null }
+        },
+        "voltage": {
+            "sensorValue": { "access": "R", "multi": false, "mand": true, "type": "float", "range": null, "init": 0 },
+            "units": { "access": "R", "multi": false, "mand": false, "type": "string", "range": null, "init": "uint" },
+            "minMeaValue": { "access": "R", "multi": false, "mand": false, "type": "float", "range": null, "init": 0 },
+            "maxMeaValue": { "access": "R", "multi": false, "mand": false, "type": "float", "range": null, "init": 0 },
+            "minRangeValue": { "access": "R", "multi": false, "mand": false, "type": "float", "range": null, "init": 0 },
+            "maxRangeValue": { "access": "R", "multi": false, "mand": false, "type": "float", "range": null, "init": 0 },
+            "resetMinMaxMeaValues": { "access": "E", "multi": false, "mand": false, "type": "opaque", "range": null, "init": null },
+            "calOffset": { "access": "RW", "multi": false, "mand": false, "type": "float", "range": null, "init": null },
+            "appType": { "access": "RW", "multi": false, "mand": false, "type": "string", "range": null, "init": "voltage" }
+        },
+        "current": {
+            "sensorValue": { "access": "R", "multi": false, "mand": true, "type": "float", "range": null, "init": 0 },
+            "units": { "access": "R", "multi": false, "mand": false, "type": "string", "range": null, "init": "uint" },
+            "minMeaValue": { "access": "R", "multi": false, "mand": false, "type": "float", "range": null, "init": 0 },
+            "maxMeaValue": { "access": "R", "multi": false, "mand": false, "type": "float", "range": null, "init": 0 },
+            "minRangeValue": { "access": "R", "multi": false, "mand": false, "type": "float", "range": null, "init": 0 },
+            "maxRangeValue": { "access": "R", "multi": false, "mand": false, "type": "float", "range": null, "init": 0 },
+            "resetMinMaxMeaValues": { "access": "E", "multi": false, "mand": false, "type": "opaque", "range": null, "init": null },
+            "calOffset": { "access": "RW", "multi": false, "mand": false, "type": "float", "range": null, "init": null },
+            "appType": { "access": "RW", "multi": false, "mand": false, "type": "string", "range": null, "init": "current" }
+        },
+        "frequency": {
+            "sensorValue": { "access": "R", "multi": false, "mand": true, "type": "float", "range": null, "init": 0 },
+            "units": { "access": "R", "multi": false, "mand": false, "type": "string", "range": null, "init": "uint" },
+            "minMeaValue": { "access": "R", "multi": false, "mand": false, "type": "float", "range": null, "init": 0 },
+            "maxMeaValue": { "access": "R", "multi": false, "mand": false, "type": "float", "range": null, "init": 0 },
+            "minRangeValue": { "access": "R", "multi": false, "mand": false, "type": "float", "range": null, "init": 0 },
+            "maxRangeValue": { "access": "R", "multi": false, "mand": false, "type": "float", "range": null, "init": 0 },
+            "resetMinMaxMeaValues": { "access": "E", "multi": false, "mand": false, "type": "opaque", "range": null, "init": null },
+            "calOffset": { "access": "RW", "multi": false, "mand": false, "type": "float", "range": null, "init": null },
+            "appType": { "access": "RW", "multi": false, "mand": false, "type": "string", "range": null, "init": "frequency" }
+        },
+        "depth": {
+            "sensorValue": { "access": "R", "multi": false, "mand": true, "type": "float", "range": null, "init": 0 },
+            "units": { "access": "R", "multi": false, "mand": false, "type": "string", "range": null, "init": "uint" },
+            "minMeaValue": { "access": "R", "multi": false, "mand": false, "type": "float", "range": null, "init": 0 },
+            "maxMeaValue": { "access": "R", "multi": false, "mand": false, "type": "float", "range": null, "init": 0 },
+            "minRangeValue": { "access": "R", "multi": false, "mand": false, "type": "float", "range": null, "init": 0 },
+            "maxRangeValue": { "access": "R", "multi": false, "mand": false, "type": "float", "range": null, "init": 0 },
+            "resetMinMaxMeaValues": { "access": "E", "multi": false, "mand": false, "type": "opaque", "range": null, "init": null },
+            "calOffset": { "access": "RW", "multi": false, "mand": false, "type": "float", "range": null, "init": null },
+            "appType": { "access": "RW", "multi": false, "mand": false, "type": "string", "range": null, "init": "depth" }
+        },
+        "percentage": {
+            "sensorValue": { "access": "R", "multi": false, "mand": true, "type": "float", "range": null, "init": 0 },
+            "units": { "access": "R", "multi": false, "mand": false, "type": "string", "range": null, "init": "uint" },
+            "minMeaValue": { "access": "R", "multi": false, "mand": false, "type": "float", "range": null, "init": 0 },
+            "maxMeaValue": { "access": "R", "multi": false, "mand": false, "type": "float", "range": null, "init": 0 },
+            "minRangeValue": { "access": "R", "multi": false, "mand": false, "type": "float", "range": null, "init": 0 },
+            "maxRangeValue": { "access": "R", "multi": false, "mand": false, "type": "float", "range": null, "init": 0 },
+            "resetMinMaxMeaValues": { "access": "E", "multi": false, "mand": false, "type": "opaque", "range": null, "init": null },
+            "calOffset": { "access": "RW", "multi": false, "mand": false, "type": "float", "range": null, "init": null },
+            "appType": { "access": "RW", "multi": false, "mand": false, "type": "string", "range": null, "init": "percentage" }
+        },
+        "altitude": {
+            "sensorValue": { "access": "R", "multi": false, "mand": true, "type": "float", "range": null, "init": 0 },
+            "units": { "access": "R", "multi": false, "mand": false, "type": "string", "range": null, "init": "uint" },
+            "minMeaValue": { "access": "R", "multi": false, "mand": false, "type": "float", "range": null, "init": 0 },
+            "maxMeaValue": { "access": "R", "multi": false, "mand": false, "type": "float", "range": null, "init": 0 },
+            "minRangeValue": { "access": "R", "multi": false, "mand": false, "type": "float", "range": null, "init": 0 },
+            "maxRangeValue": { "access": "R", "multi": false, "mand": false, "type": "float", "range": null, "init": 0 },
+            "resetMinMaxMeaValues": { "access": "E", "multi": false, "mand": false, "type": "opaque", "range": null, "init": null },
+            "calOffset": { "access": "RW", "multi": false, "mand": false, "type": "float", "range": null, "init": null },
+            "appType": { "access": "RW", "multi": false, "mand": false, "type": "string", "range": null, "init": "altitude" }
+        },
+        "load": {
+            "sensorValue": { "access": "R", "multi": false, "mand": true, "type": "float", "range": null, "init": 0 },
+            "units": { "access": "R", "multi": false, "mand": false, "type": "string", "range": null, "init": "uint" },
+            "minMeaValue": { "access": "R", "multi": false, "mand": false, "type": "float", "range": null, "init": 0 },
+            "maxMeaValue": { "access": "R", "multi": false, "mand": false, "type": "float", "range": null, "init": 0 },
+            "minRangeValue": { "access": "R", "multi": false, "mand": false, "type": "float", "range": null, "init": 0 },
+            "maxRangeValue": { "access": "R", "multi": false, "mand": false, "type": "float", "range": null, "init": 0 },
+            "resetMinMaxMeaValues": { "access": "E", "multi": false, "mand": false, "type": "opaque", "range": null, "init": null },
+            "calOffset": { "access": "RW", "multi": false, "mand": false, "type": "float", "range": null, "init": null },
+            "appType": { "access": "RW", "multi": false, "mand": false, "type": "string", "range": null, "init": "load" }
+        },
+        "pressure": {
+            "sensorValue": { "access": "R", "multi": false, "mand": true, "type": "float", "range": null, "init": 0 },
+            "units": { "access": "R", "multi": false, "mand": false, "type": "string", "range": null, "init": "uint" },
+            "minMeaValue": { "access": "R", "multi": false, "mand": false, "type": "float", "range": null, "init": 0 },
+            "maxMeaValue": { "access": "R", "multi": false, "mand": false, "type": "float", "range": null, "init": 0 },
+            "minRangeValue": { "access": "R", "multi": false, "mand": false, "type": "float", "range": null, "init": 0 },
+            "maxRangeValue": { "access": "R", "multi": false, "mand": false, "type": "float", "range": null, "init": 0 },
+            "resetMinMaxMeaValues": { "access": "E", "multi": false, "mand": false, "type": "opaque", "range": null, "init": null },
+            "calOffset": { "access": "RW", "multi": false, "mand": false, "type": "float", "range": null, "init": null },
+            "appType": { "access": "RW", "multi": false, "mand": false, "type": "string", "range": null, "init": "pressure" }
+        },
+        "loudness": {
+            "sensorValue": { "access": "R", "multi": false, "mand": true, "type": "float", "range": null, "init": 0 },
+            "units": { "access": "R", "multi": false, "mand": false, "type": "string", "range": null, "init": "uint" },
+            "minMeaValue": { "access": "R", "multi": false, "mand": false, "type": "float", "range": null, "init": 0 },
+            "maxMeaValue": { "access": "R", "multi": false, "mand": false, "type": "float", "range": null, "init": 0 },
+            "minRangeValue": { "access": "R", "multi": false, "mand": false, "type": "float", "range": null, "init": 0 },
+            "maxRangeValue": { "access": "R", "multi": false, "mand": false, "type": "float", "range": null, "init": 0 },
+            "resetMinMaxMeaValues": { "access": "E", "multi": false, "mand": false, "type": "opaque", "range": null, "init": null },
+            "calOffset": { "access": "RW", "multi": false, "mand": false, "type": "float", "range": null, "init": null },
+            "appType": { "access": "RW", "multi": false, "mand": false, "type": "string", "range": null, "init": "loudness" }
+        },
+        "concentration": {
+            "sensorValue": { "access": "R", "multi": false, "mand": true, "type": "float", "range": null, "init": 0 },
+            "units": { "access": "R", "multi": false, "mand": false, "type": "string", "range": null, "init": "uint" },
+            "minMeaValue": { "access": "R", "multi": false, "mand": false, "type": "float", "range": null, "init": 0 },
+            "maxMeaValue": { "access": "R", "multi": false, "mand": false, "type": "float", "range": null, "init": 0 },
+            "minRangeValue": { "access": "R", "multi": false, "mand": false, "type": "float", "range": null, "init": 0 },
+            "maxRangeValue": { "access": "R", "multi": false, "mand": false, "type": "float", "range": null, "init": 0 },
+            "resetMinMaxMeaValues": { "access": "E", "multi": false, "mand": false, "type": "opaque", "range": null, "init": null },
+            "calOffset": { "access": "RW", "multi": false, "mand": false, "type": "float", "range": null, "init": null },
+            "appType": { "access": "RW", "multi": false, "mand": false, "type": "string", "range": null, "init": "concentration" }
+        },
+        "acidity": {
+            "sensorValue": { "access": "R", "multi": false, "mand": true, "type": "float", "range": null, "init": 0 },
+            "units": { "access": "R", "multi": false, "mand": false, "type": "string", "range": null, "init": "uint" },
+            "minMeaValue": { "access": "R", "multi": false, "mand": false, "type": "float", "range": null, "init": 0 },
+            "maxMeaValue": { "access": "R", "multi": false, "mand": false, "type": "float", "range": null, "init": 0 },
+            "minRangeValue": { "access": "R", "multi": false, "mand": false, "type": "float", "range": null, "init": 0 },
+            "maxRangeValue": { "access": "R", "multi": false, "mand": false, "type": "float", "range": null, "init": 0 },
+            "resetMinMaxMeaValues": { "access": "E", "multi": false, "mand": false, "type": "opaque", "range": null, "init": null },
+            "calOffset": { "access": "RW", "multi": false, "mand": false, "type": "float", "range": null, "init": null },
+            "appType": { "access": "RW", "multi": false, "mand": false, "type": "string", "range": null, "init": "acidity" }
+        },
+        "conductivity": {
+            "sensorValue": { "access": "R", "multi": false, "mand": true, "type": "float", "range": null, "init": 0 },
+            "units": { "access": "R", "multi": false, "mand": false, "type": "string", "range": null, "init": "uint" },
+            "minMeaValue": { "access": "R", "multi": false, "mand": false, "type": "float", "range": null, "init": 0 },
+            "maxMeaValue": { "access": "R", "multi": false, "mand": false, "type": "float", "range": null, "init": 0 },
+            "minRangeValue": { "access": "R", "multi": false, "mand": false, "type": "float", "range": null, "init": 0 },
+            "maxRangeValue": { "access": "R", "multi": false, "mand": false, "type": "float", "range": null, "init": 0 },
+            "resetMinMaxMeaValues": { "access": "E", "multi": false, "mand": false, "type": "opaque", "range": null, "init": null },
+            "calOffset": { "access": "RW", "multi": false, "mand": false, "type": "float", "range": null, "init": null },
+            "appType": { "access": "RW", "multi": false, "mand": false, "type": "string", "range": null, "init": "conductivity" }
+        },
+        "power": {
+            "sensorValue": { "access": "R", "multi": false, "mand": true, "type": "float", "range": null, "init": 0 },
+            "units": { "access": "R", "multi": false, "mand": false, "type": "string", "range": null, "init": "uint" },
+            "minMeaValue": { "access": "R", "multi": false, "mand": false, "type": "float", "range": null, "init": 0 },
+            "maxMeaValue": { "access": "R", "multi": false, "mand": false, "type": "float", "range": null, "init": 0 },
+            "minRangeValue": { "access": "R", "multi": false, "mand": false, "type": "float", "range": null, "init": 0 },
+            "maxRangeValue": { "access": "R", "multi": false, "mand": false, "type": "float", "range": null, "init": 0 },
+            "resetMinMaxMeaValues": { "access": "E", "multi": false, "mand": false, "type": "opaque", "range": null, "init": null },
+            "calOffset": { "access": "RW", "multi": false, "mand": false, "type": "float", "range": null, "init": null },
+            "appType": { "access": "RW", "multi": false, "mand": false, "type": "string", "range": null, "init": "power" }
+        },
+        "powerFactor": {
+            "sensorValue": { "access": "R", "multi": false, "mand": true, "type": "float", "range": null, "init": 0 },
+            "units": { "access": "R", "multi": false, "mand": false, "type": "string", "range": null, "init": "uint" },
+            "minMeaValue": { "access": "R", "multi": false, "mand": false, "type": "float", "range": null, "init": 0 },
+            "maxMeaValue": { "access": "R", "multi": false, "mand": false, "type": "float", "range": null, "init": 0 },
+            "minRangeValue": { "access": "R", "multi": false, "mand": false, "type": "float", "range": null, "init": 0 },
+            "maxRangeValue": { "access": "R", "multi": false, "mand": false, "type": "float", "range": null, "init": 0 },
+            "resetMinMaxMeaValues": { "access": "E", "multi": false, "mand": false, "type": "opaque", "range": null, "init": null },
+            "calOffset": { "access": "RW", "multi": false, "mand": false, "type": "float", "range": null, "init": null },
+            "appType": { "access": "RW", "multi": false, "mand": false, "type": "string", "range": null, "init": "powerFactor" }
+        },
+        "distance": {
+            "sensorValue": { "access": "R", "multi": false, "mand": true, "type": "float", "range": null, "init": 0 },
+            "units": { "access": "R", "multi": false, "mand": false, "type": "string", "range": null, "init": "uint" },
+            "minMeaValue": { "access": "R", "multi": false, "mand": false, "type": "float", "range": null, "init": 0 },
+            "maxMeaValue": { "access": "R", "multi": false, "mand": false, "type": "float", "range": null, "init": 0 },
+            "minRangeValue": { "access": "R", "multi": false, "mand": false, "type": "float", "range": null, "init": 0 },
+            "maxRangeValue": { "access": "R", "multi": false, "mand": false, "type": "float", "range": null, "init": 0 },
+            "resetMinMaxMeaValues": { "access": "E", "multi": false, "mand": false, "type": "opaque", "range": null, "init": null },
+            "calOffset": { "access": "RW", "multi": false, "mand": false, "type": "float", "range": null, "init": null },
+            "appType": { "access": "RW", "multi": false, "mand": false, "type": "string", "range": null, "init": "distance" }
+        },
+        "energy": {
+            "cumulActivePwr": { "access": "R", "multi": false, "mand": true, "type": "float", "range": null, "init": 0 },
+            "units": { "access": "R", "multi": false, "mand": false, "type": "string", "range": null, "init": "uint" },
+            "resetCumulEnergy": { "access": "E", "multi": false, "mand": false, "type": "opaque", "range": null, "init": null },
+            "appType": { "access": "RW", "multi": false, "mand": false, "type": "string", "range": null, "init": "energy" }
+        },
+        "direction": {
+            "compassDir": { "access": "R", "multi": false, "mand": true, "type": "float", "range": 360, "init": 0 },
+            "minMeaValue": { "access": "R", "multi": false, "mand": false, "type": "float", "range": null, "init": 0 },
+            "maxMeaValue": { "access": "R", "multi": false, "mand": false, "type": "float", "range": null, "init": 0 },
+            "resetMinMaxMeaValues": { "access": "E", "multi": false, "mand": false, "type": "opaque", "range": null, "init": null },
+            "appType": { "access": "RW", "multi": false, "mand": false, "type": "string", "range": null, "init": "direction" }
+        },
+        "time": {
+            "currentTime": { "access": "RW", "multi": false, "mand": true, "type": "time", "range": null, "init": 0 },
+            "fracTime": { "access": "RW", "multi": false, "mand": false, "type": "float", "range": 1, "init": 0 },
+            "appType": { "access": "RW", "multi": false, "mand": false, "type": "string", "range": null, "init": "time" }
+        },
+        "gyrometer": {
+            "xValue": { "access": "R", "multi": false, "mand": true, "type": "float", "range": null, "init": 0 },
+            "yValue": { "access": "R", "multi": false, "mand": false, "type": "float", "range": null, "init": 0 },
+            "zValue": { "access": "R", "multi": false, "mand": false, "type": "float", "range": null, "init": 0 },
+            "units": { "access": "R", "multi": false, "mand": false, "type": "string", "range": null, "init": "uint" },
+            "minRangeValue": { "access": "R", "multi": false, "mand": false, "type": "float", "range": null, "init": 0 },
+            "maxRangeValue": { "access": "R", "multi": false, "mand": false, "type": "float", "range": null, "init": 0 },
+            "minXValue": { "access": "R", "multi": false, "mand": false, "type": "float", "range": null, "init": 0 },
+            "maxXValue": { "access": "R", "multi": false, "mand": false, "type": "float", "range": null, "init": 0 },
+            "minYValue": { "access": "R", "multi": false, "mand": false, "type": "float", "range": null, "init": 0 },
+            "maxYValue": { "access": "R", "multi": false, "mand": false, "type": "float", "range": null, "init": 0 },
+            "minZValue": { "access": "R", "multi": false, "mand": false, "type": "float", "range": null, "init": 0 },
+            "maxZValue": { "access": "R", "multi": false, "mand": false, "type": "float", "range": null, "init": 0 },
+            "resetMinMaxMeaValues": { "access": "E", "multi": false, "mand": false, "type": "opaque", "range": null, "init": null },
+            "appType": { "access": "RW", "multi": false, "mand": false, "type": "string", "range": null, "init": "gyrometer" }
+        },
+        "color": {
+            "colour": { "access": "RW", "multi": false, "mand": false, "type": "string", "range": 100, "init": "#fff" },
+            "units": { "access": "R", "multi": false, "mand": false, "type": "string", "range": null, "init": "uint" },
+            "appType": { "access": "RW", "multi": false, "mand": true, "type": "string", "range": null, "init": "color" }
+        },
+        "gpsLocation": {
+            "latitude": { "access": "R", "multi": false, "mand": true, "type": "string", "range": null, "init": "0.00" },
+            "longitude": { "access": "R", "multi": false, "mand": true, "type": "string", "range": null, "init": "0.00" },
+            "altitude": { "access": "R", "multi": false, "mand": false, "type": "string", "range": null, "init": "0.00" },
+            "uncertainty": { "access": "R", "multi": false, "mand": false, "type": "string", "range": null, "init": "0.00" },
+            "compassDir": { "access": "R", "multi": false, "mand": false, "type": "float", "range": 360, "init": 0 },
+            "velocity": { "access": "R", "multi": false, "mand": false, "type": "opaque", "range": null, "init": 0 },
+            "timestamp": { "access": "R", "multi": false, "mand": false, "type": "time", "range": null, "init": 0 },
+            "appType": { "access": "RW", "multi": false, "mand": false, "type": "string", "range": null, "init": "gpsLocation" }
+        },
+        "positioner": {
+            "currentPos": { "access": "RW", "multi": false, "mand": true, "type": "float", "range": 100, "init": 0 },
+            "transTime": { "access": "RW", "multi": false, "mand": false, "type": "float", "range": null, "init": 0 },
+            "remainTime": { "access": "R", "multi": false, "mand": false, "type": "float", "range": null, "init": 0 },
+            "minMeaValue": { "access": "R", "multi": false, "mand": false, "type": "float", "range": null, "init": 0 },
+            "maxMeaValue": { "access": "R", "multi": false, "mand": false, "type": "float", "range": null, "init": 0 },
+            "resetMinMaxMeaValues": { "access": "E", "multi": false, "mand": false, "type": "opaque", "range": null, "init": null },
+            "minLimit": { "access": "R", "multi": false, "mand": false, "type": "float", "range": null, "init": 0 },
+            "maxLimit": { "access": "R", "multi": false, "mand": false, "type": "float", "range": null, "init": 0 },
+            "appType": { "access": "RW", "multi": false, "mand": false, "type": "string", "range": null, "init": "positioner" }
+        },
+        "buzzer": {
+            "onOff": { "access": "RW", "multi": false, "mand": true, "type": "boolean", "range": null, "init": false },
+            "level": { "access": "RW", "multi": false, "mand": false, "type": "float", "range": 100, "init": 0 },
+            "timeDuration": { "access": "RW", "multi": false, "mand": false, "type": "float", "range": null, "init": 0 },
+            "minOffTime": { "access": "RW", "multi": false, "mand": true, "type": "float", "range": null, "init": 0 },
+            "appType": { "access": "RW", "multi": false, "mand": false, "type": "string", "range": null, "init": "buzzer" }
+        },
+        "audioClip": {
+            "clip": { "access": "RW", "multi": false, "mand": true, "type": "opaque", "range": null, "init": null },
+            "trigger": { "access": "E", "multi": false, "mand": false, "type": "opaque", "range": null, "init": null },
+            "level": { "access": "RW", "multi": false, "mand": false, "type": "float", "range": 100, "init": 0 },
+            "soundDuration": { "access": "RW", "multi": false, "mand": false, "type": "float", "range": null, "init": 0 },
+            "appType": { "access": "RW", "multi": false, "mand": false, "type": "string", "range": null, "init": "audioClip" }
+        },
+        "timer": {
+            "timeDuration": { "access": "RW", "multi": false, "mand": true, "type": "float", "range": null, "init": 0 },
+            "remainTime": { "access": "R", "multi": false, "mand": false, "type": "float", "range": null, "init": 0 },
+            "minOffTime": { "access": "RW", "multi": false, "mand": false, "type": "float", "range": null, "init": 0 },
+            "trigger": { "access": "E", "multi": false, "mand": false, "type": "opaque", "range": null, "init": null },
+            "onOff": { "access": "RW", "multi": false, "mand": false, "type": "boolean", "range": null, "init": false },
+            "counter": { "access": "R", "multi": false, "mand": false, "type": "interger", "range": null, "init": 0 },
+            "cumulTime": { "access": "RW", "multi": false, "mand": false, "type": "float", "range": null, "init": 0 },
+            "digitalState": { "access": "R", "multi": false, "mand": false, "type": "boolean", "range": null, "init": false },
+            "eventCounter": { "access": "RW", "multi": false, "mand": false, "type": "interger", "range": null, "init": 0 },
+            "mode": { "access": "RW", "multi": false, "mand": false, "type": "interger", "range": 4, "init": 0 },
+            "appType": { "access": "RW", "multi": false, "mand": false, "type": "string", "range": null, "init": "timer" }
+        },
+        "addressableTextDisplay": {
+            "text": { "access": "RW", "multi": false, "mand": true, "type": "string", "range": null, "init": "defaut text" },
+            "xCoord": { "access": "RW", "multi": false, "mand": false, "type": "interger", "range": null, "init": 0 },
+            "yCoord": { "access": "RW", "multi": false, "mand": false, "type": "interger", "range": null, "init": 0 },
+            "maxXCoord": { "access": "R", "multi": false, "mand": false, "type": "interger", "range": null, "init": 0 },
+            "maxYCoord": { "access": "R", "multi": false, "mand": false, "type": "interger", "range": null, "init": 0 },
+            "clearDisplay": { "access": "E", "multi": false, "mand": false, "type": "opaque", "range": null, "init": null },
+            "contrast": { "access": "RW", "multi": false, "mand": false, "type": "float", "range": 100, "init": 0 },
+            "level": { "access": "RW", "multi": false, "mand": false, "type": "float", "range": 100, "init": 0 },
+            "appType": { "access": "RW", "multi": false, "mand": false, "type": "string", "range": null, "init": "addressableTextDisplay" }
+        },
+        "onOffSwitch": {
+            "dInState": { "access": "R", "multi": false, "mand": true, "type": "boolean", "range": null, "init": false },
+            "counter": { "access": "R", "multi": false, "mand": false, "type": "interger", "range": null, "init": 0 },
+            "onTime": { "access": "RW", "multi": false, "mand": false, "type": "interger", "range": null, "init": 0 },
+            "offTime": { "access": "RW", "multi": false, "mand": false, "type": "interger", "range": null, "init": 0 },
+            "appType": { "access": "RW", "multi": false, "mand": false, "type": "string", "range": null, "init": "onOffSwitch" }
+        },
+        "levelControl": {
+            "level": { "access": "RW", "multi": false, "mand": true, "type": "float", "range": 100, "init": 0 },
+            "onTime": { "access": "RW", "multi": false, "mand": false, "type": "interger", "range": null, "init": 0 },
+            "offTime": { "access": "RW", "multi": false, "mand": false, "type": "interger", "range": null, "init": 0 },
+            "appType": { "access": "RW", "multi": false, "mand": false, "type": "string", "range": null, "init": "levelControl" }
+        },
+        "upDownControl": {
+            "incInputState": { "access": "R", "multi": false, "mand": true, "type": "boolean", "range": null, "init": false },
+            "decInputState": { "access": "R", "multi": false, "mand": true, "type": "boolean", "range": null, "init": false },
+            "upCounter": { "access": "RW", "multi": false, "mand": false, "type": "interger", "range": null, "init": 0 },
+            "downCounter": { "access": "RW", "multi": false, "mand": false, "type": "interger", "range": null, "init": 0 },
+            "appType": { "access": "RW", "multi": false, "mand": false, "type": "string", "range": null, "init": "upDownControl" }
+        },
+        "multipleAxisJoystick": {
+            "dInState": { "access": "R", "multi": false, "mand": true, "type": "boolean", "range": null, "init": false },
+            "counter": { "access": "R", "multi": false, "mand": false, "type": "interger", "range": null, "init": 0 },
+            "xValue": { "access": "R", "multi": false, "mand": false, "type": "float", "range": 100, "init": 0 },
+            "yValue": { "access": "R", "multi": false, "mand": false, "type": "float", "range": 100, "init": 0 },
+            "zValue": { "access": "R", "multi": false, "mand": false, "type": "float", "range": 100, "init": 0 },
+            "appType": { "access": "RW", "multi": false, "mand": false, "type": "string", "range": null, "init": "multipleAxisJoystick" }
+        },
+        "rate": {
+            "sensorValue": { "access": "R", "multi": false, "mand": true, "type": "float", "range": null, "init": 0 },
+            "units": { "access": "R", "multi": false, "mand": false, "type": "string", "range": null, "init": "uint" },
+            "minMeaValue": { "access": "R", "multi": false, "mand": false, "type": "float", "range": null, "init": 0 },
+            "maxMeaValue": { "access": "R", "multi": false, "mand": false, "type": "float", "range": null, "init": 0 },
+            "minRangeValue": { "access": "R", "multi": false, "mand": false, "type": "float", "range": null, "init": 0 },
+            "maxRangeValue": { "access": "R", "multi": false, "mand": false, "type": "float", "range": null, "init": 0 },
+            "resetMinMaxMeaValues": { "access": "E", "multi": false, "mand": false, "type": "opaque", "range": null, "init": null },
+            "calOffset": { "access": "RW", "multi": false, "mand": false, "type": "float", "range": null, "init": null },
+            "appType": { "access": "RW", "multi": false, "mand": false, "type": "string", "range": null, "init": "rate" }
+        },
+        "pushButton": {
+            "dInState": { "access": "R", "multi": false, "mand": true, "type": "boolean", "range": null, "init": false },
+            "counter": { "access": "R", "multi": false, "mand": false, "type": "interger", "range": null, "init": 0 },
+            "appType": { "access": "RW", "multi": false, "mand": false, "type": "string", "range": null, "init": "pushButton" }
+        },
+        "multistateSelector": {
+            "mStateIn": { "access": "R", "multi": false, "mand": true, "type": "interger", "range": null, "init": 0 },
+            "appType": { "access": "RW", "multi": false, "mand": false, "type": "string", "range": null, "init": "multistateSelector" }
         }
     }
 }

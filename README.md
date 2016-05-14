@@ -8,12 +8,13 @@ lwm2m-id
 3. [Usage](#Usage)
 4. [APIs](#APIs)  
 6. [Table of Identifiers](#Identifiers) 
+
 <br />
 
 <a name="Overiew"></a>  
 ## 1. Overview  
 
-**lwm2m-id** is a dictionary of identifiers defined by [OMA LightweightM2M(v1.0)](http://technical.openmobilealliance.org/Technical/technical-information/release-program/current-releases/oma-lightweightm2m-v1-0) and IPSO SmartObject Guideline([Smart Objects Starter Pack1.0](http://www.ipso-alliance.org/smart-object-guidelines/)). Please visit their websites for more information.  
+**lwm2m-id** is a dictionary of identifiers defined by [OMA LightweightM2M(v1.0)](http://technical.openmobilealliance.org/Technical/technical-information/release-program/current-releases/oma-lightweightm2m-v1-0), IPSO SmartObject Guideline([Smart Objects Starter Pack1.0](http://www.ipso-alliance.org/smart-object-guidelines/) and [Smart Objects Expansion Pack](http://www.ipso-alliance.org/so-expansion-pack/)). Please visit their websites for more information.  
   
 <a name="Installation"></a>
 ## 2. Installation

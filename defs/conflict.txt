@@ -1,0 +1,8 @@
+    "uniqueRid": {
+        ...
+        "maxYValue": 5511,
+        "minZValue": 5512,
+        // "maxZValue": 5513,  // conflict: latitude 5513
+        ...
+        "offTime": 5853,    // conflict: mStateOut@starter pack
+        "setPointValue": 5900,

@@ -116,7 +116,6 @@
         "minYValue": 5510,
         "maxYValue": 5511,
         "minZValue": 5512,
-        // "maxZValue": 5513,  // conflict: latitude 5513
         "latitude": 5513,
         "longitude": 5514,
         "altitude": 5515,
@@ -197,7 +196,7 @@
         "onOff": 5850,
         "dimmer": 5851,
         "onTime": 5852,
-        "offTime": 5853,    // conflict: mStateOut@starter pack
+        "offTime": 5853,
         "setPointValue": 5900,
         "busyToClearDelay": 5903,
         "clearToBusyDelay": 5904,

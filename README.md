@@ -156,7 +156,7 @@ lwm2mid.getRid('5750');                        // { key: 'appType', value: 5750 
 |        access         | Access control           | 'R', 'W', 'RW', 'E', null (cannot access) |  
 |        multi          | Allow multiple instances | true, false               |  
 |        mand           | Mandatory                | true, false               |  
-|        type*          | Resource value data type | 'boolean', interger', 'float', string', 'time', execute', 'opaque' |  
+|        type*          | Resource value data type | 'boolean', integer', 'float', string', 'time', execute', 'opaque' |  
 |        range          | Limit of Resource value  | A number, null if no limit. |  
   
 \* Please refer to **Appendix C. Data Types** in OMA LightweightM2M(v1.0) specification for details.

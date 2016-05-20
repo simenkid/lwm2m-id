@@ -775,33 +775,33 @@
         "lwm2mSecurity": {
             "lwm2mServerURI": { "access": null, "multi": false, "mand": true, "type": "string", "range": 255, "init": "" },
             "bootstrapServer": { "access": null, "multi": false, "mand": true, "type": "boolean", "range": null, "init": false },
-            "securityMode": { "access": null, "multi": false, "mand": true, "type": "interger", "range": 3, "init": false },
+            "securityMode": { "access": null, "multi": false, "mand": true, "type": "integer", "range": 3, "init": false },
             "pubKeyId": { "access": null, "multi": false, "mand": true, "type": "opaque", "range": null, "init": 0 },
             "serverPubKeyId": { "access": null, "multi": false, "mand": true, "type": "opaque", "range": null, "init": 0 },
             "secretKey": { "access": null, "multi": false, "mand": true, "type": "opaque", "range": null, "init": 0 },
-            "smsSecurityMode": { "access": null, "multi": false, "mand": false, "type": "interger", "range": 255, "init": 3 },
+            "smsSecurityMode": { "access": null, "multi": false, "mand": false, "type": "integer", "range": 255, "init": 3 },
             "smsBindingKeyParam": { "access": null, "multi": false, "mand": false, "type": "opaque", "range": 6, "init": 0 },
             "smsBindingSecretKey": { "access": null, "multi": false, "mand": false, "type": "opaque", "range": 48, "init": 0 },
-            "lwm2mServerSmsNum": { "access": null, "multi": false, "mand": false, "type": "interger", "range": null, "init": 0 },
-            "shortServerId": { "access": null, "multi": false, "mand": false, "type": "interger", "range": 65535, "init": 1 },
-            "clientHoldOffTime": { "access": null, "multi": false, "mand": false, "type": "interger", "range": null, "init": 0 }
+            "lwm2mServerSmsNum": { "access": null, "multi": false, "mand": false, "type": "integer", "range": null, "init": 0 },
+            "shortServerId": { "access": null, "multi": false, "mand": false, "type": "integer", "range": 65535, "init": 1 },
+            "clientHoldOffTime": { "access": null, "multi": false, "mand": false, "type": "integer", "range": null, "init": 0 }
         },
         "lwm2mServer": {
-            "shortServerId": { "access": "R", "multi": false, "mand": true, "type": "interger", "range": 65535, "init": 1 },
-            "lifetime": { "access": "RW", "multi": false, "mand": true, "type": "interger", "range": null, "init": 86400 },
-            "defaultMinPeriod": { "access": "RW", "multi": false, "mand": false, "type": "interger", "range": null, "init": 1 },
-            "defaultMaxPeriod": { "access": "RW", "multi": false, "mand": false, "type": "interger", "range": null, "init": 60 },
+            "shortServerId": { "access": "R", "multi": false, "mand": true, "type": "integer", "range": 65535, "init": 1 },
+            "lifetime": { "access": "RW", "multi": false, "mand": true, "type": "integer", "range": null, "init": 86400 },
+            "defaultMinPeriod": { "access": "RW", "multi": false, "mand": false, "type": "integer", "range": null, "init": 1 },
+            "defaultMaxPeriod": { "access": "RW", "multi": false, "mand": false, "type": "integer", "range": null, "init": 60 },
             "disable": { "access": "E", "multi": false, "mand": false, "type": "execute", "range": null, "init": null },
-            "disableTimeout": { "access": "RW", "multi": false, "mand": false, "type": "interger", "range": null, "init": 86400 },
+            "disableTimeout": { "access": "RW", "multi": false, "mand": false, "type": "integer", "range": null, "init": 86400 },
             "notificationStoring": { "access": "RW", "multi": false, "mand": true, "type": "boolean", "range": null, "init": true },
             "binding": { "access": "RW", "multi": false, "mand": true, "type": "string", "range": null, "init": "TCP" },
             "regUpdateTrigger": { "access": "E", "multi": false, "mand": true, "type": "execute", "range": null, "init": null }
         },
         "accessCtrl": {
-            "objectId": { "access": "R", "multi": false, "mand": true, "type": "interger", "range": 65534, "init": 1 },
-            "objectInstanceId": { "access": "R", "multi": false, "mand": true, "type": "interger", "range": 65535, "init": 0 },
-            "ACL": { "access": "RW", "multi": true, "mand": false, "type": "interger", "range": 65535, "init": 0 },
-            "ACLOwner": { "access": "RW", "multi": false, "mand": true, "type": "interger", "range": 65535, "init": 0 }
+            "objectId": { "access": "R", "multi": false, "mand": true, "type": "integer", "range": 65534, "init": 1 },
+            "objectInstanceId": { "access": "R", "multi": false, "mand": true, "type": "integer", "range": 65535, "init": 0 },
+            "ACL": { "access": "RW", "multi": true, "mand": false, "type": "integer", "range": 65535, "init": 0 },
+            "ACLOwner": { "access": "RW", "multi": false, "mand": true, "type": "integer", "range": 65535, "init": 0 }
         },
         "device": {
             "manuf": { "access": "R", "multi": false, "mand": false, "type": "string", "range": null, "init": "freebird" },
@@ -810,12 +810,12 @@
             "firmware": { "access": "R", "multi": false, "mand": false, "type": "string", "range": null, "init": "0.0.1" },
             "reboot": { "access": "E", "multi": false, "mand": true, "type": "execute", "range": null, "init": null },
             "factoryReset": { "access": "E", "multi": false, "mand": false, "type": "execute", "range": null, "init": null },
-            "availPwrSrc": { "access": "R", "multi": true, "mand": false, "type": "interger", "range": 7, "init": 0 },
-            "pwrSrcVoltage": { "access": "R", "multi": true, "mand": false, "type": "interger", "range": null, "init": 3300 },
-            "pwrSrcCurrent": { "access": "R", "multi": true, "mand": false, "type": "interger", "range": null, "init": 0 },
-            "battLevel": { "access": "R", "multi": false, "mand": false, "type": "interger", "range": 100, "init": 100 },
-            "memFree": { "access": "R", "multi": false, "mand": false, "type": "interger", "range": null, "init": 0 },
-            "errCode": { "access": "R", "multi": true, "mand": true, "type": "interger", "range": 8, "init": 0 },
+            "availPwrSrc": { "access": "R", "multi": true, "mand": false, "type": "integer", "range": 7, "init": 0 },
+            "pwrSrcVoltage": { "access": "R", "multi": true, "mand": false, "type": "integer", "range": null, "init": 3300 },
+            "pwrSrcCurrent": { "access": "R", "multi": true, "mand": false, "type": "integer", "range": null, "init": 0 },
+            "battLevel": { "access": "R", "multi": false, "mand": false, "type": "integer", "range": 100, "init": 100 },
+            "memFree": { "access": "R", "multi": false, "mand": false, "type": "integer", "range": null, "init": 0 },
+            "errCode": { "access": "R", "multi": true, "mand": true, "type": "integer", "range": 8, "init": 0 },
             "resetErrCode": { "access": "E", "multi": true, "mand": false, "type": "execute", "range": null, "init": null },
             "currTime": { "access": "RW", "multi": false, "mand": false, "type": "time", "range": null, "init": 0 },
             "UTCOffset": { "access": "RW", "multi": false, "mand": false, "type": "string", "range": null, "init": "UTC+08:00" },
@@ -824,29 +824,29 @@
             "devType": { "access": "R", "multi": false, "mand": false, "type": "string", "range": null, "init": "mqtt-smarthing" },
             "hwVer": { "access": "R", "multi": false, "mand": false, "type": "string", "range": null, "init": "0.0.1" },
             "swVer": { "access": "R", "multi": false, "mand": false, "type": "string", "range": null, "init": "0.0.1" },
-            "battStatus": { "access": "R", "multi": false, "mand": false, "type": "interger", "range": 6, "init": 0 },
-            "memTotal": { "access": "R", "multi": false, "mand": false, "type": "interger", "range": null, "init": 0 }
+            "battStatus": { "access": "R", "multi": false, "mand": false, "type": "integer", "range": 6, "init": 0 },
+            "memTotal": { "access": "R", "multi": false, "mand": false, "type": "integer", "range": null, "init": 0 }
         },
         "connMonitor": {
-            "nwkBearer": { "access": "R", "multi": false, "mand": true, "type": "interger", "range": null, "init": 21 },
-            "availNwkBearer": { "access": "R", "multi": true, "mand": true, "type": "interger", "range": null, "init": 21 },
-            "radioStrength": { "access": "R", "multi": false, "mand": true, "type": "interger", "range": null, "init": 64 },
-            "linkQuality": { "access": "R", "multi": false, "mand": false, "type": "interger", "range": null, "init": 100 },
+            "nwkBearer": { "access": "R", "multi": false, "mand": true, "type": "integer", "range": null, "init": 21 },
+            "availNwkBearer": { "access": "R", "multi": true, "mand": true, "type": "integer", "range": null, "init": 21 },
+            "radioStrength": { "access": "R", "multi": false, "mand": true, "type": "integer", "range": null, "init": 64 },
+            "linkQuality": { "access": "R", "multi": false, "mand": false, "type": "integer", "range": null, "init": 100 },
             "ip": { "access": "R", "multi": true, "mand": true, "type": "string", "range": null, "init": "" },
             "routeIp": { "access": "R", "multi": true, "mand": false, "type": "string", "range": null, "init": "" },
-            "linkUtil": { "access": "R", "multi": false, "mand": false, "type": "interger", "range": 100, "init": 50 },
+            "linkUtil": { "access": "R", "multi": false, "mand": false, "type": "integer", "range": 100, "init": 50 },
             "APN": { "access": "R", "multi": true, "mand": false, "type": "string", "range": null, "init": "" },
-            "cellId": { "access": "R", "multi": false, "mand": false, "type": "interger", "range": null, "init": 1 },
-            "SMNC": { "access": "R", "multi": false, "mand": false, "type": "interger", "range": null, "init": 0 },
-            "SMCC": { "access": "R", "multi": false, "mand": false, "type": "interger", "range": null, "init": 0 }
+            "cellId": { "access": "R", "multi": false, "mand": false, "type": "integer", "range": null, "init": 1 },
+            "SMNC": { "access": "R", "multi": false, "mand": false, "type": "integer", "range": null, "init": 0 },
+            "SMCC": { "access": "R", "multi": false, "mand": false, "type": "integer", "range": null, "init": 0 }
         },
         "firmware": {
             "package": { "access": "W", "multi": false, "mand": true, "type": "opaque", "range": null, "init": 0 },
             "packageURI": { "access": "W", "multi": false, "mand": true, "type": "string", "range": 255, "init": "" },
             "update": { "access": "E", "multi": false, "mand": true, "type": "execute", "range": null, "init": null },
-            "state": { "access": "R", "multi": false, "mand": true, "type": "interger", "range": 3, "init": 1 },
+            "state": { "access": "R", "multi": false, "mand": true, "type": "integer", "range": 3, "init": 1 },
             "updateSuppObjects": { "access": "RW", "multi": false, "mand": false, "type": "boolean", "range": null, "init": false },
-            "updateResult": { "access": "R", "multi": false, "mand": true, "type": "interger", "range": 6, "init": 0 },
+            "updateResult": { "access": "R", "multi": false, "mand": true, "type": "integer", "range": 6, "init": 0 },
             "pkgName": { "access": "R", "multi": false, "mand": false, "type": "string", "range": 255, "init": "" },
             "pkgVer": { "access": "R", "multi": false, "mand": false, "type": "string", "range": 255, "init": "" }
         },
@@ -859,20 +859,20 @@
             "timestamp": { "access": "R", "multi": false, "mand": true, "type": "time", "range": null, "init": 0 }
         },
         "connStatistics": {
-            "SMSTxCounter": { "access": "R", "multi": false, "mand": false, "type": "interger", "range": null, "init": 0 },
-            "SMSRxCounter": { "access": "R", "multi": false, "mand": false, "type": "interger", "range": null, "init": 0 },
-            "txData": { "access": "R", "multi": false, "mand": false, "type": "interger", "range": null, "init": 0 },
-            "rxData": { "access": "R", "multi": false, "mand": false, "type": "interger", "range": null, "init": 0 },
-            "maxMsgSize": { "access": "R", "multi": false, "mand": false, "type": "interger", "range": null, "init": 0 },
-            "avgMsgSize": { "access": "R", "multi": false, "mand": false, "type": "interger", "range": null, "init": 0 },
+            "SMSTxCounter": { "access": "R", "multi": false, "mand": false, "type": "integer", "range": null, "init": 0 },
+            "SMSRxCounter": { "access": "R", "multi": false, "mand": false, "type": "integer", "range": null, "init": 0 },
+            "txData": { "access": "R", "multi": false, "mand": false, "type": "integer", "range": null, "init": 0 },
+            "rxData": { "access": "R", "multi": false, "mand": false, "type": "integer", "range": null, "init": 0 },
+            "maxMsgSize": { "access": "R", "multi": false, "mand": false, "type": "integer", "range": null, "init": 0 },
+            "avgMsgSize": { "access": "R", "multi": false, "mand": false, "type": "integer", "range": null, "init": 0 },
             "startOrReset": { "access": "E", "multi": false, "mand": true, "type": "execute", "range": null, "init": null }
         },
         "dIn": {
             "dInState": { "access": "R", "multi": false, "mand": true, "type": "boolean", "range": null, "init": false },
-            "counter": { "access": "R", "multi": false, "mand": false, "type": "interger", "range": null, "init": 0 },
+            "counter": { "access": "R", "multi": false, "mand": false, "type": "integer", "range": null, "init": 0 },
             "dInPolarity": { "access": "RW", "multi": false, "mand": false, "type": "boolean", "range": null, "init": false },
-            "debouncePeriod": { "access": "RW", "multi": false, "mand": false, "type": "interger", "range": null, "init": 0 },
-            "edgeSelection": { "access": "RW", "multi": false, "mand": false, "type": "interger", "range": 3, "init": 2 },
+            "debouncePeriod": { "access": "RW", "multi": false, "mand": false, "type": "integer", "range": null, "init": 0 },
+            "edgeSelection": { "access": "RW", "multi": false, "mand": false, "type": "integer", "range": 3, "init": 2 },
             "counterReset": { "access": "E", "multi": false, "mand": false, "type": "opaque", "range": null, "init": null },
             "appType": { "access": "RW", "multi": false, "mand": false, "type": "string", "range": null, "init": "Digital Input" },
             "sensorType": { "access": "R", "multi": false, "mand": false, "type": "string", "range": null, "init": "Digital" }
@@ -920,7 +920,7 @@
         },
         "presence": {
             "dInState": { "access": "R", "multi": false, "mand": true, "type": "boolean", "range": null, "init": false },
-            "counter": { "access": "R", "multi": false, "mand": false, "type": "interger", "range": null, "init": 0 },
+            "counter": { "access": "R", "multi": false, "mand": false, "type": "integer", "range": null, "init": 0 },
             "counterReset": { "access": "E", "multi": false, "mand": false, "type": "opaque", "range": null, "init": null },
             "sensorType": { "access": "R", "multi": false, "mand": false, "type": "string", "range": null, "init": "Presence" },
             "busyToClearDelay": { "access": "RW", "multi": false, "mand": false, "type": "integer", "range": null, "init": 0 },
@@ -966,8 +966,8 @@
         },
         "actuation": {
             "onOff": { "access": "RW", "multi": false, "mand": true, "type": "boolean", "range": null, "init": false },
-            "dimmer": { "access": "RW", "multi": false, "mand": false, "type": "interger", "range": 100, "init": 0 },
-            "onTime": { "access": "RW", "multi": false, "mand": false, "type": "interger", "range": 100, "init": 0 },
+            "dimmer": { "access": "RW", "multi": false, "mand": false, "type": "integer", "range": 100, "init": 0 },
+            "onTime": { "access": "RW", "multi": false, "mand": false, "type": "integer", "range": 100, "init": 0 },
             "mStateOut": { "access": "RW", "multi": false, "mand": false, "type": "string", "range": null, "init": "Pilot Wire" },
             "appType": { "access": "RW", "multi": false, "mand": false, "type": "string", "range": null, "init": "Actuator" }
         },
@@ -980,24 +980,24 @@
         "loadCtrl": {
             "eventId": { "access": "RW", "multi": false, "mand": true, "type": "string", "range": null, "init": "evt01" },
             "startTime": { "access": "RW", "multi": false, "mand": true, "type": "time", "range": null, "init": 0 },
-            "durationInMin": { "access": "RW", "multi": false, "mand": true, "type": "interger", "range": null, "init": 0 },
-            "criticalLevel": { "access": "R", "multi": false, "mand": false, "type": "interger", "range": 3, "init": 0 },
-            "avgLoadAdjPct": { "access": "RW", "multi": false, "mand": false, "type": "interger", "range": 100, "init": 0 },
-            "dutyCycle": { "access": "RW", "multi": false, "mand": false, "type": "interger", "range": 100, "init": 0 }
+            "durationInMin": { "access": "RW", "multi": false, "mand": true, "type": "integer", "range": null, "init": 0 },
+            "criticalLevel": { "access": "R", "multi": false, "mand": false, "type": "integer", "range": 3, "init": 0 },
+            "avgLoadAdjPct": { "access": "RW", "multi": false, "mand": false, "type": "integer", "range": 100, "init": 0 },
+            "dutyCycle": { "access": "RW", "multi": false, "mand": false, "type": "integer", "range": 100, "init": 0 }
         },
         "lightCtrl": {
             "onOff": { "access": "RW", "multi": false, "mand": true, "type": "boolean", "range": null, "init": false },
-            "dimmer": { "access": "RW", "multi": false, "mand": false, "type": "interger", "range": 100, "init": 0 },
+            "dimmer": { "access": "RW", "multi": false, "mand": false, "type": "integer", "range": 100, "init": 0 },
             "colour": { "access": "RW", "multi": false, "mand": false, "type": "string", "range": 100, "init": "#fff" },
             "units": { "access": "R", "multi": false, "mand": false, "type": "string", "range": null, "init": "uint" },
-            "onTime": { "access": "RW", "multi": false, "mand": false, "type": "interger", "range": 100, "init": 0 },
+            "onTime": { "access": "RW", "multi": false, "mand": false, "type": "integer", "range": 100, "init": 0 },
             "cumulActivePwr": { "access": "R", "multi": false, "mand": false, "type": "float", "range": null, "init": 0 },
             "pwrFactor": { "access": "R", "multi": false, "mand": false, "type": "float", "range": null, "init": 0 }
         },
         "pwrCtrl": {
             "onOff": { "access": "RW", "multi": false, "mand": true, "type": "boolean", "range": null, "init": false },
-            "dimmer": { "access": "RW", "multi": false, "mand": false, "type": "interger", "range": 100, "init": 0 },
-            "onTime": { "access": "RW", "multi": false, "mand": false, "type": "interger", "range": 100, "init": 0 },
+            "dimmer": { "access": "RW", "multi": false, "mand": false, "type": "integer", "range": 100, "init": 0 },
+            "onTime": { "access": "RW", "multi": false, "mand": false, "type": "integer", "range": 100, "init": 0 },
             "cumulActivePwr": { "access": "R", "multi": false, "mand": false, "type": "float", "range": null, "init": 0 },
             "pwrFactor": { "access": "R", "multi": false, "mand": false, "type": "float", "range": null, "init": 0 }
         },
@@ -1270,19 +1270,19 @@
             "minOffTime": { "access": "RW", "multi": false, "mand": false, "type": "float", "range": null, "init": 0 },
             "trigger": { "access": "E", "multi": false, "mand": false, "type": "opaque", "range": null, "init": null },
             "onOff": { "access": "RW", "multi": false, "mand": false, "type": "boolean", "range": null, "init": false },
-            "counter": { "access": "R", "multi": false, "mand": false, "type": "interger", "range": null, "init": 0 },
+            "counter": { "access": "R", "multi": false, "mand": false, "type": "integer", "range": null, "init": 0 },
             "cumulTime": { "access": "RW", "multi": false, "mand": false, "type": "float", "range": null, "init": 0 },
             "digitalState": { "access": "R", "multi": false, "mand": false, "type": "boolean", "range": null, "init": false },
-            "eventCounter": { "access": "RW", "multi": false, "mand": false, "type": "interger", "range": null, "init": 0 },
-            "mode": { "access": "RW", "multi": false, "mand": false, "type": "interger", "range": 4, "init": 0 },
+            "eventCounter": { "access": "RW", "multi": false, "mand": false, "type": "integer", "range": null, "init": 0 },
+            "mode": { "access": "RW", "multi": false, "mand": false, "type": "integer", "range": 4, "init": 0 },
             "appType": { "access": "RW", "multi": false, "mand": false, "type": "string", "range": null, "init": "timer" }
         },
         "addressableTextDisplay": {
             "text": { "access": "RW", "multi": false, "mand": true, "type": "string", "range": null, "init": "defaut text" },
-            "xCoord": { "access": "RW", "multi": false, "mand": false, "type": "interger", "range": null, "init": 0 },
-            "yCoord": { "access": "RW", "multi": false, "mand": false, "type": "interger", "range": null, "init": 0 },
-            "maxXCoord": { "access": "R", "multi": false, "mand": false, "type": "interger", "range": null, "init": 0 },
-            "maxYCoord": { "access": "R", "multi": false, "mand": false, "type": "interger", "range": null, "init": 0 },
+            "xCoord": { "access": "RW", "multi": false, "mand": false, "type": "integer", "range": null, "init": 0 },
+            "yCoord": { "access": "RW", "multi": false, "mand": false, "type": "integer", "range": null, "init": 0 },
+            "maxXCoord": { "access": "R", "multi": false, "mand": false, "type": "integer", "range": null, "init": 0 },
+            "maxYCoord": { "access": "R", "multi": false, "mand": false, "type": "integer", "range": null, "init": 0 },
             "clearDisplay": { "access": "E", "multi": false, "mand": false, "type": "opaque", "range": null, "init": null },
             "contrast": { "access": "RW", "multi": false, "mand": false, "type": "float", "range": 100, "init": 0 },
             "level": { "access": "RW", "multi": false, "mand": false, "type": "float", "range": 100, "init": 0 },
@@ -1290,27 +1290,27 @@
         },
         "onOffSwitch": {
             "dInState": { "access": "R", "multi": false, "mand": true, "type": "boolean", "range": null, "init": false },
-            "counter": { "access": "R", "multi": false, "mand": false, "type": "interger", "range": null, "init": 0 },
-            "onTime": { "access": "RW", "multi": false, "mand": false, "type": "interger", "range": null, "init": 0 },
-            "offTime": { "access": "RW", "multi": false, "mand": false, "type": "interger", "range": null, "init": 0 },
+            "counter": { "access": "R", "multi": false, "mand": false, "type": "integer", "range": null, "init": 0 },
+            "onTime": { "access": "RW", "multi": false, "mand": false, "type": "integer", "range": null, "init": 0 },
+            "offTime": { "access": "RW", "multi": false, "mand": false, "type": "integer", "range": null, "init": 0 },
             "appType": { "access": "RW", "multi": false, "mand": false, "type": "string", "range": null, "init": "onOffSwitch" }
         },
         "levelControl": {
             "level": { "access": "RW", "multi": false, "mand": true, "type": "float", "range": 100, "init": 0 },
-            "onTime": { "access": "RW", "multi": false, "mand": false, "type": "interger", "range": null, "init": 0 },
-            "offTime": { "access": "RW", "multi": false, "mand": false, "type": "interger", "range": null, "init": 0 },
+            "onTime": { "access": "RW", "multi": false, "mand": false, "type": "integer", "range": null, "init": 0 },
+            "offTime": { "access": "RW", "multi": false, "mand": false, "type": "integer", "range": null, "init": 0 },
             "appType": { "access": "RW", "multi": false, "mand": false, "type": "string", "range": null, "init": "levelControl" }
         },
         "upDownControl": {
             "incInputState": { "access": "R", "multi": false, "mand": true, "type": "boolean", "range": null, "init": false },
             "decInputState": { "access": "R", "multi": false, "mand": true, "type": "boolean", "range": null, "init": false },
-            "upCounter": { "access": "RW", "multi": false, "mand": false, "type": "interger", "range": null, "init": 0 },
-            "downCounter": { "access": "RW", "multi": false, "mand": false, "type": "interger", "range": null, "init": 0 },
+            "upCounter": { "access": "RW", "multi": false, "mand": false, "type": "integer", "range": null, "init": 0 },
+            "downCounter": { "access": "RW", "multi": false, "mand": false, "type": "integer", "range": null, "init": 0 },
             "appType": { "access": "RW", "multi": false, "mand": false, "type": "string", "range": null, "init": "upDownControl" }
         },
         "multipleAxisJoystick": {
             "dInState": { "access": "R", "multi": false, "mand": true, "type": "boolean", "range": null, "init": false },
-            "counter": { "access": "R", "multi": false, "mand": false, "type": "interger", "range": null, "init": 0 },
+            "counter": { "access": "R", "multi": false, "mand": false, "type": "integer", "range": null, "init": 0 },
             "xValue": { "access": "R", "multi": false, "mand": false, "type": "float", "range": 100, "init": 0 },
             "yValue": { "access": "R", "multi": false, "mand": false, "type": "float", "range": 100, "init": 0 },
             "zValue": { "access": "R", "multi": false, "mand": false, "type": "float", "range": 100, "init": 0 },
@@ -1329,11 +1329,11 @@
         },
         "pushButton": {
             "dInState": { "access": "R", "multi": false, "mand": true, "type": "boolean", "range": null, "init": false },
-            "counter": { "access": "R", "multi": false, "mand": false, "type": "interger", "range": null, "init": 0 },
+            "counter": { "access": "R", "multi": false, "mand": false, "type": "integer", "range": null, "init": 0 },
             "appType": { "access": "RW", "multi": false, "mand": false, "type": "string", "range": null, "init": "pushButton" }
         },
         "multistateSelector": {
-            "mStateIn": { "access": "R", "multi": false, "mand": true, "type": "interger", "range": null, "init": 0 },
+            "mStateIn": { "access": "R", "multi": false, "mand": true, "type": "integer", "range": null, "init": 0 },
             "appType": { "access": "RW", "multi": false, "mand": false, "type": "string", "range": null, "init": "multistateSelector" }
         }
     }

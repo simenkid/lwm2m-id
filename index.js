@@ -144,7 +144,7 @@ DEFS.addUniqueRid = function (items) {
         if (DEFS.getRid(key))
             throw new Error('unique rid: ' + key + ' name conflicts.');
         else if (DEFS.getRid(items[key]))
-            throw new Error('unique rid: ' + key + 'value conflicts.');
+            throw new Error('unique rid: ' + key + ' value conflicts.');
         else
             _uRid[key] = items[key];
     }
@@ -173,7 +173,7 @@ DEFS.addSpecificRid = function (oid, items) {
 
     for (var key in items) {
         if (typeof _spfRid[oidKey][key] !== 'undefined') {
-            throw new Error('rid: ' + key + ' within oid: ' + oidKey + 'conflicts.');
+            throw new Error('rid: ' + key + ' within oid: ' + oidKey + ' conflicts.');
         }
 
         _spfRid[oidKey][key] = items[key];

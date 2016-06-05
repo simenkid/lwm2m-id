@@ -28,25 +28,37 @@ for (var key in _specificRid) {
         DEFS.SpecificRid[key] = new Enum(_specificRid[key]);
 }
 
+function isValidArgType(param) {
+    var isValid = true;
+
+    if (typeof param !== 'number' && typeof param !== 'string') {
+        isValid = false;
+    } else if (typeof param === 'number') {
+        isValid = !isNaN(param);
+    }
+
+    return isValid;
+}
+
 /*************************************************************************************************/
 /*** DEFS Methods                                                                              ***/
 /*************************************************************************************************/
 DEFS.getCmd = function (cmdId) {
-    if (typeof cmdId !== 'number' && typeof cmdId !== 'string')
+    if (!isValidArgType(cmdId))
         throw new TypeError('cmdId should be type of string or number.');
 
     return DEFS.Cmd.get(cmdId);
 };
 
 DEFS.getRspCode = function (code) {
-    if (typeof code !== 'number' && typeof code !== 'string')
+    if (!isValidArgType(code))
         throw new TypeError('code should be a type of string or number.');
 
     return DEFS.RspCode.get(code);
 };
 
 DEFS.getOid = function (oid) {
-    if (typeof oid !== 'number' && typeof oid !== 'string')
+    if (!isValidArgType(oid))
         throw new TypeError('oid should be a number or a string.');
 
     var oidNumber = parseInt(oid),
@@ -62,6 +74,9 @@ DEFS.getOid = function (oid) {
 
 DEFS.addOid = function (items) {
     var _oid = DEFS._defs.oid;
+
+    if (typeof items !== 'object' || items === null || Array.isArray(items))
+        throw new TypeError('items should be a plain object.');
 
     for (var key in items) {
         if (DEFS.getOid(key))
@@ -86,11 +101,11 @@ DEFS.getRid = function (oid, rid) {
 
     if (typeof rid === 'undefined') {
         if (typeof oid === 'undefined')
-            throw new Error('Bad arguments');
+            throw new TypeError('Bad arguments');
 
         rid = oid;
         oid = undefined;
-        if (typeof rid !== 'number' && typeof rid !== 'string')
+        if (!isValidArgType(rid))
             throw new TypeError('rid should be a number or a string.');
     }
 
@@ -99,13 +114,13 @@ DEFS.getRid = function (oid, rid) {
         rid = ridNumber;
 
     if (typeof oid !== 'undefined') {           // searching in MDEFS.RIDOFOID
-        if (typeof oid !== 'number' && typeof oid !== 'string')
+        if (!isValidArgType(oid))
             throw new TypeError('rid should be a number or a string.');
 
         if (typeof rid === 'undefined')
-            throw new Error('rid should be given');
+            throw new TypeError('rid should be given');
 
-        if (typeof rid !== 'number' && typeof rid !== 'string')
+        if (!isValidArgType(rid))
             throw new TypeError('rid should be a number or a string.');
 
         oidKey = oidItem ? oidItem.key : oid.toString();
@@ -121,6 +136,9 @@ DEFS.getRid = function (oid, rid) {
 
 DEFS.addUniqueRid = function (items) {
     var _uRid = DEFS._defs.uniqueRid;
+
+    if (typeof items !== 'object' || items === null || Array.isArray(items))
+        throw new TypeError('items should be a plain object.');
 
     for (var key in items) {
         if (DEFS.getRid(key))
@@ -149,6 +167,9 @@ DEFS.addSpecificRid = function (oid, items) {
     oidKey = oidItem.key;
 
     _spfRid[oidKey] = _spfRid[oidKey] || {};
+
+    if (typeof items !== 'object' || items === null || Array.isArray(items))
+        throw new TypeError('items should be a plain object.');
 
     for (var key in items) {
         if (typeof _spfRid[oidKey][key] !== 'undefined') {
@@ -193,6 +214,9 @@ DEFS.addSpecificResrcChar = function (oid, chars) {
 
     _rChar[oidItem.key] = _rChar[oidItem.key] || {};
     _rChar = _rChar[oidItem.key];
+
+    if (typeof chars !== 'object' || chars === null || Array.isArray(chars))
+        throw new TypeError('chars should be a plain object.');
 
     for (var rid in chars) {
         ridItem = DEFS.getRid(oid, rid);

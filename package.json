@@ -1,10 +1,10 @@
 {
   "name": "lwm2m-id",
-  "version": "1.2.6",
+  "version": "1.2.7",
   "description": "lwm2m-id is a module that implements a dictionary of ip-based smart object(IPSO) identifiers defined by lwm2m spec.",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "make test-all"
   },
   "repository": {
     "type": "git",
@@ -24,6 +24,7 @@
     "enum": "^2.2.0"
   },
   "devDependencies": {
-    "should": "^7.1.1"
+    "chai": "^3.5.0",
+    "mocha": "^2.5.3"
   }
 }

@@ -75,6 +75,7 @@ var ridId = m2mid.getRid('sensorValue').value;        // 5700
 
 * [.getOid()](#API_getOid)
 * [.getRid()](#API_getRid)
+* [.getOdef()](#API_getOdef)
 * [.getRdef()](#API_getRdef)
 
 ********************************************
@@ -140,6 +141,42 @@ lwm2mid.getRid('appType');                     // { key: 'appType', value: 5750 
 lwm2mid.getRid(5750);                          // { key: 'appType', value: 5700 }
 lwm2mid.getRid('5750');                        // { key: 'appType', value: 5750 }
 
+```
+********************************************
+<br />
+
+<a name="API_getOdef"></a>
+### .getOdef(oid)
+> Returns the sepc. definitions of an Object.  
+
+**Arguments**
+
+- oid (*String|Number*): `oid` can be given with a string or a number. Notice that a numbered string will be recognized as a number, e.g. '128' is equal to 128.
+
+**Returns:**  
+  
+* (_Object_ | _Undefined_) Returns the definition with an data object, otherwise returns `undefined` if not found. The definition object is of the form: `{ multi: false, mand: true }`
+
+|       Property        |      Description         |       Possilbe Settings   |  
+|:---------------------:|:------------------------:|:-------------------------:|  
+|        multi          | Allow multiple instances | true, false               |  
+|        mand           | Mandatory                | true, false               |  
+  
+\* Please refer to **Appendix** in OMA LightweightM2M(v1.0) specification for details.
+  
+**Example**
+
+```js
+lwm2mid.getOdef('temperature');  
+// returns { "multi": true, "mand": false }
+  
+lwm2mid.getOdef('lightCtrl');  
+// returns { "multi": true, "mand": false }
+
+lwm2mid.getOdef('device');  
+// returns { "multi": false, "mand": true }
+
+lwm2mid.getOdef('xxxx');            // undefined 
 ```
 ********************************************
 <br />
@@ -655,6 +692,239 @@ lwm2mid.getRdef('xxxx', 1234);      // undefined
             "minRangeValue": 5603,
             "maxRangeValue": 5604,
             "resetMinMaxMeaValues": 5605
+        }
+    ```
+
+    - oid = voltage, current, frequency, depth, percentage, altitude, load, pressure, loudness, concentration, acidity, conductivity, power, powerFactor, distance
+    ```js
+        {
+            "sensorValue": 5700,
+            "units": 5701,
+            "minMeaValue": 5601,
+            "maxMeaValue": 5602,
+            "minRangeValue": 5603,
+            "maxRangeValue": 5604,
+            "resetMinMaxMeaValues": 5605,
+            "calOffset": 5535,
+            "appType": 5750
+        }
+    ```
+
+    - oid = energy 
+    ```js
+        {
+            "cumulActivePwr": 5805,
+            "units": 5701,
+            "resetCumulEnergy": 5822,
+            "appType": 5750
+        }
+    ```
+
+    - oid = direction 
+    ```js
+        {
+            "compassDir": 5705,
+            "minMeaValue": 5601,
+            "maxMeaValue": 5602,
+            "resetMinMaxMeaValues": 5605,
+            "appType": 5750
+        }
+    ```
+
+    - oid = time 
+    ```js
+        {
+            "currentTime": 5506,
+            "fracTime": 5507,
+            "appType": 5750
+        }
+    ```
+
+    - oid = gyrometer 
+    ```js
+        {
+            "units": 5701,
+            "xValue": 5702,
+            "yValue": 5703,
+            "zValue": 5704,
+            "minRangeValue": 5603,
+            "maxRangeValue": 5604,
+            "minXValue": 5508,
+            "maxXValue": 5509,
+            "minYValue": 5510,
+            "maxYValue": 5511,
+            "minZValue": 5512,
+            "maxZValue": 5513,
+            "resetMinMaxMeaValues": 5605,
+            "appType": 5750
+        }
+    ```
+
+    - oid = color 
+    ```js
+        {
+            "colour": 5706,
+            "units": 5701,
+            "appType": 5750
+        }
+    ```
+
+    - oid = gpsLocation 
+    ```js
+        {
+            "latitude": 5513,
+            "longitude": 5514,
+            "altitude": 5515,
+            "uncertainty": 5516,
+            "compassDir": 5705,
+            "velocity": 5517,
+            "timestamp": 5518,
+            "appType": 5750
+        }
+    ```
+
+    - oid = positioner 
+    ```js
+        {
+            "currentPos": 5536,
+            "transTime": 5537,
+            "remainTime": 5538,
+            "minMeaValue": 5601,
+            "maxMeaValue": 5602,
+            "resetMinMaxMeaValues": 5605,
+            "minLimit": 5519,
+            "maxLimit": 5520,
+            "appType": 5750
+        }
+    ```
+
+    - oid = buzzer 
+    ```js
+        {
+            "onOff": 5850,
+            "level": 5548,
+            "timeDuration": 5521,
+            "minOffTime": 5525,
+            "appType": 5750
+        }
+    ```
+
+    - oid = audioClip 
+    ```js
+        {
+            "clip": 5522,
+            "trigger": 5523,
+            "level": 5548,
+            "soundDuration": 5524,
+            "appType": 5750
+        }
+    ```
+
+    - oid = timer 
+    ```js
+        {
+            "timeDuration": 5521,
+            "remainTime": 5538,
+            "minOffTime": 5525,
+            "trigger": 5523,
+            "onOff": 5850,
+            "counter": 5501,
+            "cumulTime": 5544,
+            "digitalState": 5543,
+            "eventCounter": 5534,
+            "mode": 5526,
+            "appType": 5750
+        }
+    ```
+
+    - oid = addressableTextDisplay 
+    ```js
+        {
+            "text": 5527,
+            "xCoord": 5528,
+            "yCoord": 5529,
+            "maxXCoord": 5545,
+            "maxYCoord": 5546,
+            "clearDisplay": 5530,
+            "contrast": 5531,
+            "level": 5548,
+            "appType": 5750
+        }
+    ```
+
+    - oid = onOffSwitch 
+    ```js
+        {
+            "dInState": 5500,
+            "counter": 5501,
+            "onTime": 5852,
+            "offTime": 5853,
+            "appType": 5750
+        }
+    ```
+
+    - oid = levelControl 
+    ```js
+        {
+            "level": 5548,
+            "onTime": 5852,
+            "offTime": 5853,
+            "appType": 5750
+        }
+    ```
+
+    - oid = upDownControl 
+    ```js
+        {
+            "incInputState": 5532,
+            "decInputState": 5533,
+            "upCounter": 5541,
+            "downCounter": 5542,
+            "appType": 5750
+        }
+    ```
+
+    - oid = multipleAxisJoystick 
+    ```js
+        {
+            "dInState": 5500,
+            "counter": 5501,
+            "xValue": 5702,
+            "yValue": 5703,
+            "zValue": 5704,
+            "appType": 5750
+        }
+    ```
+
+    - oid = rate 
+    ```js
+        {
+            "sensorValue": 5700,
+            "units": 5701,
+            "minMeaValue": 5601,
+            "maxMeaValue": 5602,
+            "minRangeValue": 5603,
+            "maxRangeValue": 5604,
+            "resetMinMaxMeaValues": 5605,
+            "calOffset": 5535,
+            "appType": 5750
+        }
+    ```
+
+    - oid = pushButton 
+    ```js
+        {
+            "dInState": 5500,
+            "counter": 5501,
+            "appType": 5750
+        }
+    ```
+
+    - oid = multistateSelector 
+    ```js
+        {
+            "mStateIn": 5547,
+            "appType": 5750
         }
     ```
 

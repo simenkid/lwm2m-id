@@ -2,7 +2,7 @@
 
 var fs = require('fs'),
     Enum = require('enum'),
-    _defs = JSON.parse(fs.readFileSync(__dirname + '/defs/defs.json', { encoding: 'utf8' })),
+    _defs = require('./defs/defs.json'),
     _specificRid = _defs.specificRid,
     DEFS = {
         _Enum: Enum,
@@ -12,7 +12,8 @@ var fs = require('fs'),
         Oid: null,
         UniqueRid: null,
         SpecificRid: {},
-        SpecificResrcChar: _defs.specificResrcChar
+        SpecificResrcChar: _defs.specificResrcChar,
+        objectSpec: _defs.objectSpec
     };
 
 /*************************************************************************************************/
@@ -184,6 +185,22 @@ DEFS.addSpecificRid = function (oid, items) {
 
     return DEFS;
 };
+
+DEFS.getOdef = function (oid) {
+    var oidItem = DEFS.getOid(oid),
+        spec;
+
+    if (!oidItem)
+        return;
+
+    spec = DEFS.objectSpec[oidItem.key];
+
+    // 3200-3400: defined by starter and expansion pack
+    if (!spec && oidItem.value >= 3200 && oidItem.value <= 3400)
+        spec = { multi: true, mand: false };
+
+    return spec;
+};  // undefined / Object spec.
 
 DEFS.getSpecificResrcChar = function (oid, rid) {
     var oidItem = DEFS.getOid(oid),

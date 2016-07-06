@@ -771,6 +771,16 @@
             "appType": 5750
         }
     },
+    "objectSpec": {
+        "lwm2mSecurity": { "multi": true, "mand": true },
+        "lwm2mServer": { "multi": true, "mand": true },
+        "accessCtrl": { "multi": true, "mand": false },
+        "device": { "multi": false, "mand": true },
+        "connMonitor": { "multi": false, "mand": false },
+        "firmware": { "multi": false, "mand": false },
+        "location": { "multi": false, "mand": false },
+        "connStatistics": { "multi": false, "mand": false }
+    },
     "specificResrcChar": {
         "lwm2mSecurity": {
             "lwm2mServerURI": { "access": null, "multi": false, "mand": true, "type": "string", "range": 255, "init": "" },

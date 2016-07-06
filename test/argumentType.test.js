@@ -289,6 +289,28 @@ describe('APIs Arguments Check for Throwing Errors', function() {
         });
     });
 
+    describe('#.getOdef', function() {
+        it('should be a function', function () {
+            expect(lwm2mid.getOdef).to.be.a('function');
+        });
+
+        it('should throw TypeError if input oid is not a number and not a string', function () {
+            expect(function () { return lwm2mid.getOdef(); }).to.throw(TypeError);
+            expect(function () { return lwm2mid.getOdef(undefined); }).to.throw(TypeError);
+            expect(function () { return lwm2mid.getOdef(null); }).to.throw(TypeError);
+            expect(function () { return lwm2mid.getOdef(NaN); }).to.throw(TypeError);
+            expect(function () { return lwm2mid.getOdef([]); }).to.throw(TypeError);
+            expect(function () { return lwm2mid.getOdef({}); }).to.throw(TypeError);
+            expect(function () { return lwm2mid.getOdef(true); }).to.throw(TypeError);
+            expect(function () { return lwm2mid.getOdef(new Date()); }).to.throw(TypeError);
+            expect(function () { return lwm2mid.getOdef(function () {}); }).to.throw(TypeError);
+
+            expect(function () { return lwm2mid.getOdef(3); }).not.to.throw(Error);
+            expect(function () { return lwm2mid.getOdef('3'); }).not.to.throw(Error);
+            expect(function () { return lwm2mid.getOdef('xx'); }).not.to.throw(Error);
+        });
+    });
+
     describe('#.getRdef', function() {
         it('should be a function', function () {
             expect(lwm2mid.getRdef).to.be.a('function');

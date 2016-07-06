@@ -348,6 +348,69 @@ describe('Getters Check', function () {
         });
     });
 
+    describe('getOdef', function () {
+        it('should get right spec', function () {
+            oidKeys.forEach(function (key) {
+                var item = lwm2mid.getOid(key),
+                    itemData = lwm2mid._defs.oid,
+                    val = item.value,
+                    spec;
+
+                expect(item).not.to.be.undefined;
+                expect(val).to.be.eql(itemData[key]);
+
+                spec = lwm2mid.getOdef(key);
+
+                if (val >= 3200 && val <= 3400)
+                    expect(spec).to.be.deep.eql({ multi: true, mand: false });
+                else if (key === 'lwm2mSecurity')
+                    expect(spec).to.be.deep.eql({ multi: true, mand: true });
+                else if (key === 'lwm2mServer')
+                    expect(spec).to.be.deep.eql({ multi: true, mand: true });
+                else if (key === 'accessCtrl')
+                    expect(spec).to.be.deep.eql({ multi: true, mand: false });
+                else if (key === 'device')
+                    expect(spec).to.be.deep.eql({ multi: false, mand: true });
+                else if (key === 'connMonitor')
+                    expect(spec).to.be.deep.eql({ multi: false, mand: false });
+                else if (key === 'firmware')
+                    expect(spec).to.be.deep.eql({ multi: false, mand: false });
+                else if (key === 'location')
+                    expect(spec).to.be.deep.eql({ multi: false, mand: false });
+                else if (key === 'connStatistics')
+                    expect(spec).to.be.deep.eql({ multi: false, mand: false });
+                else 
+                    expect(spec).to.be.undefined;
+
+                item = lwm2mid.Oid.get(val);
+                expect(item).not.to.be.undefined;
+                expect(item.key).to.be.eql(key);
+
+                spec = lwm2mid.getOdef(val);
+                if (val >= 3200 && val <= 3400)
+                    expect(spec).to.be.deep.eql({ multi: true, mand: false });
+                else if (key === 'lwm2mSecurity')
+                    expect(spec).to.be.deep.eql({ multi: true, mand: true });
+                else if (key === 'lwm2mServer')
+                    expect(spec).to.be.deep.eql({ multi: true, mand: true });
+                else if (key === 'accessCtrl')
+                    expect(spec).to.be.deep.eql({ multi: true, mand: false });
+                else if (key === 'device')
+                    expect(spec).to.be.deep.eql({ multi: false, mand: true });
+                else if (key === 'connMonitor')
+                    expect(spec).to.be.deep.eql({ multi: false, mand: false });
+                else if (key === 'firmware')
+                    expect(spec).to.be.deep.eql({ multi: false, mand: false });
+                else if (key === 'location')
+                    expect(spec).to.be.deep.eql({ multi: false, mand: false });
+                else if (key === 'connStatistics')
+                    expect(spec).to.be.deep.eql({ multi: false, mand: false });
+                else 
+                    expect(spec).to.be.undefined;
+            });
+        });
+
+    });
 
     describe('#getSpecificResrcChar', function () {
         it('should get right char by oid string and rid string', function () {

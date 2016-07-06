@@ -2,7 +2,7 @@ lwm2m-id
 ===============
 <br />
 
-[![Travis branch](https://img.shields.io/travis/simenkid/lwm2m-id/master.svg?maxAge=2592000)](https://travis-ci.org/simenkid/busyman)
+[![Travis branch](https://img.shields.io/travis/simenkid/lwm2m-id/master.svg?maxAge=2592000)](https://travis-ci.org/simenkid/lwm2m-id)
 [![npm](https://img.shields.io/npm/v/lwm2m-id.svg?maxAge=2592000)](https://www.npmjs.com/package/lwm2m-id)
 [![npm](https://img.shields.io/npm/l/lwm2m-id.svg?maxAge=2592000)](https://www.npmjs.com/package/lwm2m-id)
 

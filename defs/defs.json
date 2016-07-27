@@ -21,6 +21,7 @@
         "execute": 4,
         "observe": 5,
         "notify": 6,
+        "ping": 7,
         "unknown": 255
     },
     "oid": {

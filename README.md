@@ -1,6 +1,5 @@
-lwm2m-id
-===============
-<br />
+# lwm2m-id
+A dictionary of ip-based smart object(IPSO) identifiers defined by lwm2m spec.
 
 [![Travis branch](https://img.shields.io/travis/simenkid/lwm2m-id/master.svg?maxAge=2592000)](https://travis-ci.org/simenkid/lwm2m-id)
 [![npm](https://img.shields.io/npm/v/lwm2m-id.svg?maxAge=2592000)](https://www.npmjs.com/package/lwm2m-id)
@@ -37,37 +36,37 @@ lwm2m-id
 Let me show you some examples.  
 
 ```js
-var m2mid = require('lwm2m-id')
+var lwm2mid = require('lwm2m-id')
 
 // get Object Id
-var oidItem1 = m2mid.getOid('device');      // { key: 'device', value: 3 }
-var oidItem2 = m2mid.getOid(3);             // { key: 'device', value: 3 }
-var oidItem3 = m2mid.getOid('3');           // { key: 'device', value: 3 }
-var oidItem4 = m2mid.getOid(999);           // undefined
-var oidItem5 = m2mid.getOid('noSuchId');    // undefined
+var oidItem1 = lwm2mid.getOid('device');      // { key: 'device', value: 3 }
+var oidItem2 = lwm2mid.getOid(3);             // { key: 'device', value: 3 }
+var oidItem3 = lwm2mid.getOid('3');           // { key: 'device', value: 3 }
+var oidItem4 = lwm2mid.getOid(999);           // undefined
+var oidItem5 = lwm2mid.getOid('noSuchId');    // undefined
 
-var oidKey = m2mid.getOid(3).key;           // 'device'
-var oidId = m2mid.getOid('device').value;   // 3
+var oidKey = lwm2mid.getOid(3).key;           // 'device'
+var oidId = lwm2mid.getOid('device').value;   // 3
 
 // get Resource Id
 //   (1) The rid is specific to an Object
-var ridItem1 = m2mid.getRid('lightCtrl', 'onOff');    // { key: 'onOff', value: 5850 }
-var ridItem2 = m2mid.getRid(3311, 'onOff');           // { key: 'onOff', value: 5850 }
-var ridItem3 = m2mid.getRid(3311, 5850);              // { key: 'onOff', value: 5850 }
-var ridItem4 = m2mid.getRid('3311', '5850');          // { key: 'onOff', value: 5850 }
-var ridItem5 = m2mid.getOid('lightCtrl', 'noSuchId'); // undefined
-var ridItem6 = m2mid.getOid('noSuchId', 5850);        // undefined
+var ridItem1 = lwm2mid.getRid('lightCtrl', 'onOff');    // { key: 'onOff', value: 5850 }
+var ridItem2 = lwm2mid.getRid(3311, 'onOff');           // { key: 'onOff', value: 5850 }
+var ridItem3 = lwm2mid.getRid(3311, 5850);              // { key: 'onOff', value: 5850 }
+var ridItem4 = lwm2mid.getRid('3311', '5850');          // { key: 'onOff', value: 5850 }
+var ridItem5 = lwm2mid.getOid('lightCtrl', 'noSuchId'); // undefined
+var ridItem6 = lwm2mid.getOid('noSuchId', 5850);        // undefined
 
-var ridKey = m2mid.getRid('lightCtrl', 5850).key;     // 'onOff'
-var ridId = m2mid.getRid(3311, 'onOff').value;        // 5850
+var ridKey = lwm2mid.getRid('lightCtrl', 5850).key;     // 'onOff'
+var ridId = lwm2mid.getRid(3311, 'onOff').value;        // 5850
 
 //   (2) The rid is an unique id
-var ridItem7 = m2mid.getRid('sensorValue');           // { key: 'sensorValue', value: 5700 }
-var ridItem8 = m2mid.getRid(5700);                    // { key: 'sensorValue', value: 5700 }
-var ridItem8 = m2mid.getRid('5700');                  // { key: 'sensorValue', value: 5700 }
+var ridItem7 = lwm2mid.getRid('sensorValue');           // { key: 'sensorValue', value: 5700 }
+var ridItem8 = lwm2mid.getRid(5700);                    // { key: 'sensorValue', value: 5700 }
+var ridItem8 = lwm2mid.getRid('5700');                  // { key: 'sensorValue', value: 5700 }
 
-var ridKey = m2mid.getRid(5700).key;                  // 'sensorValue'
-var ridId = m2mid.getRid('sensorValue').value;        // 5700
+var ridKey = lwm2mid.getRid(5700).key;                  // 'sensorValue'
+var ridId = lwm2mid.getRid('sensorValue').value;        // 5700
 ```
   
 <a name="APIs"></a>
@@ -85,7 +84,7 @@ var ridId = m2mid.getRid('sensorValue').value;        // 5700
 
 **Arguments**
 
-* oid (*String|Number*): `oid` can be given with a string or a number. Notice that a numbered string will be recognized as a number, e.g. '128' is equal to 128.
+1. oid (*String|Number*): `oid` can be given with a string or a number. Notice that a numbered string will be recognized as a number, e.g. '128' is equal to 128.
 
 **Returns:**  
   
@@ -103,23 +102,32 @@ lwm2mid.getOid('xxxx');         // undefined
 lwm2mid.getOid('9999');         // undefined 
 lwm2mid.getOid(9999);           // undefined 
 ```
+  
 ********************************************
-<br />
-
 <a name="API_getRid"></a>
 ### .getRid([oid,] rid)
 > Returns an item of the Resource identifier.  
->  
-> There are two kinds of Resource id, the **Resource id specific to an Object** and the **unique Resource id**. In the former case, the meaning of a Resource is specific to an Object that holds it. An **unique Resource id** indicates that the Resouce id is a reusable one and its id number is always constant and unique across Objects. In addition, an Object can use both of these two kinds of Resource id to define its characteristic.  
->  
-> To query a **Resource id specific to an Object**, both `oid` and `rid` should be given.  
-> To query an **unique Resource id**, only the single argument `rid` is needed.  
   
+There are two kinds of Resource id, the **unique Resource id**  and the **Resource id specific to an Object**. An Object can use both of these two kinds of Resource id to define its characteristic.  
+* **Unique Resource id**
+    - Resouce id is a reusable one and its id number is always constant and unique across Objects.  
+    - To query an **unique Resource id**, only the single argument `rid` is needed.  
+* **Resource id specific to an Object**
+    - The meaning of a Resource is specific to an Object that holds it.  
+    - To query a **Resource id specific to an Object**, both `oid` and `rid` should be given.  
+
+**[Note]**  
+IPSO spec has [conflicts in 5513 and 5853](https://github.com/simenkid/lwm2m-id/issues/1) Resource identifier definitions, I'll fix these issues when the spec updated. At this momnet,
+* When you query for an unique rid 5513, **lwm2m-id** will return you a `{ key: 'latitude', value: 5513 }`.  
+* When you query for a rid 5513 within Object 'gyrometer', it will return you a `{ key: 'maxZValue', value: 5513 }`.  
+* When you query for an unique rid 5853, it will return you a `{ key: 'offTime', value: 5853 }`.  
+* When you query for a rid 5853 within Object 'actuation', it will return you a `{ key: 'mStateOut', value: 5853 }`.  
+
 
 **Arguments**  
 
-- oid (*String|Number*, optional): `oid` can be given with a string or a number. Notice that a numbered string will be recognized as a number, e.g. '128' is equal to 128.
-- rid (*String|Number*): `rid` can be given with a string or a number. Notice that a numbered string will be recognized as a number, e.g. '128' is equal to 128.
+1. oid (*String|Number*, optional): `oid` can be given with a string or a number. Notice that a numbered string will be recognized as a number, e.g. '128' is equal to 128.
+2. rid (*String|Number*): `rid` can be given with a string or a number. Notice that a numbered string will be recognized as a number, e.g. '128' is equal to 128.
 
 **Returns:**  
   
@@ -142,16 +150,15 @@ lwm2mid.getRid(5750);                          // { key: 'appType', value: 5700 
 lwm2mid.getRid('5750');                        // { key: 'appType', value: 5750 }
 
 ```
+  
 ********************************************
-<br />
-
 <a name="API_getOdef"></a>
 ### .getOdef(oid)
 > Returns the sepc. definitions of an Object.  
 
 **Arguments**
 
-- oid (*String|Number*): `oid` can be given with a string or a number. Notice that a numbered string will be recognized as a number, e.g. '128' is equal to 128.
+1. oid (*String|Number*): `oid` can be given with a string or a number. Notice that a numbered string will be recognized as a number, e.g. '128' is equal to 128.
 
 **Returns:**  
   
@@ -178,17 +185,16 @@ lwm2mid.getOdef('device');
 
 lwm2mid.getOdef('xxxx');            // undefined 
 ```
+  
 ********************************************
-<br />
-
 <a name="API_getRdef"></a>
 ### .getRdef(oid, rid)
 > Returns the definitions of a Resource specific to an Object.
 
 **Arguments**
 
-- oid (*String|Number*, optional): `oid` can be given with a string or a number. Notice that a numbered string will be recognized as a number, e.g. '128' is equal to 128.
-- rid (*String|Number*): `rid` can be given with a string or a number. Notice that a numbered string will be recognized as a number, e.g. '128' is equal to 128.
+1. oid (*String|Number*, optional): `oid` can be given with a string or a number. Notice that a numbered string will be recognized as a number, e.g. '128' is equal to 128.
+2. rid (*String|Number*): `rid` can be given with a string or a number. Notice that a numbered string will be recognized as a number, e.g. '128' is equal to 128.
 
 
 **Returns:**  
@@ -217,9 +223,8 @@ lwm2mid.getRdef('lightCtrl', 5850);
 lwm2mid.getRdef('temperature');     // undefined. rid should be given
 lwm2mid.getRdef('xxxx', 1234);      // undefined 
 ```
+  
 ********************************************
-<br />
-
 <a name="Identifiers"></a>
 ## 5. Table of Identifiers
 
@@ -269,6 +274,8 @@ lwm2mid.getRdef('xxxx', 1234);      // undefined
 |        3313           | accelerometer            | Accelerometer          |  
 |        3314           | magnetometer             | Magnetometer           |  
 |        3315           | barometer                | Barometer              |  
+
+<br />
 
 * IPSO/OMA-LWM2M unique Resource ids (this class of ids is reusable with Objects)  
 
@@ -335,6 +342,7 @@ lwm2mid.getRdef('xxxx', 1234);      // undefined
 |        5907           | hostDeviceUID            | Host Device Unique ID              |  
 |        5908           | hostDeviceSwVer          | Host Device Software Version       |  
   
+<br />
 
 * IPSO/OMA-LWM2M specified Resource ids (this class of ids is specified with Objects)  
 

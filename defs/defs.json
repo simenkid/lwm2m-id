@@ -117,9 +117,8 @@
         "minYValue": 5510,
         "maxYValue": 5511,
         "minZValue": 5512,
-        "latitude": 5513,
-        "longitude": 5514,
-        "altitude": 5515,
+        "latitude": 5514,
+        "longitude": 5515,
         "uncertainty": 5516,
         "velocity": 5517,
         "timestamp": 5518,
@@ -197,7 +196,8 @@
         "onOff": 5850,
         "dimmer": 5851,
         "onTime": 5852,
-        "offTime": 5853,
+        "mStateOut": 5853,
+        "offTime": 5854,
         "setPointValue": 5900,
         "busyToClearDelay": 5903,
         "clearToBusyDelay": 5904,
@@ -665,9 +665,8 @@
             "appType": 5750
         },
         "gpsLocation": {
-            "latitude": 5513,
-            "longitude": 5514,
-            "altitude": 5515,
+            "latitude": 5514,
+            "longitude": 5515,
             "uncertainty": 5516,
             "compassDir": 5705,
             "velocity": 5517,
@@ -727,13 +726,13 @@
             "dInState": 5500,
             "counter": 5501,
             "onTime": 5852,
-            "offTime": 5853,
+            "offTime": 5854,
             "appType": 5750
         },
         "levelControl": {
             "level": 5548,
             "onTime": 5852,
-            "offTime": 5853,
+            "offTime": 5854,
             "appType": 5750
         },
         "upDownControl": {
@@ -1243,7 +1242,6 @@
         "gpsLocation": {
             "latitude": { "access": "R", "multi": false, "mand": true, "type": "string", "range": null, "init": "0.00" },
             "longitude": { "access": "R", "multi": false, "mand": true, "type": "string", "range": null, "init": "0.00" },
-            "altitude": { "access": "R", "multi": false, "mand": false, "type": "string", "range": null, "init": "0.00" },
             "uncertainty": { "access": "R", "multi": false, "mand": false, "type": "string", "range": null, "init": "0.00" },
             "compassDir": { "access": "R", "multi": false, "mand": false, "type": "float", "range": 360, "init": 0 },
             "velocity": { "access": "R", "multi": false, "mand": false, "type": "opaque", "range": null, "init": 0 },

@@ -116,14 +116,6 @@ There are two kinds of Resource id, the **unique Resource id**  and the **Resour
     - The meaning of a Resource is specific to an Object that holds it.  
     - To query a **Resource id specific to an Object**, both `oid` and `rid` should be given.  
 
-**[Note]**  
-IPSO spec has [conflicts in 5513 and 5853](https://github.com/simenkid/lwm2m-id/issues/1) Resource identifier definitions, I'll fix these issues when the spec updated. At this momnet,
-* When you query for an unique rid 5513, **lwm2m-id** will return you a `{ key: 'latitude', value: 5513 }`.  
-* When you query for a rid 5513 within Object 'gyrometer', it will return you a `{ key: 'maxZValue', value: 5513 }`.  
-* When you query for an unique rid 5853, it will return you a `{ key: 'offTime', value: 5853 }`.  
-* When you query for a rid 5853 within Object 'actuation', it will return you a `{ key: 'mStateOut', value: 5853 }`.  
-
-
 **Arguments**  
 
 1. oid (*String|Number*, optional): `oid` can be given with a string or a number. Notice that a numbered string will be recognized as a number, e.g. '128' is equal to 128.
@@ -230,50 +222,83 @@ lwm2mid.getRdef('xxxx', 1234);      // undefined
 
 * IPSO/OMA-LWM2M Object ids  
 
-|       Object Id       |      lwm2m-id Key        | Description/Object Name|  
-|:---------------------:|:------------------------:|:----------------------:|  
-|        0              | lwm2mSecurity            | LWM2M Security         |  
-|        1              | lwm2mServer              | LWM2M Server           |  
-|        2              | accessCtrl               | Access Control         |  
-|        3              | device                   | Device                 |  
-|        4              | connMonitor              | Connectivity Monitoring|  
-|        5              | firmware                 | Firmware               |  
-|        6              | location                 | Location               |  
-|        7              | connStatistics           | Connectivity Statistics|  
-|        8              | lockAndWipe              | Lock and Wipe          |  
-|        9              | swUpdate                 | Sofware Update         |  
-|        10             | cellularConn             | Cellular connectivity  |  
-|        11             | apnConnProfile           | APN connection profile |  
-|        12             | wlanConn                 | WLAN connectivity      |  
-|        13             | bearerSelection          | Bearer selection       |  
-|        15             | devCapMgmt               | DevCapMgmt             |  
-|        2048           | cmdhPolicy               | CmdhPolicy             |  
-|        2049           | activeCmdhPolicy         | ActiveCmdhPolicy       |  
-|        2050           | cmdhDefaults             | CmdhDefaults           |  
-|        2051           | cmdhDefEcValues          | CmdhDefEcValues        |  
-|        2052           | cmdhDefEcParamsValues    | CmdhDefEcParamsValues  |  
-|        2053           | cmdhLimits               | CmdhLimits             |  
-|        2054           | cmdhNetworkAccessRules   | CmdhNetworkAccessRules |  
-|        2055           | cmdhNwAccessRule         | CmdhNwAccessRule       |  
-|        2056           | cmdhBuffer               | CmdhBuffer             |  
-|        3200           | dIn                      | Digital Input          |  
-|        3201           | dOut                     | Digital Output         |  
-|        3202           | aIn                      | Analogue Input         |  
-|        3203           | aOut                     | Analogue Output        |  
-|        3300           | generic                  | Generic Sensor         |  
-|        3301           | illuminance              | Illuminance Sensor     |  
-|        3302           | presence                 | Presence Sensor        |  
-|        3303           | temperature              | Temperature Sensor     |  
-|        3304           | humidity                 | Humidity Sensor        |  
-|        3305           | pwrMea                   | Power Measurement      |  
-|        3306           | actuation                | Actuation              |  
-|        3308           | setPoint                 | Set Point              |  
-|        3310           | loadCtrl                 | Load Control           |  
-|        3311           | lightCtrl                | Light Control          |  
-|        3312           | pwrCtrl                  | Power Control          |  
-|        3313           | accelerometer            | Accelerometer          |  
-|        3314           | magnetometer             | Magnetometer           |  
-|        3315           | barometer                | Barometer              |  
+|       Object Id       |      lwm2m-id Key        | Description/Object Name  |  
+|:---------------------:|:------------------------:|:------------------------:|  
+|        0              | lwm2mSecurity            | LWM2M Security           |  
+|        1              | lwm2mServer              | LWM2M Server             |  
+|        2              | accessCtrl               | Access Control           |  
+|        3              | device                   | Device                   |  
+|        4              | connMonitor              | Connectivity Monitoring  |  
+|        5              | firmware                 | Firmware                 |  
+|        6              | location                 | Location                 |  
+|        7              | connStatistics           | Connectivity Statistics  |  
+|        8              | lockAndWipe              | Lock and Wipe            |  
+|        9              | swUpdate                 | Sofware Update           |  
+|        10             | cellularConn             | Cellular connectivity    |  
+|        11             | apnConnProfile           | APN connection profile   |  
+|        12             | wlanConn                 | WLAN connectivity        |  
+|        13             | bearerSelection          | Bearer selection         |  
+|        15             | devCapMgmt               | DevCapMgmt               |  
+|        2048           | cmdhPolicy               | CmdhPolicy               |  
+|        2049           | activeCmdhPolicy         | ActiveCmdhPolicy         |  
+|        2050           | cmdhDefaults             | CmdhDefaults             |  
+|        2051           | cmdhDefEcValues          | CmdhDefEcValues          |  
+|        2052           | cmdhDefEcParamsValues    | CmdhDefEcParamsValues    |  
+|        2053           | cmdhLimits               | CmdhLimits               |  
+|        2054           | cmdhNetworkAccessRules   | CmdhNetworkAccessRules   |  
+|        2055           | cmdhNwAccessRule         | CmdhNwAccessRule         |  
+|        2056           | cmdhBuffer               | CmdhBuffer               |  
+|        3200           | dIn                      | Digital Input            |  
+|        3201           | dOut                     | Digital Output           |  
+|        3202           | aIn                      | Analogue Input           |  
+|        3203           | aOut                     | Analogue Output          |  
+|        3300           | generic                  | Generic Sensor           |  
+|        3301           | illuminance              | Illuminance Sensor       |  
+|        3302           | presence                 | Presence Sensor          |  
+|        3303           | temperature              | Temperature Sensor       |  
+|        3304           | humidity                 | Humidity Sensor          |  
+|        3305           | pwrMea                   | Power Measurement        |  
+|        3306           | actuation                | Actuation                |  
+|        3308           | setPoint                 | Set Point                |  
+|        3310           | loadCtrl                 | Load Control             |  
+|        3311           | lightCtrl                | Light Control            |  
+|        3312           | pwrCtrl                  | Power Control            |  
+|        3313           | accelerometer            | Accelerometer            |  
+|        3314           | magnetometer             | Magnetometer             |  
+|        3315           | barometer                | Barometer                |  
+|        3316           | voltage                  | Voltage                  |  
+|        3317           | current                  | Current                  |  
+|        3318           | frequency                | Frequency                |  
+|        3319           | depth                    | Depth                    |  
+|        3320           | percentage               | Percentage               |  
+|        3321           | altitude                 | Altitude                 |  
+|        3322           | load                     | Load                     |  
+|        3323           | pressure                 | Pressure                 |  
+|        3324           | loudness                 | Loudness                 |  
+|        3325           | concentration            | Concentration            |  
+|        3326           | acidity                  | Acidity                  |  
+|        3327           | conductivity             | Conductivity             |  
+|        3328           | power                    | Power                    |  
+|        3329           | powerFactor              | Power Factor             |  
+|        3330           | distance                 | Distance                 |  
+|        3331           | energy                   | Energy                   |  
+|        3332           | direction                | Direction                |  
+|        3333           | time                     | Time                     |  
+|        3334           | gyrometer                | Gyrometer                |  
+|        3335           | color                    | Color                    |  
+|        3336           | gpsLocation              | GPS Location             |  
+|        3337           | positioner               | Positioner               |  
+|        3338           | buzzer                   | Buzzer                   |  
+|        3339           | audioClip                | Audio Clip               |  
+|        3340           | timer                    | Timer                    |  
+|        3341           | addressableTextDisplay   | Addressable Text Display |  
+|        3342           | onOffSwitch              | On/Off Switch            |  
+|        3343           | levelControl             | Level Controller         |  
+|        3344           | upDownControl            | Up/Down Controller       |  
+|        3345           | multipleAxisJoystick     | Multiple Axis Joystick   |  
+|        3346           | rate                     | Rate                     |  
+|        3347           | pushButton               | Push Button              |  
+|        3348           | multistateSelector       | Multi-state Selector     |  
 
 <br />
 
@@ -780,9 +805,8 @@ lwm2mid.getRdef('xxxx', 1234);      // undefined
     - oid = gpsLocation 
     ```js
         {
-            "latitude": 5513,
-            "longitude": 5514,
-            "altitude": 5515,
+            "latitude": 5514,
+            "longitude": 5515,
             "uncertainty": 5516,
             "compassDir": 5705,
             "velocity": 5517,

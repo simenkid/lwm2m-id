@@ -359,6 +359,7 @@ lwm2mid.getRdef('xxxx', 1234);      // undefined
 |        5851           | dimmer                   | Dimmer                             |  
 |        5852           | onTime                   | On time                            |  
 |        5853           | mStateOut                | Muti-state Output                  |  
+|        5854           | offTime                  | Off time                           |  
 |        5900           | setPointValue            | Set Point Value                    |  
 |        5903           | busyToClearDelay         | Busy to Clear delay                |  
 |        5904           | clearToBusyDelay         | Clear to Busy delay                |  
@@ -890,7 +891,7 @@ lwm2mid.getRdef('xxxx', 1234);      // undefined
             "dInState": 5500,
             "counter": 5501,
             "onTime": 5852,
-            "offTime": 5853,
+            "offTime": 5854,
             "appType": 5750
         }
     ```
@@ -900,7 +901,7 @@ lwm2mid.getRdef('xxxx', 1234);      // undefined
         {
             "level": 5548,
             "onTime": 5852,
-            "offTime": 5853,
+            "offTime": 5854,
             "appType": 5750
         }
     ```

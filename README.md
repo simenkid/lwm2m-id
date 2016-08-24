@@ -285,7 +285,7 @@ lwm2mid.getRdef('xxxx', 1234);      // undefined
 |        3332           | direction                | Direction                |  
 |        3333           | time                     | Time                     |  
 |        3334           | gyrometer                | Gyrometer                |  
-|        3335           | color                    | Color                    |  
+|        3335           | colour                   | Colour                   |  
 |        3336           | gpsLocation              | GPS Location             |  
 |        3337           | positioner               | Positioner               |  
 |        3338           | buzzer                   | Buzzer                   |  
@@ -794,7 +794,7 @@ lwm2mid.getRdef('xxxx', 1234);      // undefined
         }
     ```
 
-    - oid = color 
+    - oid = colour 
     ```js
         {
             "colour": 5706,

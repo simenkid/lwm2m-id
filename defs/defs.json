@@ -86,7 +86,7 @@
         "direction": 3332,
         "time": 3333,
         "gyrometer": 3334,
-        "color": 3335,
+        "colour": 3335,
         "gpsLocation": 3336,
         "positioner": 3337,
         "buzzer": 3338,
@@ -659,7 +659,7 @@
             "resetMinMaxMeaValues": 5605,
             "appType": 5750
         },
-        "color": {
+        "colour": {
             "colour": 5706,
             "units": 5701,
             "appType": 5750
@@ -1234,10 +1234,10 @@
             "resetMinMaxMeaValues": { "access": "E", "multi": false, "mand": false, "type": "opaque", "range": null, "init": null },
             "appType": { "access": "RW", "multi": false, "mand": false, "type": "string", "range": null, "init": "gyrometer" }
         },
-        "color": {
-            "colour": { "access": "RW", "multi": false, "mand": false, "type": "string", "range": 100, "init": "#fff" },
+        "colour": {
+            "colour": { "access": "RW", "multi": false, "mand": true, "type": "string", "range": 100, "init": "#fff" },
             "units": { "access": "R", "multi": false, "mand": false, "type": "string", "range": null, "init": "uint" },
-            "appType": { "access": "RW", "multi": false, "mand": true, "type": "string", "range": null, "init": "color" }
+            "appType": { "access": "RW", "multi": false, "mand": false, "type": "string", "range": null, "init": "colour" }
         },
         "gpsLocation": {
             "latitude": { "access": "R", "multi": false, "mand": true, "type": "string", "range": null, "init": "0.00" },

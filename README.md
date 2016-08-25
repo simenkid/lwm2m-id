@@ -39,14 +39,14 @@ Let me show you some examples.
 var lwm2mid = require('lwm2m-id')
 
 // get Object Id
-var oidItem1 = lwm2mid.getOid('device');      // { key: 'device', value: 3 }
-var oidItem2 = lwm2mid.getOid(3);             // { key: 'device', value: 3 }
-var oidItem3 = lwm2mid.getOid('3');           // { key: 'device', value: 3 }
-var oidItem4 = lwm2mid.getOid(999);           // undefined
-var oidItem5 = lwm2mid.getOid('noSuchId');    // undefined
+var oidItem1 = lwm2mid.getOid('device');                // { key: 'device', value: 3 }
+var oidItem2 = lwm2mid.getOid(3);                       // { key: 'device', value: 3 }
+var oidItem3 = lwm2mid.getOid('3');                     // { key: 'device', value: 3 }
+var oidItem4 = lwm2mid.getOid(999);                     // undefined
+var oidItem5 = lwm2mid.getOid('noSuchId');              // undefined
 
-var oidKey = lwm2mid.getOid(3).key;           // 'device'
-var oidId = lwm2mid.getOid('device').value;   // 3
+var oidKey = lwm2mid.getOid(3).key;                     // 'device'
+var oidId = lwm2mid.getOid('device').value;             // 3
 
 // get Resource Id
 //   (1) The rid is specific to an Object
@@ -156,7 +156,7 @@ lwm2mid.getRid('5750');                        // { key: 'appType', value: 5750 
   
 * (_Object_ | _Undefined_) Returns the definition with an data object, otherwise returns `undefined` if not found. The definition object is of the form: `{ multi: false, mand: true }`
 
-|       Property        |      Description         |       Possilbe Settings   |  
+|       Property        |      Description         |       Possible Settings   |  
 |:---------------------:|:------------------------:|:-------------------------:|  
 |        multi          | Allow multiple instances | true, false               |  
 |        mand           | Mandatory                | true, false               |  
@@ -193,7 +193,7 @@ lwm2mid.getOdef('xxxx');            // undefined
   
 * (_Object_ | _Undefined_) Returns the definition with an data object, otherwise returns `undefined` if not found. The definition object is of the form: `{ access: null, multi: false, mand: true, type: "boolean", range: null, init: false }`
 
-|       Property        |      Description         |       Possilbe Settings   |  
+|       Property        |      Description         |       Possible Settings   |  
 |:---------------------:|:------------------------:|:-------------------------:|  
 |        access         | Access control           | 'R', 'W', 'RW', 'E', null (cannot access) |  
 |        multi          | Allow multiple instances | true, false               |  

@@ -302,6 +302,7 @@ lwm2mid.getRdef('xxxx', 1234);      // undefined
 
 <br />
 
+<a name="ResrcIdentifiers"></a>
 * IPSO/OMA-LWM2M unique Resource ids (this class of ids is reusable with Objects)  
 
 |       Resource Id     |      lwm2m-id Key        |   Description/Resource Name        |  
@@ -372,7 +373,7 @@ lwm2mid.getRdef('xxxx', 1234);      // undefined
 
 * IPSO/OMA-LWM2M specified Resource ids (this class of ids is specified with Objects)  
 
-    - oid = lwm2mSecurity 
+    - oid = 'lwm2mSecurity' 
     ```js
         {
             "lwm2mServerURI": 0,
@@ -390,7 +391,7 @@ lwm2mid.getRdef('xxxx', 1234);      // undefined
         }
     ```
 
-    - oid = lwm2mServer 
+    - oid = 'lwm2mServer' 
     ```js
         {
             "shortServerId": 0,
@@ -405,7 +406,7 @@ lwm2mid.getRdef('xxxx', 1234);      // undefined
         }
     ```
 
-    - oid = accessControl 
+    - oid = 'accessControl' 
     ```js
         {
             "objectId": 0,
@@ -415,7 +416,7 @@ lwm2mid.getRdef('xxxx', 1234);      // undefined
         }
     ```
 
-    - oid = device 
+    - oid = 'device' 
     ```js
         {
             "manuf": 0,
@@ -443,7 +444,7 @@ lwm2mid.getRdef('xxxx', 1234);      // undefined
         }
     ```
 
-    - oid = connMonitor 
+    - oid = 'connMonitor' 
     ```js
         {
             "nwkBearer": 0,
@@ -460,7 +461,7 @@ lwm2mid.getRdef('xxxx', 1234);      // undefined
         }
     ```
 
-    - oid = firmware 
+    - oid = 'firmware' 
     ```js
         {
             "package": 0,
@@ -474,7 +475,7 @@ lwm2mid.getRdef('xxxx', 1234);      // undefined
         }
     ```
 
-    - oid = location 
+    - oid = 'location' 
     ```js
         {
             "lat": 0,
@@ -486,7 +487,7 @@ lwm2mid.getRdef('xxxx', 1234);      // undefined
         }
     ```
 
-    - oid = connStatistics 
+    - oid = 'connStatistics' 
     ```js
         {
             "SMSTxCounter": 0,
@@ -499,7 +500,7 @@ lwm2mid.getRdef('xxxx', 1234);      // undefined
         }
     ```
 
-    - oid = dIn 
+    - oid = 'dIn' 
     ```js
         {
             "dInState": 5500,
@@ -513,7 +514,7 @@ lwm2mid.getRdef('xxxx', 1234);      // undefined
         }
     ```
 
-    - oid = dOut 
+    - oid = 'dOut' 
     ```js
         {
             "dOutState": 5550,
@@ -522,7 +523,7 @@ lwm2mid.getRdef('xxxx', 1234);      // undefined
         }
     ```
 
-    - oid = aIn 
+    - oid = 'aIn' 
     ```js
         {
             "aInCurrValue": 5600,
@@ -536,7 +537,7 @@ lwm2mid.getRdef('xxxx', 1234);      // undefined
         }
     ```
 
-    - oid = aOut 
+    - oid = 'aOut' 
     ```js
         {
             "aOutCurrValue": 5650,
@@ -546,7 +547,7 @@ lwm2mid.getRdef('xxxx', 1234);      // undefined
         }
     ```
 
-    - oid = generic 
+    - oid = 'generic' 
     ```js
         {
             "sensorValue": 5700,
@@ -561,7 +562,7 @@ lwm2mid.getRdef('xxxx', 1234);      // undefined
         }
     ```
 
-    - oid = illuminance 
+    - oid = 'illuminance' 
     ```js
         {
             "sensorValue": 5700,
@@ -574,7 +575,7 @@ lwm2mid.getRdef('xxxx', 1234);      // undefined
         }
     ```
 
-    - oid = presence 
+    - oid = 'presence' 
     ```js
         {
             "dInState": 5500,
@@ -586,7 +587,7 @@ lwm2mid.getRdef('xxxx', 1234);      // undefined
         }
     ```
 
-    - oid = temperature 
+    - oid = 'temperature' 
     ```js
         {
             "sensorValue": 5700,
@@ -599,7 +600,7 @@ lwm2mid.getRdef('xxxx', 1234);      // undefined
         }
     ```
 
-    - oid = humidity 
+    - oid = 'humidity' 
     ```js
         {
             "sensorValue": 5700,
@@ -612,7 +613,7 @@ lwm2mid.getRdef('xxxx', 1234);      // undefined
         }
     ```
 
-    - oid = pwrMea 
+    - oid = 'pwrMea' 
     ```js
         {
             "instActivePwr": 5800,
@@ -636,7 +637,7 @@ lwm2mid.getRdef('xxxx', 1234);      // undefined
         }
     ```
 
-    - oid = actuation 
+    - oid = 'actuation' 
     ```js
         {
             "onOff": 5850,
@@ -647,7 +648,7 @@ lwm2mid.getRdef('xxxx', 1234);      // undefined
         }
     ```
 
-    - oid = setPoint 
+    - oid = 'setPoint' 
     ```js
         {
             "setPointValue": 5900,
@@ -657,7 +658,7 @@ lwm2mid.getRdef('xxxx', 1234);      // undefined
         }
     ```
 
-    - oid = loadCtrl 
+    - oid = 'loadCtrl' 
     ```js
         {
             "eventId": 5823,
@@ -669,7 +670,7 @@ lwm2mid.getRdef('xxxx', 1234);      // undefined
         }
     ```
 
-    - oid = lightCtrl 
+    - oid = 'lightCtrl' 
     ```js
         {
             "onOff": 5850,
@@ -682,7 +683,7 @@ lwm2mid.getRdef('xxxx', 1234);      // undefined
         }
     ```
 
-    - oid = pwrCtrl 
+    - oid = 'pwrCtrl' 
     ```js
         {
             "onOff": 5850,
@@ -693,7 +694,7 @@ lwm2mid.getRdef('xxxx', 1234);      // undefined
         }
     ```
 
-    - oid = accelerometer 
+    - oid = 'accelerometer' 
     ```js
         {
             "units": 5701,
@@ -705,7 +706,7 @@ lwm2mid.getRdef('xxxx', 1234);      // undefined
         }
     ```
 
-    - oid = magnetometer 
+    - oid = 'magnetometer' 
     ```js
         {
             "units": 5701,
@@ -716,7 +717,7 @@ lwm2mid.getRdef('xxxx', 1234);      // undefined
         }
     ```
 
-    - oid = barometer 
+    - oid = 'barometer' 
     ```js
         {
             "sensorValue": 5700,
@@ -729,7 +730,7 @@ lwm2mid.getRdef('xxxx', 1234);      // undefined
         }
     ```
 
-    - oid = voltage, current, frequency, depth, percentage, altitude, load, pressure, loudness, concentration, acidity, conductivity, power, powerFactor, distance
+    - oid = 'voltage', 'current', 'frequency', 'depth', 'percentage', 'altitude', 'load', 'pressure', 'loudness', 'concentration', 'acidity', 'conductivity', 'power', 'powerFactor', 'distance'
     ```js
         {
             "sensorValue": 5700,
@@ -744,7 +745,7 @@ lwm2mid.getRdef('xxxx', 1234);      // undefined
         }
     ```
 
-    - oid = energy 
+    - oid = 'energy' 
     ```js
         {
             "cumulActivePwr": 5805,
@@ -754,7 +755,7 @@ lwm2mid.getRdef('xxxx', 1234);      // undefined
         }
     ```
 
-    - oid = direction 
+    - oid = 'direction' 
     ```js
         {
             "compassDir": 5705,
@@ -765,7 +766,7 @@ lwm2mid.getRdef('xxxx', 1234);      // undefined
         }
     ```
 
-    - oid = time 
+    - oid = 'time' 
     ```js
         {
             "currentTime": 5506,
@@ -774,7 +775,7 @@ lwm2mid.getRdef('xxxx', 1234);      // undefined
         }
     ```
 
-    - oid = gyrometer 
+    - oid = 'gyrometer' 
     ```js
         {
             "units": 5701,
@@ -794,7 +795,7 @@ lwm2mid.getRdef('xxxx', 1234);      // undefined
         }
     ```
 
-    - oid = colour 
+    - oid = 'colour' 
     ```js
         {
             "colour": 5706,
@@ -803,7 +804,7 @@ lwm2mid.getRdef('xxxx', 1234);      // undefined
         }
     ```
 
-    - oid = gpsLocation 
+    - oid = 'gpsLocation' 
     ```js
         {
             "latitude": 5514,
@@ -816,7 +817,7 @@ lwm2mid.getRdef('xxxx', 1234);      // undefined
         }
     ```
 
-    - oid = positioner 
+    - oid = 'positioner' 
     ```js
         {
             "currentPos": 5536,
@@ -831,7 +832,7 @@ lwm2mid.getRdef('xxxx', 1234);      // undefined
         }
     ```
 
-    - oid = buzzer 
+    - oid = 'buzzer' 
     ```js
         {
             "onOff": 5850,
@@ -842,7 +843,7 @@ lwm2mid.getRdef('xxxx', 1234);      // undefined
         }
     ```
 
-    - oid = audioClip 
+    - oid = 'audioClip' 
     ```js
         {
             "clip": 5522,
@@ -853,7 +854,7 @@ lwm2mid.getRdef('xxxx', 1234);      // undefined
         }
     ```
 
-    - oid = timer 
+    - oid = 'timer' 
     ```js
         {
             "timeDuration": 5521,
@@ -870,7 +871,7 @@ lwm2mid.getRdef('xxxx', 1234);      // undefined
         }
     ```
 
-    - oid = addressableTextDisplay 
+    - oid = 'addressableTextDisplay' 
     ```js
         {
             "text": 5527,
@@ -885,7 +886,7 @@ lwm2mid.getRdef('xxxx', 1234);      // undefined
         }
     ```
 
-    - oid = onOffSwitch 
+    - oid = 'onOffSwitch' 
     ```js
         {
             "dInState": 5500,
@@ -896,7 +897,7 @@ lwm2mid.getRdef('xxxx', 1234);      // undefined
         }
     ```
 
-    - oid = levelControl 
+    - oid = 'levelControl'
     ```js
         {
             "level": 5548,
@@ -906,7 +907,7 @@ lwm2mid.getRdef('xxxx', 1234);      // undefined
         }
     ```
 
-    - oid = upDownControl 
+    - oid = 'upDownControl' 
     ```js
         {
             "incInputState": 5532,
@@ -917,7 +918,7 @@ lwm2mid.getRdef('xxxx', 1234);      // undefined
         }
     ```
 
-    - oid = multipleAxisJoystick 
+    - oid = 'multipleAxisJoystick' 
     ```js
         {
             "dInState": 5500,
@@ -929,7 +930,7 @@ lwm2mid.getRdef('xxxx', 1234);      // undefined
         }
     ```
 
-    - oid = rate 
+    - oid = 'rate' 
     ```js
         {
             "sensorValue": 5700,
@@ -944,7 +945,7 @@ lwm2mid.getRdef('xxxx', 1234);      // undefined
         }
     ```
 
-    - oid = pushButton 
+    - oid = 'pushButton' 
     ```js
         {
             "dInState": 5500,
@@ -953,7 +954,7 @@ lwm2mid.getRdef('xxxx', 1234);      // undefined
         }
     ```
 
-    - oid = multistateSelector 
+    - oid = 'multistateSelector' 
     ```js
         {
             "mStateIn": 5547,

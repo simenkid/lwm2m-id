@@ -1,6 +1,6 @@
 {
   "name": "lwm2m-id",
-  "version": "1.5.2",
+  "version": "1.6.0",
   "description": "A dictionary of ip-based smart object(IPSO) identifiers defined by lwm2m spec.",
   "main": "index.js",
   "scripts": {
@@ -21,7 +21,7 @@
   },
   "homepage": "https://github.com/simenkid/lwm2m-id",
   "dependencies": {
-    "enum": "^2.2.0"
+    "enum": "2.2.0"
   },
   "devDependencies": {
     "chai": "^3.5.0",

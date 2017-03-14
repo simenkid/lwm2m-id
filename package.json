@@ -1,6 +1,6 @@
 {
   "name": "lwm2m-id",
-  "version": "1.6.1",
+  "version": "1.6.2",
   "description": "A dictionary of ip-based smart object(IPSO) identifiers defined by lwm2m spec.",
   "main": "index.js",
   "scripts": {

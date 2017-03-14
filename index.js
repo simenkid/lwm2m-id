@@ -1,7 +1,6 @@
 'use strict';
 
-var fs = require('fs'),
-    Enum = require('enum'),
+var Enum = require('enum'),
     _defs = require('./defs/defs.json'),
     _specificRid = _defs.specificRid,
     DEFS = {

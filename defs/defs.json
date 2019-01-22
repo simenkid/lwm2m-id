@@ -290,9 +290,10 @@
             "lat": 0,
             "lon": 1,
             "alt": 2,
-            "uncertainty": 3,
+            "radius": 3,
             "velocity": 4,
-            "timestamp": 5
+            "timestamp": 5,
+            "speed": 6
         },
         "connStatistics": {
             "SMSTxCounter": 0,
@@ -862,12 +863,13 @@
             "pkgVer": { "access": "R", "multi": false, "mand": false, "type": "string", "range": 255, "init": "" }
         },
         "location": {
-            "lat": { "access": "R", "multi": false, "mand": true, "type": "string", "range": null, "init": "0.00" },
-            "lon": { "access": "R", "multi": false, "mand": true, "type": "string", "range": null, "init": "0.00" },
-            "alt": { "access": "R", "multi": false, "mand": false, "type": "string", "range": null, "init": "0.00" },
-            "uncertainty": { "access": "R", "multi": false, "mand": false, "type": "string", "range": null, "init": "0.00" },
+            "lat": { "access": "R", "multi": false, "mand": true, "type": "float", "range": null, "init": 0 },
+            "lon": { "access": "R", "multi": false, "mand": true, "type": "float", "range": null, "init": 0 },
+            "alt": { "access": "R", "multi": false, "mand": false, "type": "float", "range": null, "init": 0 },
+            "radius": { "access": "R", "multi": false, "mand": false, "type": "float", "range": null, "init": 0 },
             "velocity": { "access": "R", "multi": false, "mand": false, "type": "opaque", "range": null, "init": 0 },
-            "timestamp": { "access": "R", "multi": false, "mand": true, "type": "time", "range": null, "init": 0 }
+            "timestamp": { "access": "R", "multi": false, "mand": true, "type": "time", "range": null, "init": 0 },
+            "speed": { "access": "R", "multi": false, "mand": false, "type": "float", "range": null, "init": 0 }
         },
         "connStatistics": {
             "SMSTxCounter": { "access": "R", "multi": false, "mand": false, "type": "integer", "range": null, "init": 0 },

@@ -158,7 +158,6 @@ DEFS.addUniqueRid = function (items) {
 DEFS.addSpecificRid = function (oid, items) {
     var oidItem = DEFS.getOid(oid),
         oidKey,
-        ridItem, 
         _spfRid = DEFS._defs.specificRid;
 
     if (!oidItem)
@@ -181,6 +180,32 @@ DEFS.addSpecificRid = function (oid, items) {
 
     DEFS.SpecificRid[oidKey] = null;
     DEFS.SpecificRid[oidKey] = new Enum(_spfRid[oidKey]);
+
+    return DEFS;
+};
+
+DEFS.addObjectSpec = function (oid, items) {
+    var oidItem = DEFS.getOid(oid),
+        oidKey,
+        _objSpec = DEFS._defs.objectSpec;
+
+    if (!oidItem)
+        throw new Error('oid: ' + oid + ' does not exist. Please do addOid() first.');
+
+    oidKey = oidItem.key;
+
+    _objSpec[oidKey] = _objSpec[oidKey] || {};
+
+    if (typeof items !== 'object' || items === null || Array.isArray(items))
+        throw new TypeError('items should be a plain object.');
+
+    for (var key in items) {
+        if (typeof _objSpec[oidKey][key] !== 'undefined') {
+            throw new Error('objectSpec: ' + key + ' within oid: ' + oidKey + ' conflicts.');
+        }
+
+        _objSpec[oidKey][key] = items[key];
+    }
 
     return DEFS;
 };
